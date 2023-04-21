@@ -1,0 +1,11 @@
+[
+  {
+    "type": "MOD_INFO",
+    "ident": "Jap_folklore",
+    "name": "Japanese Folklore",
+    "authors": [ "Merick" ],
+    "description": "A mod that adds a variety of monsters, NPCs, and mutations inspired by traditional Japanese folklore. Very WIP. Special thanks to Bismuth Borealis for contributing the groundwork for the kitsune.",
+    "category": "magical",
+    "dependencies": [ "dda", "magiclysm" ]
+  }
+]

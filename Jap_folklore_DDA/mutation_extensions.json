@@ -1,0 +1,212 @@
+[
+  {
+    "type": "mutation",
+    "id": "TAIL_STUB",
+    "copy-from": "TAIL_STUB",
+    "extend": { "category": [ "KITSUNE" ] }
+  },
+  {
+	"type": "mutation",
+    "id": "TAIL_LONG",
+    "copy-from": "TAIL_LONG",
+    "extend": { "category": [ "KITSUNE" ] }
+  },
+  {
+    "type": "mutation",
+    "id": "TAIL_FLUFFY",
+    "copy-from": "TAIL_FLUFFY",
+    "extend": { "category": [ "KITSUNE" ], "changes_to": [ "FOX_TAIL" ] }
+  },
+  {
+    "type": "mutation",
+    "id": "PRETTY",
+    "copy-from": "PRETTY",
+    "extend": { "category": [ "KITSUNE" ] }
+  },
+  {
+    "type": "mutation",
+    "id": "GOODCARDIO",
+    "copy-from": "GOODCARDIO",
+    "extend": { "category": [ "KITSUNE" ] }
+  },
+  {
+    "type": "mutation",
+    "id": "SMELLY",
+    "copy-from": "SMELLY",
+    "extend": { "category": [ "KITSUNE" ] }
+  },
+  {
+    "type": "mutation",
+    "id": "ANIMALDISCORD",
+    "copy-from": "ANIMALDISCORD",
+    "extend": { "category": [ "KITSUNE" ] }
+  },
+  {
+	"type": "mutation",
+	"id": "NIGHTVISION",
+	"copy-from": "NIGHTVISION",
+	"extend": { "category": [ "KITSUNE" ] }
+  },
+  {
+    "type": "mutation",
+    "id": "NIGHTVISION2",
+    "copy-from": "NIGHTVISION2",
+    "extend": { "category": [ "KITSUNE" ] }
+  },
+  {
+    "type": "mutation",
+    "id": "SKIN_ROUGH",
+    "copy-from": "SKIN_ROUGH",
+    "extend": { "category": [ "KITSUNE" ] }
+  },
+  {
+	"type": "mutation",
+	"id": "PATCHFUR",
+	"copy-from": "PATCHFUR",
+	"extend": { "category": [ "KITSUNE" ] }
+  },
+  {
+    "type": "mutation",
+    "id": "LIGHTFUR",
+    "copy-from": "LIGHTFUR",
+    "extend": { "category": [ "KITSUNE" ], "changes_to": [ "KITSUNE_FUR" ] }
+  },
+  {
+    "type": "mutation",
+    "id": "PADDED_FEET",
+    "copy-from": "PADDED_FEET",
+    "extend": { "category": [ "KITSUNE" ] }
+  },
+  {
+	"type": "mutation",
+	"id": "CARNIVORE",
+	"copy-from": "CARNIVORE",
+	"extend": { "category": [ "KITSUNE" ] }
+  },
+  {
+    "type": "mutation",
+    "id": "PRED1",
+    "copy-from": "PRED1",
+    "extend": { "category": [ "KITSUNE" ], "threshreq": [ "THRESH_FOX" ] }
+  },
+  {
+    "type": "mutation",
+    "id": "PRED2",
+    "copy-from": "PRED2",
+    "extend": { "category": [ "KITSUNE" ], "threshreq": [ "THRESH_FOX" ] }
+  },
+  {
+    "type": "mutation",
+    "id": "PRED3",
+    "copy-from": "PRED3",
+    "extend": { "category": [ "KITSUNE" ], "threshreq": [ "THRESH_FOX" ] }
+  },
+  {
+    "type": "mutation",
+    "id": "CANINE_EARS",
+    "copy-from": "CANINE_EARS",
+    "extend": { "category": [ "KITSUNE" ], "changes_to": [ "FOX_EARS" ] }
+  },
+  {
+	"type": "mutation",
+    "id": "STR_UP",
+    "copy-from": "STR_UP",
+    "extend": { "category": [ "KITSUNE" ] }
+  },
+  {
+    "type": "mutation",
+    "id": "STR_UP_2",
+    "copy-from": "STR_UP_2",
+    "extend": { "category": [ "KITSUNE" ] }
+  },
+  {
+    "type": "mutation",
+    "id": "DEX_UP",
+    "copy-from": "DEX_UP",
+    "extend": { "category": [ "KITSUNE" ] }
+  },
+  {
+    "type": "mutation",
+    "id": "DEX_UP_2",
+    "copy-from": "DEX_UP_2",
+    "extend": { "category": [ "KITSUNE" ] }
+  },
+  {
+    "type": "mutation",
+    "id": "DEX_UP_3",
+    "copy-from": "DEX_UP_3",
+    "extend": { "category": [ "KITSUNE" ] }
+  },
+  {
+    "type": "mutation",
+    "id": "INT_UP",
+    "copy-from": "INT_UP",
+    "extend": { "category": [ "KITSUNE" ] }
+  },
+  {
+    "type": "mutation",
+    "id": "INT_UP_2",
+    "copy-from": "INT_UP_2",
+    "extend": { "category": [ "KITSUNE" ] }
+  },
+  {
+    "type": "mutation",
+    "id": "INT_UP_3",
+    "copy-from": "INT_UP_3",
+    "extend": { "category": [ "KITSUNE" ] }
+  },
+  {
+    "type": "mutation",
+    "id": "PER_UP",
+    "copy-from": "PER_UP",
+    "extend": { "category": [ "KITSUNE" ] }
+  },
+  {
+    "type": "mutation",
+    "id": "BEAUTIFUL",
+    "copy-from": "BEAUTIFUL",
+    "extend": { "category": [ "KITSUNE" ] }
+  },
+  {
+    "type": "mutation",
+    "id": "SNOUT",
+    "copy-from": "SNOUT",
+    "extend": { "category": [ "KITSUNE" ], "changes_to": [ "FOX_MUZZLE" ] }
+  },
+  {
+    "type": "mutation",
+    "id": "PAWS",
+    "copy-from": "PAWS",
+    "extend": { "category": [ "KITSUNE" ] }
+  },
+  {
+    "type": "mutation",
+    "id": "NAILS",
+    "copy-from": "NAILS",
+    "extend": { "category": [ "KITSUNE" ] }
+  },
+  {
+	"type": "mutation",
+    "id": "CLAWS",
+    "copy-from": "CLAWS",
+    "extend": { "category": [ "KITSUNE" ] }
+  },
+  {
+    "type": "mutation",
+    "id": "CLAWS_RETRACT",
+    "copy-from": "CLAWS_RETRACT",
+    "extend": { "category": [ "KITSUNE" ] }
+  },
+  {
+    "type": "mutation",
+    "id": "HEAVYSLEEPER",
+    "copy-from": "HEAVYSLEEPER",
+    "extend": { "category": [ "KITSUNE" ] }
+  },
+  {
+    "type": "mutation",
+    "id": "PYROMANIA",
+    "copy-from": "PYROMANIA",
+    "extend": { "category": [ "KITSUNE", "MANATOUCHED" ] }
+  }
+]
