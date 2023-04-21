@@ -74,5 +74,52 @@
       [ [ "fox_plush", 1 ] ],
       [ [ "plant_fibre", 20, "false" ], [ "sinew", 20, "false" ], [ "thread", 20, "false" ] ]
     ]
+  },
+  {
+	"type": "recipe",
+	"activity_level": "LIGHT_EXERCISE",
+    "result": "divine_rice_cooked",
+    "category": "CC_FOOD",
+    "subcategory": "CSC_FOOD_VEGGI",
+    "skill_used": "cooking",
+    "time": "3 m",
+    "autolearn": true,
+    "batch_time_factors": [ 82, 4 ],
+    "qualities": [ { "id": "COOK", "level": 2 } ],
+    "tools": [ [ [ "surface_heat", 4, "LIST" ] ] ],
+    "//": "standard is 4u surface_heat for 1u of rice",
+    "components": [ [ [ "dry_divine_rice", 1 ] ], [ [ "water_clean", 1 ] ] ]
+  },
+  {
+    "type": "recipe",
+    "activity_level": "NO_EXERCISE",
+    "result": "brew_divine_sake",
+    "result_mult": 3,
+    "category": "CC_FOOD",
+    "subcategory": "CSC_FOOD_BREW",
+    "skill_used": "cooking",
+    "difficulty": 5,
+    "time": "30 m",
+    "batch_time_factors": [ 95, 4 ],
+    "proficiencies": [ { "proficiency": "prof_food_prep" }, { "proficiency": "prof_fermenting" }, { "proficiency": "prof_brewing" } ],
+    "book_learn": [ [ "brewing_cookbook", 6 ] ],
+    "qualities": [ { "id": "CONTAIN", "level": 1 } ],
+    "components": [ [ [ "sake_koji_rice", 1 ] ], [ [ "divine_rice_cooked", 1 ] ], [ [ "water_clean", 3 ] ], [ [ "yeast", 1 ] ] ]
+  },
+  {
+    "type": "recipe",
+    "activity_level": "NO_EXERCISE",
+    "result": "divine_sake_filtered",
+    "charges": 1,
+    "category": "CC_FOOD",
+    "subcategory": "CSC_FOOD_BREW",
+    "skill_used": "cooking",
+    "difficulty": 3,
+    "time": "5 m",
+    "batch_time_factors": [ 50, 4 ],
+    "autolearn": true,
+    "book_learn": [ [ "brewing_cookbook", 6 ] ],
+    "tools": [ [ [ "cotton_patchwork", -1 ] ] ],
+    "components": [ [ [ "divine_sake_unfiltered", 1 ] ] ]
   }
 ]

@@ -1,0 +1,24 @@
+[
+	{
+		"type": "MONSTER_FACTION",
+		"name": "wild_youkai"
+	},
+	{
+		"type": "faction",
+		"id": "kami",
+		"name": "Forgotten Kami",
+		"likes_u": 0,
+		"respects_u": 0,
+		"known_by_u": false,
+		"size": 10,
+		"power": 100,
+		"food_supply": 100000,
+		"wealth": 100000,
+		"currency": "dry_divine_rice",
+		"price_rules": [
+			{ "item": "divine_sake_unfiltered", "price": 10000 },
+			{ "item": "divine_sake_filtered", "price": 10000 }
+		],
+		"description": "A loose collection of kami that, like the youkai, were largely forgotten."
+	}
+]
