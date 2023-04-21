@@ -12,5 +12,22 @@
       "male": [ "boxer_briefs", "socks" ],
       "female": [ "bra", "panties", "stockings" ]
     }
+  },
+  {
+	"type": "profession",
+	"ident": "youkai_kitsune",
+	"name": "Kitsune",
+	"description": "You're a young kitsune, and the breaking of reality has made it possible for you to awaken into this world once more. However, much has changed and something must be done about these dangerous uninvited guests.",
+	"spells": [ { "id": "summon_foxfire", "level": 5 }, { "id": "create_foxflame", "level": 5 } ],
+	"points": 7,
+	"traits": [ "TRUE_KITSUNE", "THRESH_FOX", "KITSUNE_FUR", "FOX_EARS", "FOX_MUZZLE", "FOX_TWOTAIL", "PADDED_FEET", "PYROMANIA" ],
+	"skills": [ { "level": 3, "name": "spellcraft" } ],
+	"items": {
+		"both": {
+			"items": [ "haori", "kimono", "hakama", "loincloth", "tabi_dress", "geta", "bellywrap" ],
+			"entries": [ { "item": "tanto", "container-item": "sheath" } ]
+		},
+		"female": [ "chestwrap" ]
+	}
   }
 ]
