@@ -14,7 +14,7 @@
   {
     "type": "monstergroup",
 	"name": "GROUP_MFOX",
-	"//": "Group for summon foxes spell."
+	"//": "Group for summon foxes spell.",
     "default" : "mon_fox_red",
     "monsters" : [
         { "monster" : "mon_fox_gray", "freq" : 350, "cost_multiplier" : 1 },
