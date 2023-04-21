@@ -4,7 +4,7 @@
     "compatibility": [ "UNDEAD_PEOPLE_BASE", "MSX++DEAD_PEOPLE", "UNDEAD_PEOPLE" ],
     "tiles-new": [
       {
-        "file": "UndeadPeople.png",
+        "file": "mod_tileset/UndeadPeople-Kitsune.png",
         "sprite_offset_y":-17,
         "tiles": [
           { "id": "overlay_mutation_FOX_EARS", "fg": 0, "rotates": false }
@@ -28,14 +28,44 @@
 		  { "id": "overlay_male_mutation_KITSUNE_FUR", "fg": 25, "rotates": false },
 		  { "id": "overlay_male_mutation_GLAM_FUR", "fg": 27, "rotates": false},
 		  { "id": "overlay_female_mutation_KITSUNE_FUR", "fg": 24, "rotates": false },
-		  { "id": "overlay_female_mutation_GLAM_FUR", "fg": 26, "rotates": false},
-		  { "id": "mon_fox_twotail", "fg": 16, "rotates": false},
-		  { "id": "mon_fox_threetail", "fg": 17, "rotates": false},
-		  { "id": "mon_fox_fourtail", "fg": 18, "rotates": false},
-		  { "id": "mon_fox_fivetail", "fg": 19, "rotates": false},
-		  { "id": "fox_plush", "fg": 28, "rotates": false},
-		  { "id": "magic_fox_plush", "fg": 29, "rotates": false}
+		  { "id": "overlay_female_mutation_GLAM_FUR", "fg": 26, "rotates": false },
+		  { "id": "mon_fox_twotail", "fg": 16, "rotates": false },
+		  { "id": "mon_fox_threetail", "fg": 17, "rotates": false },
+		  { "id": "mon_fox_fourtail", "fg": 18, "rotates": false },
+		  { "id": "mon_fox_fivetail", "fg": 19, "rotates": false },
+		  { "id": "fox_plush", "fg": 28, "rotates": false },
+		  { "id": "magic_fox_plush", "fg": 29, "rotates": false }
 		  ]
+	  }
+	 ]
+   },
+   {
+	 "type": "mod_tileset",
+	 "compatibility": [ "UNDEAD_PEOPLE_BASE", "MSX++DEAD_PEOPLE", "UNDEAD_PEOPLE" ],
+	 "tiles-new": [
+	  {
+		"file": "mod_tileset/UndeadPeople-Youkai.png",
+		"//": "range 32 to 35",
+		"tiles": [
+		  { "id": "mon_young_nekomata", "fg": 0, "rotates": false }
+		]
+	  }
+	 ]
+   },
+   {
+	 "type": "mod_tileset",
+	 "compatibility": [ "UNDEAD_PEOPLE_BASE", "MSX++DEAD_PEOPLE", "UNDEAD_PEOPLE" ],
+	 "tiles-new": [
+	  {
+		"file": "mod_tileset/UndeadPeople-Youkai_large.png",
+		"sprite_width": 64,
+        "sprite_height": 80,
+        "sprite_offset_x": -16,
+        "sprite_offset_y": -48,
+		"tiles": [
+		  { "id": "mon_nekomata", "fg": 0, "rotates": false },
+		  { "id": "mon_wild_nekomata", "fg": 0, "rotates": false }
+		]
 	  }
     ]
   },
