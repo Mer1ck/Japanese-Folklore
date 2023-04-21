@@ -24,9 +24,9 @@
 	"id": "mutagen_kitsune",
 	"name": [ "Kitsune Mutation", "Kitsune Transformation", "Kitsune Metamorphosis" ],
 	"desc": [
-	  "You absorbed mutagenic energies.",
-	  "You absorbed a large amount of mutagenic energies.",
-	  "You absorbed a life-changing amout of mutagenic energies."
+	  "You absorbed mutagenic energy.",
+	  "You absorbed a large amount of mutagenic energy.",
+	  "You absorbed a life-changing amout of mutagenic energy."
 	],
 	"max_intensity": 3,
 	"rating": "good"
