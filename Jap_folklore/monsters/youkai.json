@@ -10,6 +10,7 @@
 		"symbol": "N",
 		"melee_skill": 8,
 		"dodge": 6,
+		"regenerates": 0.2,
 		"harvest": "cat_medium_with_skull",
 		"fear_triggers": [ "HURT" ],
 		"zombify_into": "mon_cor_nekomata"
@@ -18,7 +19,7 @@
 		"type": "MONSTER",
 		"id": "mon_cat",
 		"copy-from": "mon_cat",
-		"upgrades": { "age_grow": 120, "into": "mon_young_nekomata" }
+		"upgrades": { "half_life": 40, "into": "mon_young_nekomata" }
 	},
 	{
 		"type": "MONSTER",
@@ -30,6 +31,7 @@
 		"symbol": "n",
 		"aggression": 0,
 		"morale": 20,
+		"regenerates": 0.1,
 		"melee_damage": [ { "damage_type": "cut", "amount": 5 } ],
 		"fear_triggers": [ "HURT" ],
 		"anger_triggers": [ "PLAYER_WEAK", "FRIEND_ATTACKED" ],
