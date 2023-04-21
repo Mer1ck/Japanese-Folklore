@@ -12,14 +12,14 @@
 	  ]
   },
   {
-    "type": "monstergroup",
+	"type": "monstergroup",
 	"name": "GROUP_MFOX",
 	"//": "Group for summon foxes spell.",
-    "default" : "mon_fox_red",
-    "monsters" : [
-        { "monster" : "mon_fox_gray", "freq" : 350, "cost_multiplier" : 1 },
-        { "monster" : "mon_fox_twotail", "freq" : 40, "cost_multiplier" : 2 },
-        { "monster" : "mon_fox_threetail", "freq" : 5, "cost_multiplier" : 3 }
+ 	"default" : "mon_fox_red",
+	"monsters" : [
+		{ "monster" : "mon_fox_gray", "freq" : 350, "cost_multiplier" : 1 },
+		{ "monster" : "mon_fox_twotail", "freq" : 40, "cost_multiplier" : 2 },
+		{ "monster" : "mon_fox_threetail", "freq" : 5, "cost_multiplier" : 3 }
     ]
   }
 ]
