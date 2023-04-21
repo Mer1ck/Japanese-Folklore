@@ -1,0 +1,16 @@
+[
+  {
+    "type": "profession",
+    "ident": "fox_mage",
+    "name": "Fox Mage",
+    "description": "You love foxes, they're objectively the best animal. You even wrote and published a book about them!",
+    "spells": [ { "id": "foxs_cunning", "level": 1 }, { "id": "summon_wisps", "level": 1 } ],
+    "points": 2,
+    "skills": [ { "level": 1, "name": "spellcraft" } ],
+    "items": {
+      "both": [ "jeans", "tshirt", "mbag", "boots", "hoodie", "fox_plush" ],
+      "male": [ "boxer_briefs", "socks" ],
+      "female": [ "bra", "panties", "stockings" ]
+    }
+  }
+]

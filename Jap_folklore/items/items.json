@@ -1,0 +1,121 @@
+[
+  {
+	  "id": "mutagen_kitsune",
+	  "copy-from": "mutagen_flavor",
+	  "type": "COMESTIBLE",
+	  "description": "A star pearl disolved into a mana potion. It may have a greater effect this way.",
+	  "name": { "str": "kitsune mutagen" },
+	  "looks_like": "mutagen",
+	  "use_action": {
+		  "type": "consume_drug",
+		  "activation_message": "You drink the kitsune mutagen.",
+		  "vitamins": [ [ "mutagen_kitsune", 225 ], [ "mutagen", 125 ] ]
+	  }
+  },
+  {
+	  "id": "iv_mutagen_kitsune",
+	  "copy-from": "iv_mutagen_flavor",
+	  "type": "COMESTIBLE",
+	  "name": { "str": "kitsune mutagenic primer" },
+	  "description": "A very concentrated form of mana potion using star pearls as the primary ingredient.",
+	  "looks_like": "iv_mutagen",
+	  "color": "light_red",
+	  "use_action": {
+		  "type": "consume_drug",
+		  "activation_message": "You inject the kitsune mutagenic primer.",
+		  "tools_needed": { "syringe": -1 },
+		  "vitamins": [ [ "mutagen_kitsune", 450, 550 ] ]
+	  }
+  },
+  {
+    "id": "star_pearl",
+    "type": "COMESTIBLE",
+    "name": { "str": "star pearl" },
+    "description": "A Pearl treasured by kitsune.",
+    "price": 100000,
+    "price_postapoc": 50,
+    "comestible_type": "MED",
+    "category": "mutagen",
+    "weight": "100 g",
+    "volume": "250 ml",
+    "symbol": "*",
+    "color": "yellow",
+    "healthy": 2,
+    "addiction_type": "mutagen",
+    "material": [ "gemstone" ],
+    "flags": [ "CARNIVORE_OK", "NO_INGEST" ],
+    "use_action": { 
+		"type": "consume_drug",
+		"activation_message": "A warm energy flows from the pearl into you as the pearl crumbles to dust.",
+		"effects": [ { "id": "kitsune_pearl_effect", "duration": 5 } ]
+	 }
+  },
+  {
+    "id": "greater_star_pearl",
+    "copy-from": "star_pearl",
+    "type": "COMESTIBLE",
+    "name": { "str": "greater star pearl" },
+    "description": "A Pearl treasured by kitsune. This one seems to glimmer with unearthly light.",
+    "healthy": 4,
+    "price": 200000,
+    "price_postapoc": 100,
+    "use_action": { 
+		"type": "consume_drug",
+		"activation_message": "An intense heat surges into you as the pearl crumbles to dust!",
+		"effects": [ { "id": "kitsune_gpearl_effect", "duration": 5 } ]
+	}
+  },
+  {
+	  "id": "synth_star_pearl",
+	  "type": "GENERIC",
+	  "name": { "str": "synthetic star pearl" },
+	  "description": "A reproduction of a pearl tresured by kitsune. It seems to be lacking in something, however.",
+	  "price": 1000,
+	  "price_postapoc": 5,
+	  "category": "other",
+	  "weight": "100 g",
+	  "volume": "250 ml",
+	  "symbol": "*",
+	  "color": "yellow",
+	  "material": [ "gemstone" ]
+  },
+  {
+    "id": "fox_book",
+    "type": "GENERIC",
+    "name": { "str": "Foxes do it Better", "str_pl": "copies of Foxes do it Better" },
+    "description": "A short, sometime humourous, treatice on why foxes are objectively the best. the author seems to get \"Objective\" and \"Subjective\" mixed up a lot.",
+    "weight": "435 g",
+    "volume": "500 ml",
+    "symbol": "?",
+    "color": "red",
+    "use_action": { "type": "learn_spell", "spells": [ "foxs_cunning", "obfuscated_body", "summon_wisps" ] }
+  },
+  {
+    "type": "GENERIC",
+    "id": "fox_plush",
+    "symbol": "o",
+    "color": "red",
+    "name": "fox plushy",
+    "description": "A mass produced plush fox.",
+    "price": 200,
+    "material": [ "cotton" ],
+    "weight": "400 g",
+    "volume": "750 ml",
+    "flags": [ "SLEEP_AID" ]
+  },
+  {
+    "type": "GENERIC",
+    "id": "magic_fox_plush",
+    "symbol": "o",
+    "color": "red",
+    "name": "magical fox plushy",
+    "description": "A modified plush fox, with some subtle sewn inscriptions.",
+    "price": 350,
+    "use_action": { "type": "cast_spell", "spell_id": "self_sleep", "no_fail": false, "level": 1 },
+    "material": [ "cotton" ],
+    "qualities": [ [ "MANA_FOCUS", 3 ] ],
+    "weight": "400 g",
+    "volume": "750 ml",
+    "flags": [ "SLEEP_AID", "MAGIC_FOCUS" ]
+  }
+]
