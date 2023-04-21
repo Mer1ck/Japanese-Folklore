@@ -24,9 +24,9 @@
 	"id": "mutagen_kitsune",
 	"name": [ "Kitsune Mutation", "Kitsune Transformation", "Kitsune Metamorphosis" ],
 	"desc": [
-	  "You absorbed mutagenic energy.",
-	  "You absorbed a large amount of mutagenic energy.",
-	  "You absorbed a life-changing amout of mutagenic energy."
+	  "You absorbed mutagenic energies.",
+	  "You absorbed a large amount of mutagenic energies.",
+	  "You absorbed a life-changing amout of mutagenic energies."
 	],
 	"max_intensity": 3,
 	"rating": "good"
@@ -41,6 +41,16 @@
     "valid": false,
     "purifiable": false,
     "threshold": true
+  },
+  {
+	"type": "mutation",
+	"id": "TRUE_KITSUNE",
+	"name": { "str": "True Kitsune" },
+	"points": 1,
+	"description": "You're a born and raised kitsune with a silver tongue to match.",
+	"social_modifiers": { "lie": 10, "persuade": 10 },
+	"valid": false,
+	"purifiable": false
   },
   {
     "type": "mutation",
