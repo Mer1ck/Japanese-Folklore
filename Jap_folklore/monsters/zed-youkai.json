@@ -1,0 +1,9 @@
+[
+	{
+		"type": "MONSTER",
+		"id": "mon_cor_nekomata",
+		"name": { "str": "corrupted nekomata" },
+		"copy-from": "mon_zougar",
+		"description": "Once a ferocious youkai, this creature has fallen and been corrupted. It stumbles around, a mere hollow-eyed shadow of its former self"
+	}
+]

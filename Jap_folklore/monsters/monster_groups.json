@@ -1,25 +1,35 @@
 [
   {
 	"type": "monstergroup",
-	"name": "GROUP_FOREST",
+	"name": "GROUP_WILDERNESS_FOREST_MAMMAL",
+	"default": "mon_null",
 	"is_animal": true,
 	"monsters": [
 		{ "monster": "mon_fox_twotail", "weight": 4, "cost_multiplier": 0 },
 		{ "monster": "mon_fox_twotail", "weight": 8, "cost_multiplier": 0, "conditions": [ "DAWN", "DUSK" ] },
 		{ "monster": "mon_fox_threetail", "weight": 1, "cost_multiplier": 0 },
 		{ "monster": "mon_fox_threetail", "weight": 2, "cost_multiplier": 0, "conditions": [ "DAWN", "DUSK" ] },
-		{ "monster": "mon_fox_fourtail", "weight": 1, "cost_multiplier": 0, "conditions": [ "DAWN", "DUSK" ] }
-	  ]
+		{ "monster": "mon_fox_fourtail", "weight": 1, "cost_multiplier": 0, "conditions": [ "DAWN", "DUSK" ] },
+		{ "monster": "mon_nekomata", "weight": 1, "cost_multiplier": 3 }
+	]
   },
   {
 	"type": "monstergroup",
+	"name": "GROUP_CAVE",
+	"is_animal": true,
+	"monsters": [
+		{ "monster": "mon_nekomata", "weight": 75, "cost_multiplier": 20 } 
+	]
+  },
+  {
+    "type": "monstergroup",
 	"name": "GROUP_MFOX",
 	"//": "Group for summon foxes spell.",
- 	"default" : "mon_fox_red",
-	"monsters" : [
-		{ "monster" : "mon_fox_gray", "freq" : 350, "cost_multiplier" : 1 },
-		{ "monster" : "mon_fox_twotail", "freq" : 40, "cost_multiplier" : 2 },
-		{ "monster" : "mon_fox_threetail", "freq" : 5, "cost_multiplier" : 3 }
+    "default" : "mon_fox_red",
+    "monsters" : [
+        { "monster" : "mon_fox_gray", "freq" : 350, "cost_multiplier" : 1 },
+        { "monster" : "mon_fox_twotail", "freq" : 40, "cost_multiplier" : 2 },
+        { "monster" : "mon_fox_threetail", "freq" : 5, "cost_multiplier" : 3 }
     ]
   }
 ]

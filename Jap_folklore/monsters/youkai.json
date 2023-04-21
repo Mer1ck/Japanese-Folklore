@@ -1,0 +1,18 @@
+[
+	{
+		"type": "MONSTER",
+		"id": "mon_nekomata",
+		"name": { "str": "mountain nekomata" },
+		"copy-from": "mon_cougar",
+		"description": "A large, man eating cat with two tails. Far faster than a mundane feline, it looks at you with hunger and deadly intelligence",
+		"default_faction": "wild_youkai",
+		"hp": 80,
+		"speed": 200,
+		"symbol": "N",
+		"melee_skill": 8,
+		"dodge": 6,
+		"harvest": "cat_medium_with_skull",
+		"fear_triggers": [ "HURT" ],
+		"zombify_into": "mon_cor_nekomata"
+	}
+]
