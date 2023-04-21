@@ -1,18 +1,53 @@
 [
 	{
 		"type": "MONSTER",
-		"id": "mon_nekomata",
+		"id": "mon_wild_nekomata",
 		"name": { "str": "mountain nekomata" },
-		"copy-from": "mon_cougar",
-		"description": "A large, man eating cat with two tails. Far faster than a mundane feline, it looks at you with hunger and deadly intelligence",
+		"copy-from": "mon_tiger",
+		"description": "A large, man eating cat with two tails. Far faster than a mundane feline, and much stronger. It looks at you with hunger and deadly intelligence",
 		"default_faction": "wild_youkai",
-		"hp": 80,
-		"speed": 200,
+		"speed": 180,
 		"symbol": "N",
 		"melee_skill": 8,
 		"dodge": 6,
 		"harvest": "cat_medium_with_skull",
 		"fear_triggers": [ "HURT" ],
 		"zombify_into": "mon_cor_nekomata"
+	},
+	{
+		"type": "MONSTER",
+		"id": "mon_cat",
+		"copy-from": "mon_cat",
+		"upgrades": { "age_grow": 120, "into": "mon_young_nekomata" }
+	},
+	{
+		"type": "MONSTER",
+		"id": "mon_young_nekomata",
+		"name": { "str": "young nekomata" },
+		"description": "A small domesticated predator gone feral in the absence of human stewardship. It is believed that when a cat grows old enough, it may sprout a second tail and become a youkai. It seems this one has just recently grown its second tail.",
+		"copy-from": "mon_cat",
+		"hp": 48,
+		"symbol": "n",
+		"aggression": 0,
+		"morale": 20,
+		"melee_damage": [ { "damage_type": "cut", "amount": 5 } ],
+		"fear_triggers": [ "HURT" ],
+		"anger_triggers": [ "PLAYER_WEAK", "FRIEND_ATTACKED" ],
+		"delete": {
+			"reproduction": { "baby_monster": "mon_cat_kitten", "baby_count": 4, "baby_timer": 60 }
+		},
+		"petfood": {
+			"food": [ "YOUKAIFOOD" ],
+			"feed": "The %s appears to accept your offering. Or maybe it just tolerates your presence better. It's hard to tell with supernatural felines.",
+			"pet": "The %s purrs as you pet it. It demands more."
+		},
+		"upgrades": { "age_grow": 60, "into": "mon_nekomata" }
+	},
+	{
+		"type": "MONSTER",
+		"id": "mon_nekomata",
+		"name": { "str": "nekomata" },
+		"copy-from": "mon_wild_nekomata",
+		"description": "A large, ferocious cat with two tails. Far faster than a mundane feline, and much stronger. You can see a considerable amount of intelligence behind its eyes as it looks at you. It is believed that when a cat grows old enough, it may sprout a second tail and become a youkai. It appears as though this one has survived the cataclysm quite well."
 	}
 ]
