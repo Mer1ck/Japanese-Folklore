@@ -1,0 +1,13 @@
+[
+	{
+		"type": "npc",
+		"id": "tesuto",
+		"//": "placeholder kami for testing",
+		"name_suffix": "tesuto kami",
+		"class": "NC_TEST_KAMI",
+		"attitude": 0,
+		"mission": 7,
+		"chat": "TALK_EXAMPLE",
+		"faction": "kami"
+	}
+]

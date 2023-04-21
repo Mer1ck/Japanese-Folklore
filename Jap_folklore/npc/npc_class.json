@@ -1,0 +1,20 @@
+[
+	{
+		"type": "npc_class",
+		"id": "NC_TEST_KAMI",
+		"name": { "str": "Example NPC" },
+		"job_description": "I'm helping you learn the game.",
+		"common": false,
+		"sells_belongings": false,
+		"bonus_str": { "rng": [ 5, 10 ] },
+		"bonus_dex": { "rng": [ 5, 10 ] },
+		"bonus_int": { "rng": [ 5, 10 ] },
+		"skills": [
+			{
+			"skill": "ALL",
+			"level": { "mul": [ { "one_in": 3 }, { "sum": [ { "dice": [ 2, 2 ] }, { "constant": -2 }, { "one_in": 4 } ] } ] }
+			}
+		],
+		"restock_interval": "6 days"
+	}
+]
