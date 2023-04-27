@@ -1,39 +1,11 @@
 [
   {
-    "id": "summon_foxfire",
-    "type": "SPELL",
-    "name": "Foxfire",
-    "description": "Summons ghostly foxfire worked from living marsh vapor to lead your enemies astray.  With more experience, this spell can conjure multiple ghost lights.",
-    "valid_targets": [ "ground" ],
-    "effect": "summon",
-    "effect_str": "mon_foxfire",
-    "shape": "blast",
-    "flags": [ "LOUD" ],
-    "spell_class": "THRESH_FOX",
-    "energy_source": "MANA",
-    "difficulty": 2,
-    "base_casting_time": 250,
-    "base_energy_cost": 300,
-    "max_level": 25,
-    "min_damage": 1,
-    "max_damage": 8,
-    "damage_increment": 0.28,
-    "min_aoe": 3,
-    "max_aoe": 3,
-    "min_range": 3,
-    "max_range": 7,
-    "range_increment": 0.16,
-    "min_duration": 6000,
-    "max_duration": 60000,
-    "duration_increment": 2160
-  },
-  {
     "id": "create_foxflame",
     "type": "SPELL",
     "name": "Foxspark",
     "description": "Summons a small mote of foxfire which feels warm to the touch.  It seems to need you to have some intent to light things on fire, because you are able to put it in your pocket with no issue.",
     "valid_targets": [ "none" ],
-    "flags": [ "NO_LEGS" ],
+    "flags": [ "NO_LEGS", "NO_HANDS" ],
     "effect": "spawn_item",
     "effect_str": "finger_firelighter",
     "shape": "blast",
@@ -43,13 +15,41 @@
     "max_duration": 60000,
     "duration_increment": 5400,
     "max_level": 10,
-    "spell_class": "NONE",
+    "spell_class": "THRESH_FOX",
     "energy_source": "MANA",
     "base_casting_time": 250,
     "final_casting_time": 50,
     "casting_time_increment": -20.0,
     "base_energy_cost": 65,
     "difficulty": 0
+  },
+  {
+    "id": "summon_foxfire",
+    "type": "SPELL",
+    "name": "Foxfire",
+    "description": "Summons ghostly foxfire worked from living marsh vapor to lead your enemies astray.  With more experience, this spell can conjure multiple ghost lights.",
+    "valid_targets": [ "ground" ],
+    "effect": "summon",
+    "effect_str": "mon_foxfire",
+    "shape": "blast",
+    "flags": [ "LOUD", "NO_HANDS" ],
+    "spell_class": "NONE",
+    "energy_source": "MANA",
+    "difficulty": 2,
+    "base_casting_time": 250,
+    "base_energy_cost": 300,
+    "max_level": 16,
+    "min_damage": 2,
+    "max_damage": 10,
+    "damage_increment": 0.5,
+    "min_aoe": 3,
+    "max_aoe": 3,
+    "min_range": 3,
+    "max_range": 7,
+    "range_increment": 0.25,
+    "min_duration": 6000,
+    "max_duration": 60000,
+    "duration_increment": 2160
   },
   {
     "id": "kitsune_firebolt",
@@ -59,9 +59,9 @@
     "effect": "attack",
     "shape": "blast",
     "valid_targets": [ "self", "ally", "hostile", "ground" ],
-    "flags": [ "VERBAL", "NO_LEGS" ],
-    "spell_class": "THRESH_FOX",
-    "max_level": 10,
+    "flags": [ "VERBAL", "NO_LEGS", "NO_HANDS" ],
+    "spell_class": "NONE",
+    "max_level": 9,
     "min_damage": 12,
     "max_damage": 30,
     "damage_increment": 1.5,
@@ -90,14 +90,140 @@
     ],
     "valid_targets": [ "self" ],
     "flags": [ "SOMATIC", "SILENT", "NO_LEGS", "VERBAL", "WONDER" ],
-    "spell_class": "THRESH_FOX",
+    "spell_class": "NONE",
     "min_damage": 2,
     "max_damage": 2,
-    "max_level": 20,
+    "max_level": 9,
     "difficulty": 5,
     "base_casting_time": 100,
     "energy_source": "MANA",
     "base_energy_cost": 250
+  },
+  {
+	"id": "summon_foxfire2",
+	"type": "SPELL",
+	"name": "Foxfire",
+	"copy-from": "summon_foxfire",
+	"spell_class": "FOX_TWOTAIL"
+  },
+  {
+	"id": "summon_foxfire3",
+	"type": "SPELL",
+	"name": "Foxfire",
+	"copy-from": "summon_foxfire",
+	"spell_class": "FOX_THREETAIL"
+  },
+  {
+	"id": "summon_foxfire4",
+	"type": "SPELL",
+	"name": "Foxfire",
+	"copy-from": "summon_foxfire",
+	"spell_class": "FOX_FOURTAIL"
+  },
+  {
+	"id": "summon_foxfire5",
+	"type": "SPELL",
+	"name": "Foxfire",
+	"copy-from": "summon_foxfire",
+	"spell_class": "FOX_FIVETAIL"
+  },
+  {
+	"id": "summon_foxfire6",
+	"type": "SPELL",
+	"name": "Foxfire",
+	"copy-from": "summon_foxfire",
+	"spell_class": "FOX_SIXTAIL"
+  },
+  {
+	"id": "summon_foxfire7",
+	"type": "SPELL",
+	"name": "Foxfire",
+	"copy-from": "summon_foxfire",
+	"spell_class": "FOX_SEVENTAIL"
+  },
+  {
+	"id": "summon_foxfire8",
+	"type": "SPELL",
+	"name": "Foxfire",
+	"copy-from": "summon_foxfire",
+	"spell_class": "FOX_EIGHTTAIL"
+  },
+  {
+	"id": "summon_foxfire9",
+	"type": "SPELL",
+	"name": "Foxfire",
+	"copy-from": "summon_foxfire",
+	"spell_class": "FOX_NINETAIL"
+  },
+  {
+	"id": "kitsune_firebolt4",
+	"type": "SPELL",
+	"name": "Firebolt",
+	"copy-from": "kitsune_firebolt",
+	"spell_class": "FOX_FOURTAIL"
+  },
+  {
+	"id": "kitsune_firebolt5",
+	"type": "SPELL",
+	"name": "Firebolt",
+	"copy-from": "kitsune_firebolt",
+	"spell_class": "FOX_FIVETAIL"
+  },
+  {
+	"id": "kitsune_firebolt6",
+	"type": "SPELL",
+	"name": "Firebolt",
+	"copy-from": "kitsune_firebolt",
+	"spell_class": "FOX_SIXTAIL"
+  },
+  {
+	"id": "kitsune_firebolt7",
+	"type": "SPELL",
+	"name": "Firebolt",
+	"copy-from": "kitsune_firebolt",
+	"spell_class": "FOX_SEVENTAIL"
+  },
+  {
+	"id": "kitsune_firebolt8",
+	"type": "SPELL",
+	"name": "Firebolt",
+	"copy-from": "kitsune_firebolt",
+	"spell_class": "FOX_EIGHTTAIL"
+  },
+  {
+	"id": "kitsune_firebolt9",
+	"type": "SPELL",
+	"name": "Firebolt",
+	"copy-from": "kitsune_firebolt",
+	"spell_class": "FOX_NINETAIL"
+  },
+  {
+	"id": "kitsune_escape6",
+	"type": "SPELL",
+	"name": "Escape",
+	"copy-from": "kitsune_escape",
+	"spell_class": "FOX_SIXTAIL"
+  },
+  {
+	"id": "kitsune_escape7",
+	"type": "SPELL",
+	"name": "Escape",
+	"copy-from": "kitsune_escape",
+	"spell_class": "FOX_SEVENTAIL"
+  },
+  {
+	"id": "kitsune_escape8",
+	"type": "SPELL",
+	"name": "Escape",
+	"copy-from": "kitsune_escape",
+	"spell_class": "FOX_EIGHTTAIL"
+  },
+  {
+	"id": "kitsune_escape9",
+	"type": "SPELL",
+	"name": "Escape",
+	"copy-from": "kitsune_escape",
+	"spell_class": "FOX_NINETAIL"
   },
   {
     "id": "kitsune_poof",
@@ -129,7 +255,6 @@
     "effect": "summon",
     "shape": "blast",
     "effect_str": "mon_mirror_image",
-    "spell_class": "THRESH_FOX",
     "energy_source": "MANA",
     "difficulty": 5,
     "max_level": 20,
