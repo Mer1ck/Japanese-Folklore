@@ -1,0 +1,21 @@
+[
+  {
+    "type": "mod_tileset",
+    "compatibility": [ "UNDEAD_PEOPLE_BASE", "MSX++DEAD_PEOPLE", "UNDEAD_PEOPLE" ],
+    "tiles-new": [
+	  {
+		"file": "mod_tileset/UndeadPeople-Youkai_large.png",
+        "sprite_offset_x": -16,
+        "sprite_offset_y": -48,
+		"sprite_height": 80,
+		"sprite_width": 64,
+		"tiles": [
+		  { "id": "mon_nekomata", "fg": 0, "rotates": false },
+		  { "id": "mon_wild_nekomata", "fg": 0, "rotates": false },
+		  { "id": "mon_oni", "fg": 2, "rotates": false },
+		  { "id": "mon_oni_torch", "fg": 2, "rotates": false }
+		]
+	  }
+	]
+  }
+]

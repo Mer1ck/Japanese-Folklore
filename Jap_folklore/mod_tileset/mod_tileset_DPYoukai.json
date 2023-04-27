@@ -1,0 +1,15 @@
+[
+  {
+	"type": "mod_tileset",
+	"compatibility": [ "UNDEAD_PEOPLE_BASE", "MSX++DEAD_PEOPLE", "UNDEAD_PEOPLE" ],
+    "tiles-new": [
+	   {
+		"file": "mod_tileset/UndeadPeople-Youkai.png",
+		"//": "range 32 to 35",
+		"tiles": [
+		  { "id": "mon_young_nekomata", "fg": 0, "rotates": false }
+		]
+	  }
+	 ]
+   }
+]
