@@ -1,10 +1,9 @@
 [
 	{
 		"type": "npc_class",
-		"id": "NC_TEST_KAMI",
-		"name": { "str": "Example NPC" },
-		"job_description": "I'm helping you learn the game.",
-		"common": false,
+		"id": "NC_KAMI",
+		"name": { "str": "Kami" },
+		"job_description": "I am known by some as a kami.",
 		"sells_belongings": false,
 		"bonus_str": { "rng": [ 5, 10 ] },
 		"bonus_dex": { "rng": [ 5, 10 ] },
@@ -15,6 +14,13 @@
 			"level": { "mul": [ { "one_in": 3 }, { "sum": [ { "dice": [ 2, 2 ] }, { "constant": -2 }, { "one_in": 4 } ] } ] }
 			}
 		],
-		"restock_interval": "6 days"
+		"worn_override": "NC_KAMI_worn",
+		"carry_override": "NC_KAMI_carried",
+		"shopkeeper_item_group": [
+			{ "group": "kami_shopkeeper_itemgroup1" }
+		],
+		"shopkeeper_price_rules": [
+			{ "item": "dry_divine_rice", "price": 10 }
+		]
 	}
 ]

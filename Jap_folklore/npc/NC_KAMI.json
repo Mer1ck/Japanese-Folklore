@@ -1,0 +1,29 @@
+[
+	{
+		"type": "item_group",
+		"id": "NC_KAMI_worn",
+		"subtype": "collection",
+		"entries": [ 
+			{ "item": "kimono", "prob": 100 },
+			{ "item": "geta", "prob": 100 },
+			{ "item": "hakama", "prob": 100 },
+			{ "item": "scabbard", "prob": 100 }
+		]
+	},
+	{
+		"type": "item_group",
+		"id": "NC_KAMI_carried",
+		"subtype": "distribution",
+		"entries": [
+			{ "item": "katana", "prob": 100 }
+		]
+	},
+	{
+		"type": "item_group",
+		"id": "kami_shopkeeper_itemgroup1",
+		"subtype": "collection",
+		"entries": [
+			{ "item": "dry_divine_rice", "count": [ 5, 10 ], "prob": 100 }
+		]
+	}
+]
