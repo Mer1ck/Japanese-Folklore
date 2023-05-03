@@ -121,5 +121,55 @@
     "book_learn": [ [ "brewing_cookbook", 6 ] ],
     "tools": [ [ [ "cotton_patchwork", -1 ] ] ],
     "components": [ [ [ "divine_sake_unfiltered", 1 ] ] ]
+  },
+  {
+	"type": "recipe",
+	"activity_level": "LIGHT_EXERCISE",
+	"result": "blank_mask",
+	"category": "CC_ARMOR",
+	"subcategory": "CSC_ARMOR_HEAD",
+	"skill_used": "fabrication",
+	"difficulty": 4,
+	"time": "60 m",
+	"autolearn": true,
+	"qualities": [ { "id": "SAW_W", "level": 1 }, { "id": "CUT", "level": 2 } ],
+	"proficiencies": [ { "proficiency": "prof_carving" } ],
+	"components": [ 
+		[ [ "2x4", 1 ] ],
+		[ [ "superglue", 1 ] ],
+		[ [ "cotton_patchwork", 2 ] ],
+		[
+			[ "cotton_patchwork", 3 ],
+			[ "duct_tape", 50 ],
+			[ "cordage", 1, "LIST" ],
+			[ "cordage_short", 3, "LIST" ],
+			[ "filament", 150, "LIST" ]
+		]
+	]
+  },
+  {
+	"type": "recipe",
+	"activity_level": "LIGHT_EXERCISE",
+	"result": "blank_mask_xl",
+	"category": "CC_ARMOR",
+	"subcategory": "CSC_ARMOR_HEAD",
+	"skill_used": "fabrication",
+	"difficulty": 4,
+	"time": "60 m",
+	"autolearn": true,
+	"qualities": [ { "id": "SAW_W", "level": 1 }, { "id": "CUT", "level": 2 } ],
+	"proficiencies": [ { "proficiency": "prof_carving" } ],
+	"components": [ 
+		[ [ "2x4", 2 ] ],
+		[ [ "superglue", 2 ] ],
+		[ [ "cotton_patchwork", 3 ] ],
+		[
+			[ "cotton_patchwork", 3 ],
+			[ "duct_tape", 50 ],
+			[ "cordage", 1, "LIST" ],
+			[ "cordage_short", 3, "LIST" ],
+			[ "filament", 150, "LIST" ]
+		]
+	]
   }
 ]
