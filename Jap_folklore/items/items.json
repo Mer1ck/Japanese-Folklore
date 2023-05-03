@@ -286,5 +286,30 @@
 	"to_hit": -1,
     "price": 1200,
     "qualities": [ [ "HAMMER", 1 ] ]
+  },
+  {
+	"type": "GENERIC",
+	"id": "magatama",
+	"name": { "str": "magatama", "str_pl": "magatama" },
+	"description": "A comma-shaped bead of finely carved jade.",
+	"weight": "5 g",
+	"volume": "1 ml",
+	"color": "green",
+	"symbol": ",",
+	"material": "gemstone",
+	"price": 2000
+  },
+  {
+	"type": "ARMOR",
+	"id": "magatama_string",
+	"name": { "str": "string of magatama", "str_pl": "strings of magatama" },
+	"description": "A series of jade magatama beads have been linked together into a necklace.",
+	"weight": "50 g",
+	"volume": "50 ml",
+	"color": "green",
+	"symbol": "Q",
+	"material": "gemstone",
+	"price": 20000,
+	"flags": [ "NO_WEAR_EFFECT" ]
   }
 ]
