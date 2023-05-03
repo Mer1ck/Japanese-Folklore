@@ -322,6 +322,6 @@
 	"symbol": "Q",
 	"material": "gemstone",
 	"price": 25000,
-	"flags": [ "NO_WEAR_EFFECT" ]
+	"flags": [ "FANCY", "NO_WEAR_EFFECT" ]
   }
 ]
