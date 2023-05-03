@@ -1,31 +1,31 @@
 [
   {
-	  "id": "mutagen_kitsune",
-	  "copy-from": "mutagen_flavor",
-	  "type": "COMESTIBLE",
-	  "description": "A star pearl disolved into a mana potion. It may have a greater effect this way.",
-	  "name": { "str": "kitsune mutagen" },
-	  "looks_like": "mutagen",
-	  "use_action": {
-		  "type": "consume_drug",
-		  "activation_message": "You drink the kitsune mutagen.",
-		  "vitamins": [ [ "mutagen_kitsune", 225 ], [ "mutagen", 125 ] ]
-	  }
+	"id": "mutagen_kitsune",
+	"copy-from": "mutagen_flavor",
+	"type": "COMESTIBLE",
+	"description": "A star pearl disolved into a mana potion. It may have a greater effect this way.",
+	"name": { "str": "kitsune mutagen" },
+	"looks_like": "mutagen",
+	"use_action": {
+		"type": "consume_drug",
+		"activation_message": "You drink the kitsune mutagen.",
+		"vitamins": [ [ "mutagen_kitsune", 225 ], [ "mutagen", 125 ] ]
+	}
   },
   {
-	  "id": "iv_mutagen_kitsune",
-	  "copy-from": "iv_mutagen_flavor",
-	  "type": "COMESTIBLE",
-	  "name": { "str": "kitsune mutagenic primer" },
-	  "description": "A very concentrated form of mana potion using star pearls as the primary ingredient.",
-	  "looks_like": "iv_mutagen",
-	  "color": "light_red",
-	  "use_action": {
-		  "type": "consume_drug",
-		  "activation_message": "You inject the kitsune mutagenic primer.",
-		  "tools_needed": { "syringe": -1 },
-		  "vitamins": [ [ "mutagen_kitsune", 450, 550 ] ]
-	  }
+	"id": "iv_mutagen_kitsune",
+	"copy-from": "iv_mutagen_flavor",
+	"type": "COMESTIBLE",
+	"name": { "str": "kitsune mutagenic primer" },
+	"description": "A very concentrated form of mana potion using star pearls as the primary ingredient.",
+	"looks_like": "iv_mutagen",
+	"color": "light_red",
+	"use_action": {
+		"type": "consume_drug",
+		"activation_message": "You inject the kitsune mutagenic primer.",
+		"tools_needed": { "syringe": -1 },
+		"vitamins": [ [ "mutagen_kitsune", 450, 550 ] ]
+	}
   },
   {
     "id": "star_pearl",
@@ -134,15 +134,15 @@
 	"healthy": 4,
     "description": "Dried rice of the highest quality. Food fit for the gods, though still virtually inedible when dry.",
     "price": 50000,
-    "price_postapoc": 1000,
+    "price_postapoc": 5000,
     "material": [ "veggy" ],
     "primary_material": "dried_vegetable",
     "volume": "250 ml",
     "milling": { "into": "flour_wheat_free", "conversion_rate": 3 },
     "cooks_like": "rice_cooked",
     "flags": [ "EDIBLE_FROZEN" ],
-    "charges": 3,
-    "vitamins": [ [ "iron", 3 ] ],
+    "charges": 5,
+    "vitamins": [ [ "iron", 3 ], [ "divinity", 4] ],
     "fun": -15
   },
   {
@@ -152,6 +152,8 @@
 	"comestible_type": "FOOD",
 	"weight": "200g",
 	"copy-from": "dry_divine_rice",
+	"use_action": [ "PETFOOD" ],
+	"petfood": [ "YOUKAIFOOD" ],
 	"color": "light_gray",
 	"spoils_in": "20 days",
 	"quench": 0,
@@ -162,7 +164,7 @@
 	"flags": [ "EATEN_HOT", "FREEZERBURN", "NUTRIENT_OVERRIDE" ],
 	"fun": 6,
 	"charges": 1,
-	"vitamins": [ [ "iron", 11 ] ]
+	"vitamins": [ [ "iron", 11 ], [ "divinity", 100 ] ]
   },
   {
     "type": "COMESTIBLE",
@@ -194,8 +196,7 @@
     "weight": "36 g",
     "color": "white",
     "addiction_type": "alcohol",
-    "use_action": [ "ALCOHOL", "PETFOOD" ],
-	"petfood": [ "YOUKAIFOOD" ],
+    "use_action": [ "ALCOHOL" ],
     "stim": -12,
     "container": "bottle_glass",
     "comestible_type": "DRINK",
@@ -209,6 +210,7 @@
     "price_postapoc": 1500,
     "material": [ "alcohol", "water" ],
     "primary_material": "alcohol",
+	"vitamins": [ [ "divinity", 5 ] ],
     "volume": "250 ml",
     "phase": "liquid",
     "charges": 7,
@@ -224,8 +226,7 @@
     "weight": "36 g",
     "color": "light_cyan",
     "addiction_type": "alcohol",
-    "use_action": [ "ALCOHOL", "PETFOOD" ],
-	"petfood": [ "YOUKAIFOOD" ],
+    "use_action": [ "ALCOHOL" ],
     "stim": -12,
     "container": "bottle_glass",
     "comestible_type": "DRINK",
@@ -238,11 +239,52 @@
     "price": 2200,
     "price_postapoc": 1500,
     "material": [ "alcohol", "water" ],
+	"vitamins": [ [ "divinity", 5 ] ],
     "volume": "250 ml",
     "phase": "liquid",
     "charges": 7,
     "flags": [ "EATEN_COLD", "NO_AUTO_CONSUME" ],
     "fun": 20,
     "freezing_point": -8
+  },
+  {
+    "type": "COMESTIBLE",
+    "id": "nekomata_tails",
+    "symbol": "<",
+    "color": "dark_gray",
+    "name": { "str": "pair of nekomata tails", "str_pl": "pairs of nekomata tails" },
+    "material": "flesh",
+    "vitamins": [ [ "calcium", 6 ], [ "iron", 12 ] ],
+	"calories": 200,
+    "price": 2000,
+    "healthy": 1,
+    "weight": "300 g",
+    "volume": "500 ml",
+    "fun": -15,
+    "comestible_type": "FOOD",
+    "stim": 1,
+    "addiction_potential": 3,
+    "description": "A pair of feline tails, grown together in a otherworldly but charming manner.  Eating them could potentially mutate you into a more purr-fect form.",
+	"use_action": { 
+		"type": "consume_drug",
+		"effects": [ { "id": "nekomata_tail_effect", "duration": 5 } ]
+	}
+  },
+  {
+    "type": "TOOL",
+    "id": "wooden_kine",
+    "name": "wooden kine",
+    "description": "A large wooden mallet with elongated head, traditionally used to pound rice or millet. It can also smash heads in a pinch.",
+    "weight": "4500 g",
+    "color": "brown",
+    "symbol": "/",
+    "material": "wood",
+    "flags": "NONCONDUCTIVE",
+    "techniques": [ "WBLOCK_1", "BRUTAL", "WIDE", "SWEEP" ],
+    "volume": "2500 ml",
+    "bashing": 13,
+	"to_hit": -1,
+    "price": 1200,
+    "qualities": [ [ "HAMMER", 1 ] ]
   }
 ]
