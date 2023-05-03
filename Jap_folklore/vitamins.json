@@ -1,0 +1,14 @@
+[
+  {
+	"type": "vitamin",
+	"id": "divinity",
+	"vit_type": "counter",
+	"name": { "str": "Divinity" },
+	"excess": "divinity_effect",
+	"min": 0,
+	"max": 10000,
+	"rate": "15 m",
+	"flags": [ "NO_DISPLAY" ],
+	"disease_excess": [ [ 10, 249 ], [ 250, 499 ], [ 500, 10000 ] ]
+  }
+]

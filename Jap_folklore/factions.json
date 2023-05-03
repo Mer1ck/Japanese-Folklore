@@ -1,7 +1,53 @@
 [
 	{
+		"type": "SPECIES",
+		"id": "YOUKAI",
+		"fear_triggers": [ "HURT", "FRIEND_DIED" ]
+	},
+	{
+		"type": "SPECIES",
+		"id": "ORDER_SIDE"
+	},
+	{
+		"type": "SPECIES",
+		"id": "CHAOS_SIDE"
+	},
+	{
 		"type": "MONSTER_FACTION",
-		"name": "wild_youkai"
+		"name": "youkai",
+		"friendly": [ "small_animal", "animal", "insect" ],
+		"neutral": [ "blob" ]
+	},
+	{
+		"type": "MONSTER_FACTION",
+		"name": "tengu",
+		"base_faction": "youkai"
+	},
+	{
+		"type": "MONSTER_FACTION",
+		"name": "nekomata",
+		"base_faction": "youkai",
+		"neutral": [ "human" ]
+	},
+	{
+		"type": "MONSTER_FACTION",
+		"name": "kappa",
+		"base_faction": "youkai"
+	},
+	{
+		"type": "MONSTER_FACTION",
+		"name": "oni",
+		"base_faction": "youkai"
+	},
+	{
+		"type": "MONSTER_FACTION",
+		"name": "okka",
+		"base_faction": "youkai"
+	},
+	{
+		"type": "MONSTER_FACTION",
+		"name": "kamaitachi",
+		"base_faction": "youkai"
 	},
 	{
 		"type": "faction",
@@ -16,8 +62,8 @@
 		"wealth": 100000,
 		"currency": "dry_divine_rice",
 		"price_rules": [
-			{ "item": "divine_sake_unfiltered", "price": 10000 },
-			{ "item": "divine_sake_filtered", "price": 10000 }
+			{ "item": "divine_sake_unfiltered", "price": 3000 },
+			{ "item": "divine_sake_filtered", "price": 3000 }
 		],
 		"description": "A loose collection of kami that, like the youkai, were largely forgotten."
 	}
