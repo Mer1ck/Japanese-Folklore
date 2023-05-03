@@ -171,5 +171,20 @@
 			[ "filament", 150, "LIST" ]
 		]
 	]
+  },
+  {
+	"type": "recipe",
+	"result": "magatama_string",
+	"activity_level": "NO_EXERCISE",
+	"category": "CC_ARMOR",
+	"subcategory": "CSC_ARMOR_OTHER",
+	"skill_used": "tailor",
+	"difficulty": 0,
+	"time": "10 s",
+	"autolearn": true,
+	"components": [
+		[[ "magatama", 10 ]],
+		[[ "cordage", 1, "LIST"], [ "cordage_short", 3, "LIST"], [ "filament", 150, "LIST"]]
+	]
   }
 ]

@@ -60,10 +60,14 @@
 		"power": 100,
 		"food_supply": 100000,
 		"wealth": 100000,
-		"currency": "dry_divine_rice",
+		"currency": "magatama",
 		"price_rules": [
-			{ "item": "divine_sake_unfiltered", "price": 3000 },
-			{ "item": "divine_sake_filtered", "price": 3000 }
+			{ "item": "magatama_string", "fixed_adj": 0 },
+			{ "item": "RobofacCoin", "fixed_adj": 0.10 },
+			{ "item": "divine_sake_unfiltered", "price": 6000, "fixed_adj": 0.1 },
+			{ "item": "divine_sake_filtered", "price": 6000, "fixed_adj": 0.1 },
+			{ "item": "dry_divine_rice", "price": 5000, "fixed_adj": 0.1 },
+			{ "item": "divine_sake_unfiltered", "fixed_adj": 0.1 }
 		],
 		"description": "A loose collection of kami that, like the youkai, were largely forgotten."
 	}
