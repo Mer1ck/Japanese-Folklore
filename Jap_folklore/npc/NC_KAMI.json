@@ -13,9 +13,10 @@
 	{
 		"type": "item_group",
 		"id": "NC_KAMI_carried",
-		"subtype": "distribution",
+		"subtype": "collection",
 		"entries": [
-			{ "item": "katana", "prob": 100 }
+			{ "item": "katana", "prob": 100 },
+			{ "item": "dry_divine_rice", "prob": 100 }
 		]
 	},
 	{
@@ -23,7 +24,7 @@
 		"id": "kami_shopkeeper_itemgroup1",
 		"subtype": "collection",
 		"entries": [
-			{ "item": "dry_divine_rice", "count": [ 5, 10 ], "prob": 100 }
+			{ "item": "dry_divine_rice", "count": [ 1, 5 ], "prob": 100 }
 		]
 	}
 ]

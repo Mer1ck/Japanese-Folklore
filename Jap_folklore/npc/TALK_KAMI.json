@@ -4,7 +4,7 @@
 	"type": "talk_topic",
 	"dynamic_line": [ "Hello there.", "What brings you here, mortal?" ],
 	"responses": [
-		{ "text": "I'm just testing some things.", "topic": "TALK_END" },
+		{ "text": "I'm just testing some things.", "topic": "TALK_DONE" },
 		{ "text": "Let's trade some things", "topic": "TALK_NONE", "effect": "start_trade" }
 	]
   }
