@@ -297,7 +297,7 @@
 	"color": "green",
 	"symbol": ",",
 	"material": "gemstone",
-	"price": 2000
+	"price": 500
   },
   {
 	"type": "ARMOR",
@@ -309,7 +309,7 @@
 	"color": "green",
 	"symbol": "Q",
 	"material": "gemstone",
-	"price": 20000,
+	"price": 5000,
 	"flags": [ "NO_WEAR_EFFECT" ]
   }
 ]
