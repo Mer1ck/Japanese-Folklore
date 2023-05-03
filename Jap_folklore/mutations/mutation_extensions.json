@@ -60,12 +60,6 @@
     "extend": { "category": [ "KITSUNE" ] }
   },
   {
-	"type": "mutation",
-	"id": "PATCHFUR",
-	"copy-from": "PATCHFUR",
-	"extend": { "category": [ "KITSUNE" ] }
-  },
-  {
     "type": "mutation",
     "id": "LIGHTFUR",
     "copy-from": "LIGHTFUR",
