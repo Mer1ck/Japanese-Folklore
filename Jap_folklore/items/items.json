@@ -300,8 +300,20 @@
 	"price": 500
   },
   {
-	"type": "ARMOR",
+	"type": "GENERIC",
 	"id": "magatama_string",
+	"name": { "str": "magatama", "str_pl": "magatama" },
+	"description": "A short string of magatama beads",
+	"weight": "5 g",
+	"volume": "1 ml",
+	"color": "green",
+	"symbol": "s",
+	"material": "gemstone",
+	"price": 5000
+  },
+  {
+	"type": "ARMOR",
+	"id": "magatama_necklace",
 	"name": { "str": "string of magatama", "str_pl": "strings of magatama" },
 	"description": "A series of jade magatama beads have been linked together into a necklace.",
 	"weight": "50 g",
@@ -309,7 +321,7 @@
 	"color": "green",
 	"symbol": "Q",
 	"material": "gemstone",
-	"price": 5000,
+	"price": 25000,
 	"flags": [ "NO_WEAR_EFFECT" ]
   }
 ]
