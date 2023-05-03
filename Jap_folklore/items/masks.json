@@ -1,0 +1,29 @@
+[
+  {
+	"id": "blank_mask",
+	"type": "ARMOR",
+	"name": { "str": "wood mask" },
+	"description": "A plain carved wooden mask with cloth straps and padding. It still has a way to go before it's finished, but it can be left as-is for a minimalist design.",
+	"weight": "200 g",
+	"volume": "500 ml",
+	"price": 100,
+	"price_postapoc": 25,
+	"material": [ "wood", "cotton" ],
+	"symbol": "[",
+	"color": "brown",
+	"warmth": 2,
+	"material_thickness": 5,
+	"flags": [ "VARSIZE", "WATER_FRIENDLY", "PADDED" ],
+	"armor": [ { "encumbrance": 20, "coverage": 100, "covers": [ "eyes", "mouth" ] } ]
+  },
+  {
+	"id": "blank_mask_xl",
+	"type": "ARMOR",
+	"copy-from": "blank_mask",
+	"name": { "str": "XL wood mask" },
+	"description": "A plain carved wooden mask with cloth straps and padding. This mask can accommodate unusual anatomy, or be carved to portray such creatures.",
+	"weight": "400 g",
+	"volume": "750 L",
+	"extend": { "flags": [ "OVERSIZE" ] }
+  }
+]
