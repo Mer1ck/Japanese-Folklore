@@ -302,7 +302,7 @@
   {
 	"type": "GENERIC",
 	"id": "magatama_string",
-	"name": { "str": "magatama", "str_pl": "magatama" },
+	"name": { "str": "string of magatama", "str_pl": "strings of magatama" },
 	"description": "A short string of magatama beads",
 	"weight": "5 g",
 	"volume": "1 ml",
@@ -314,7 +314,7 @@
   {
 	"type": "ARMOR",
 	"id": "magatama_necklace",
-	"name": { "str": "string of magatama", "str_pl": "strings of magatama" },
+	"name": { "str": "magatama necklace" },
 	"description": "A series of jade magatama beads have been linked together into a necklace.",
 	"weight": "50 g",
 	"volume": "50 ml",
