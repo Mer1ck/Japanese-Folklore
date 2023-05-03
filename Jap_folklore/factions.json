@@ -63,6 +63,7 @@
 		"currency": "magatama",
 		"price_rules": [
 			{ "item": "magatama_string", "fixed_adj": 0 },
+			{ "item": "magatama_necklace", "fixed_adj": 0 },
 			{ "item": "RobofacCoin", "fixed_adj": 0.10 },
 			{ "item": "divine_sake_unfiltered", "price": 6000, "fixed_adj": 0.1 },
 			{ "item": "divine_sake_filtered", "price": 6000, "fixed_adj": 0.1 },
