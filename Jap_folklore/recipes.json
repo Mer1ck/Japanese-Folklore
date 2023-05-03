@@ -187,18 +187,18 @@
 		[[ "cordage", 1, "LIST"], [ "cordage_short", 3, "LIST"], [ "filament", 150, "LIST"]]
 	]
   },
-	{
-		"type": "recipe",
-		"result": "magatama_necklace",
-		"activity_level": "NO_EXERCISE",
-		"category": "CC_OTHER",
-		"subcategory": "CSC_OTHER_OTHER",
-		"skill_used": "fabrication",
-		"difficulty": 0,
-		"time": "10 s",
-		"autolearn": true,
-		"components": [
+  {
+	"type": "recipe",
+	"result": "magatama_necklace",
+	"activity_level": "NO_EXERCISE",
+	"category": "CC_OTHER",
+	"subcategory": "CSC_OTHER_OTHER",
+	"skill_used": "fabrication",
+	"difficulty": 0,
+	"time": "10 s",
+	"autolearn": true,
+	"components": [
 			[[ "magatama_string", 5 ]]
-		]
-	}
+	]
+  }
 ]
