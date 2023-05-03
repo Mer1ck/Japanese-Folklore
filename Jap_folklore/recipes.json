@@ -180,6 +180,7 @@
 	"subcategory": "CSC_OTHER_OTHER",
 	"skill_used": "fabrication",
 	"difficulty": 0,
+	"reversible": true,
 	"time": "10 s",
 	"autolearn": true,
 	"components": [
@@ -191,10 +192,11 @@
 	"type": "recipe",
 	"result": "magatama_necklace",
 	"activity_level": "NO_EXERCISE",
-	"category": "CC_OTHER",
-	"subcategory": "CSC_OTHER_OTHER",
+	"category": "CC_ARMOR",
+	"subcategory": "CSC_ARMOR_OTHER",
 	"skill_used": "fabrication",
 	"difficulty": 0,
+	"reversible": true,
 	"time": "10 s",
 	"autolearn": true,
 	"components": [
