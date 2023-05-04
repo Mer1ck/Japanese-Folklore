@@ -13,20 +13,36 @@
     "type": "overmap_terrain",
     "id": "ruined_kami_shrine",
     "name": "ruined structure",
-    "sym": "C",
+    "sym": "^",
     "color": "brown",
     "see_cost": 2,
-    "extras": "field",
     "flags": [ "NO_ROTATE" ]
   },
   {
 	"type": "overmap_terrain",
 	"id": "ruined_kami_shrine_roof",
 	"name": "ruined structure",
-	"sym": "C",
+	"sym": "^",
 	"color": "brown",
 	"see_cost": 2,
-	"extras": "field",
+	"flags": [ "NO_ROTATE" ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "kami_shrine",
+    "name": "old shrine",
+    "sym": "S",
+    "color": "red",
+    "see_cost": 2,
+    "flags": [ "NO_ROTATE" ]
+  },
+  {
+	"type": "overmap_terrain",
+	"id": "kami_shrine_roof",
+	"name": "old shrine",
+	"sym": "S",
+	"color": "red",
+	"see_cost": 2,
 	"flags": [ "NO_ROTATE" ]
   }
 ]
