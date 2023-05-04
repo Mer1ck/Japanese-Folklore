@@ -2,7 +2,22 @@
   {
 	"id": "TALK_KAMI",
 	"type": "talk_topic",
-	"dynamic_line": [ "Hello there.", "What brings you here, mortal?" ],
+	"dynamic_line": [ 
+		{ "u_has_any_trait": [ "TRUE_KITSUNE" ],
+			"yes": [ 
+			  "Ah, welcome to my shrine, kitsune.", 
+			  "A kitsune, it's been a while. Welcome." 
+			],
+			"no": [
+				{ "u_has_any_trait": [ "THRESH_FOX" ],
+					"yes": [
+						"Welcome, mortal. I see you've been sampling the kitsunes' pearls."
+					],
+					"no": [ "What brings you to my shrine, mortal?" ]
+				}
+			]
+		}
+	],
 	"responses": [
 		{ "text": "I'm just testing some things.", "topic": "TALK_DONE" },
 		{ "text": "Let's trade some things", "topic": "TALK_NONE", "effect": "start_trade" }
