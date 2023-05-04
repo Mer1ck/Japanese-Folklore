@@ -6,8 +6,21 @@
     "connections": [ { "point": [ 0, -1, 0 ], "terrain": "road", "existing": true } ],
     "locations": [ "land", "swamp" ],
     "city_distance": [ 10, 200 ],
-    "city_sizes": [ 1, 3 ],
-    "occurrences": [ 0, 10 ],
+    "city_sizes": [ 1, 8 ],
+    "occurrences": [ 1, 30 ],
+    "flags": [ "CLASSIC" ]
+  },
+  {
+    "type": "overmap_special",
+    "id": "Ruined Kami Shrine",
+    "overmaps": [ 
+	  { "point": [ 0, 0, 0 ], "overmap": "ruined_kami_shrine" },
+	  { "point": [ 0, 0, 1 ], "overmap": "ruined_kami_shrine_roof" }
+	],
+    "locations": [ "land", "forest" ],
+    "city_distance": [ 10, 200 ],
+    "city_sizes": [ 1, 10 ],
+    "occurrences": [ 50, 100 ],
     "flags": [ "CLASSIC" ]
   }
 ]

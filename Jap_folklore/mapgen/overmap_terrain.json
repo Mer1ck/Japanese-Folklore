@@ -8,5 +8,25 @@
     "see_cost": 2,
     "extras": "field",
     "flags": [ "NO_ROTATE" ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "ruined_kami_shrine",
+    "name": "ruined structure",
+    "sym": "C",
+    "color": "brown",
+    "see_cost": 2,
+    "extras": "field",
+    "flags": [ "NO_ROTATE" ]
+  },
+  {
+	"type": "overmap_terrain",
+	"id": "ruined_kami_shrine_roof",
+	"name": "ruined structure",
+	"sym": "C",
+	"color": "brown",
+	"see_cost": 2,
+	"extras": "field",
+	"flags": [ "NO_ROTATE" ]
   }
 ]
