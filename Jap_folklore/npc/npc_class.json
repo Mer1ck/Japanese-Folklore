@@ -16,6 +16,7 @@
 		],
 		"worn_override": "NC_KAMI_worn",
 		"carry_override": "NC_KAMI_carried",
+		"weapon_override": "NC_KAMI_weapon",
 		"shopkeeper_item_group": [
 			{ "group": "kami_shopkeeper_itemgroup1" }
 		]

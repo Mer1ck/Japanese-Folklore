@@ -3,11 +3,13 @@
 		"type": "npc",
 		"id": "tesuto",
 		"//": "placeholder kami for testing",
-		"name_suffix": "tesuto kami",
+		"name_unique": "Tesuto",
+		"name_suffix": "Tami",
 		"class": "NC_KAMI",
 		"attitude": 0,
 		"mission": 7,
 		"chat": "TALK_KAMI",
+		"mission_offered": "TEST_MISSION_KAMI",	
 		"faction": "kami"
 	}
 ]
