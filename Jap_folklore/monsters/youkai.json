@@ -214,7 +214,8 @@
 		"special_attacks": [
 			[ "PARROT", 0 ],
 			{ "id": "scratch", "damage_max_instance": [ { "damage_type": "cut", "amount": 20, "armor_multiplier": 0.8 } ] },
-			[ "GRAB_DRAG", 10 ]
+			{ "id": "grab_drag", "grab_data": { "drag_distance": 5, "drag_deviation": 1, "drag_movecost_mod": 0.2 } },
+			{ "id": "drag_followup", "grab_data": { "drag_distance": 5, "drag_deviation": 1, "drag_movecost_mod": 0.2 } }
 		],
 		"flags": [ "SEES", "HEARS", "SMELLS", "BASHES", "POISON", "NO_BREATHE", "SWIMS", "PUSH_MON" ]
 	},
