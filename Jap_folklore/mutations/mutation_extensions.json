@@ -54,10 +54,10 @@
     "extend": { "category": [ "KITSUNE" ] }
   },
   {
-    "type": "mutation",
-    "id": "SKIN_ROUGH",
-    "copy-from": "SKIN_ROUGH",
-    "extend": { "category": [ "KITSUNE" ] }
+	"type": "mutation",
+	"id": "HIRSUTE",
+	"copy-from": "HIRSUTE",
+	"extend": { "category": [ "KITSUNE" ] }
   },
   {
     "type": "mutation",
