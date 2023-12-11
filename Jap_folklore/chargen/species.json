@@ -1,0 +1,23 @@
+[
+  {
+    "type": "profession",
+    "subtype": "hobby",
+    "id": "hobby_species_kitsune",
+    "name": "Young Kitsune (Species)",
+    "description": "You are one of the youkai known as \"kitsune,\" and a young one at that. Your people oftem kept to themselves and away from humanity, perhaps except to play the occasional \"prank\" or manipulate them to their own ends. In modern times, however, many have chosen to integrate into society, and those who chose not to often serve in their traditional roles as messengers for the gods.",
+    "points": 4,
+    "spells": [ { "id": "summon_foxfire2", "level": 2 }, { "id": "create_foxflame", "level": 2 } ],
+	"traits": [ 
+	  "TRUE_KITSUNE", 
+	  "THRESH_FOX", 
+	  "KITSUNE_FUR", 
+	  "FOX_EARS", 
+	  "FOX_MUZZLE", 
+	  "FOX_TWOTAIL", 
+	  "PADDED_FEET",
+	  "NIGHTVISION",
+	  "PYROMANIA" 
+	],
+	"skills": [ { "level": 3, "name": "spellcraft" } ]
+  }
+]
