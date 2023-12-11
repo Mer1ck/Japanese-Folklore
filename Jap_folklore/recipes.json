@@ -1,7 +1,7 @@
 [
   {
 	  "type": "recipe",
-	  "activity_level": "fake",
+	  "activity_level": "NO_EXERCISE",
 	  "result": "mutagen_kitsune",
 	  "qualities": [ 
 		{ "id": "MAGIC_MUTAGEN", "level": 1 },
@@ -31,7 +31,7 @@
   },
   {
 	"type": "recipe",
-    "activity_level": "fake",
+    "activity_level": "NO_EXERCISE",
     "result": "iv_mutagen_kitsune",
     "qualities": [ 
 		{ "id": "MAGIC_MUTAGEN", "level": 1 },
@@ -62,6 +62,39 @@
   },
   {
     "type": "recipe",
+    "activity_level": "NO_EXERCISE",
+    "result": "synth_star_pearl",
+    "qualities": [ { "id": "MANA_INFUSE", "level": 1 }, { "id": "MANA_FOCUS", "level": 1 } ],
+	"tools": [ [ [ "star_pearl", -1 ] ] ],
+    "components": [ [ [ "crystallized_mana", 50 ] ] ],
+    "time": "30 m",
+    "skill_used": "spellcraft",
+    "difficulty": 5,
+    "proficiencies": [ { "proficiency": "prof_alchemy" } ],
+    "category": "CC_ENCHANTED",
+    "subcategory": "CSC_ENCHANTED_OTHER",
+    "autolearn": true
+  },
+   {
+    "type": "recipe",
+    "activity_level": "NO_EXERCISE",
+    "result": "culti_star_pearl",
+    "qualities": [ { "id": "MANA_INFUSE", "level": 1 }, { "id": "MANA_FOCUS", "level": 1 } ],
+   "components": [ 
+		[ [ "crystallized_mana", 100 ] ],
+		[ [ "synth_star_pearl", 1 ] ] 
+	],
+    "time": "30 m",
+    "skill_used": "spellcraft",
+    "difficulty": 8,
+    "proficiencies": [ { "proficiency": "prof_alchemy" } ],
+    "category": "CC_ENCHANTED",
+    "subcategory": "CSC_ENCHANTED_OTHER",
+    "autolearn": true
+  },
+  {
+    "type": "recipe",
+	"activity_level": "NO_EXERCISE",
     "result": "magic_fox_plush",
     "category": "CC_ENCHANTED",
     "subcategory": "CSC_ENCHANTED_TOOLS",
