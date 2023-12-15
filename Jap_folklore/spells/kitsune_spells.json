@@ -24,6 +24,276 @@
     "difficulty": 0
   },
   {
+    "id": "kitsune_glamor_minor",
+    "type": "SPELL",
+    "name": "Kitsune's Glamor",
+    "description": "While not quite a proper transformation, you're able to cast a magical glamor that causes others to ignore some of your inhuman traits. You can maintain this glamor for as long as you have the mana to do so.",
+    "valid_targets": [ "self" ],
+    "flags": [ "CONCENTRATE", "NO_HANDS", "NO_LEGS" ],
+    "effect": "effect_on_condition",
+    "effect_str": "EOC_MINOR_GLAMOR_INITIATE",
+    "shape": "blast",
+    "energy_source": "MANA",
+    "spell_class": "THRESH_FOX",
+    "difficulty": 3,
+    "max_level": 15,
+    "base_casting_time": { "math": [ "u_has_trait('MINOR_GLAMOR') ? 0 : 6000" ] },
+    "base_energy_cost": { "math": [ "u_has_trait('MINOR_GLAMOR') ? 0 : 200" ] },
+    "min_duration": { "math": [ "((u_spell_level('kitsune_glamor_minor')+1)*200)*100" ] },
+    "max_duration": { "math": [ "((u_spell_level('kitsune_glamor_minor')+1)*200)*100" ] },
+	"learn_spells": { "kitsune_glamor_major": 10 }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_MINOR_GLAMOR_INITIATE",
+    "condition": { "not": { "u_has_trait": "MINOR_GLAMOR" } },
+    "effect": [
+      { "u_message": "You are concealed by glamor, and others turn an eye to your oddities.", "type": "good" },
+      { "u_add_trait": "MINOR_GLAMOR" },
+      { "queue_eocs": "EOC_MINOR_GLAMOR_CONTINUE", "time_in_future": { 
+		"math": [ "((u_spell_level('kitsune_glamor_minor')+1)*200)" ] } 
+	  }
+    ],
+    "false_effect": [
+	  { "u_lose_trait": "MINOR_GLAMOR" },
+      { "u_message": "You feel your magical facade fade.", "type": "neutral" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_MINOR_GLAMOR_CONTINUE",
+    "condition": { "and": [ { "u_has_trait": "MINOR_GLAMOR" }, { "math": [ "u_val('mana')", ">=", "200" ] } ] },
+    "effect": [
+      { "math": [ "u_val('mana')", "-=", "200" ] },
+      {
+        "u_message": "You feel the ebb and flow of your illusion.",
+        "type": "good"
+      },
+      {
+        "queue_eocs": "EOC_MINOR_GLAMOR_CONTINUE",
+        "time_in_future": { "math": [ "((u_spell_level('kitsune_glamor_minor')+1)*200)" ] }
+      },
+      {
+        "math": [ "u_spell_exp('kitsune_glamor_minor')", "+=", "spell_exp_diff(u_spell_level('kitsune_glamor_minor'))/spell_train_factor(200)" ]
+      }
+    ],
+    "false_effect": [
+      { "u_lose_trait": "MINOR_GLAMOR" },
+      { "u_message": "You feel your magical facade fade.", "type": "neutral" }
+    ]
+  },
+  {
+    "id": "kitsune_glamor_major",
+    "type": "SPELL",
+    "name": "Kitsune's Transformation",
+    "description": "An evolution of your glamor magic, you're able to fully transform your body into that of a human's. You doubt this magic will work on any non-kitsune anatomy, however. You can maintain this transformation for as long as you like, but the cost increases with every transformed part.",
+    "valid_targets": [ "self" ],
+    "flags": [ "CONCENTRATE", "NO_HANDS", "NO_LEGS" ],
+    "effect": "effect_on_condition",
+    "effect_str": "EOC_INITIATE_MAJOR_GLAMOR",
+    "shape": "blast",
+    "energy_source": "MANA",
+    "spell_class": "THRESH_FOX",
+    "difficulty": 10,
+    "max_level": 20,
+    "base_casting_time": { "math": [ "u_has_trait('MAJOR_GLAMOR') ? 0 : 6000" ] },
+    "base_energy_cost": { "math": [ "u_has_trait('MAJOR_GLAMOR') ? 0 : 200" ] },
+    "min_duration": { "math": [ "((u_spell_level('kitsune_glamor_major')+1)*200)*100" ] },
+    "max_duration": { "math": [ "((u_spell_level('kitsune_glamor_major')+1)*200)*100" ] }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_INITIATE_MAJOR_GLAMOR",
+    "condition": { "not": { "u_has_trait": "MAJOR_GLAMOR" } },
+    "effect": [
+      { "u_message": "You focus your magic throughout your body.", "type": "good" },
+      { "u_add_trait": "MAJOR_GLAMOR" },
+      { "queue_eocs": "EOC_MAJOR_GLAMOR_CONTINUE", "time_in_future": { 
+		"math": [ "((u_spell_level('kitsune_glamor_major')+1)*200)" ] } 
+	  },
+	  { "queue_eocs": "EOC_APPLY_MAJOR_GLAMOR" }
+    ],
+    "false_effect": [
+	  { "u_lose_trait": "MAJOR_GLAMOR" },
+      { "u_message": "You feel your magical facade fade.", "type": "neutral" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_MAJOR_GLAMOR_CONTINUE",
+    "condition": { "and": [ { "u_has_trait": "MAJOR_GLAMOR" }, { "math": [ "u_val('mana')", ">=", "200" ] } ] },
+    "effect": [
+      { "math": [ "u_val('mana')", "-=", "200/(u_spell_level('kitsune_glamor_major')+1)" ] },
+	  { "if": { "math": [ "u_val('mana')", "<=", "500" ] },
+		"then": { "u_message": "It's becoming difficult to maintain your transformation magic" } },
+	  { "queue_eocs": "EOC_GLAMOR_UPKEEP1" },
+	  { "queue_eocs": "EOC_GLAMOR_UPKEEP2" },
+	  { "queue_eocs": "EOC_GLAMOR_UPKEEP3" },
+	  { "queue_eocs": "EOC_GLAMOR_UPKEEP4" },
+	  { "queue_eocs": "EOC_GLAMOR_UPKEEP5" },
+      {
+        "queue_eocs": "EOC_MAJOR_GLAMOR_CONTINUE",
+        "time_in_future": { "math": [ "((u_spell_level('kitsune_glamor_minor')+1)*200)" ] }
+      },
+      {
+        "math": [ "u_spell_exp('kitsune_glamor_major')", "+=", "spell_exp_diff(u_spell_level('kitsune_glamor_major'))/spell_train_factor(200)" ]
+      }
+    ],
+    "false_effect": [
+      { "u_lose_trait": "MAJOR_GLAMOR" },
+	  { "queue_eocs": "EOC_REMOVE_MAJOR_GLAMOR1" },
+	  { "queue_eocs": "EOC_REMOVE_MAJOR_GLAMOR2" },
+	  { "queue_eocs": "EOC_REMOVE_MAJOR_GLAMOR3" },
+	  { "queue_eocs": "EOC_REMOVE_MAJOR_GLAMOR4" },
+	  { "queue_eocs": "EOC_REMOVE_MAJOR_GLAMOR5" },
+      { "u_message": "You feel the magical potential fade from your body.", "type": "neutral" }
+    ]
+  },
+  {
+	"type": "effect_on_condition",
+	"id": "EOC_GLAMOR_UPKEEP1",
+	"condition": { "u_has_trait": "HIDDEN_FUR" },
+	"effect": [ { "math": [ "u_val('mana')", "-=", "100/((u_spell_level('kitsune_glamor_major')+2)*0.5)" ] } ]
+  },
+  {
+	"type": "effect_on_condition",
+	"id": "EOC_GLAMOR_UPKEEP2",
+	"condition": { "u_has_trait": "HIDDEN_MUZZLE" },
+	"effect": [ { "math": [ "u_val('mana')", "-=", "100/((u_spell_level('kitsune_glamor_major')+2)*0.5)" ] } ]
+  },
+  {
+	"type": "effect_on_condition",
+	"id": "EOC_GLAMOR_UPKEEP3",
+	"condition": { "u_has_trait": "HIDDEN_EARS" },
+	"effect": [ { "math": [ "u_val('mana')", "-=", "100/((u_spell_level('kitsune_glamor_major')+2)*0.5)" ] } ]
+  },
+  {
+	"type": "effect_on_condition",
+	"id": "EOC_GLAMOR_UPKEEP4",
+	"condition": { "u_has_trait": "HIDDEN_PAWS" },
+	"effect": [ { "math": [ "u_val('mana')", "-=", "100/((u_spell_level('kitsune_glamor_major')+2)*0.5)" ] } ]
+  },
+  {
+	"type": "effect_on_condition",
+	"id": "EOC_GLAMOR_UPKEEP5",
+	"condition": { "u_has_trait": "HIDDEN_FEET" },
+	"effect": [ { "math": [ "u_val('mana')", "-=", "100/((u_spell_level('kitsune_glamor_major')+2)*0.5)" ] } ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_APPLY_MAJOR_GLAMOR",
+    "effect": [
+      { "queue_eocs": "EOC_APPLY_MAJOR_GLAMOR1" },
+	  { "queue_eocs": "EOC_APPLY_MAJOR_GLAMOR2" },
+	  { "queue_eocs": "EOC_APPLY_MAJOR_GLAMOR3" },
+	  { "queue_eocs": "EOC_APPLY_MAJOR_GLAMOR4" },
+	  { "queue_eocs": "EOC_APPLY_MAJOR_GLAMOR5" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_APPLY_MAJOR_GLAMOR1",
+	"condition": { "u_has_trait": "KITSUNE_FUR" },
+    "effect": [ 
+		{ "u_add_trait": "GLAM_FUR" },
+		{ "u_lose_trait": "KITSUNE_FUR" },
+		{ "u_message": "Your fur glimmers with transformative potential.", "type": "good" }
+	]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_APPLY_MAJOR_GLAMOR2",
+	"condition": { "u_has_trait": "FOX_MUZZLE" },
+    "effect": [ 
+		{ "u_add_trait": "GLAM_MUZZLE" },
+		{ "u_lose_trait": "FOX_MUZZLE" },
+		{ "u_message": "Your muzzle glimmers with transformative potential.", "type": "good" } 
+	]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_APPLY_MAJOR_GLAMOR3",
+	"condition": { "u_has_trait": "FOX_EARS" },
+    "effect": [ 
+		{ "u_add_trait": "GLAM_EARS" },
+		{ "u_lose_trait": "FOX_EARS" },
+		{ "u_message": "Your ears glimmer with transformative potential.", "type": "good" }
+	]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_APPLY_MAJOR_GLAMOR4",
+	"condition": { "u_has_trait": "PAWS" },
+    "effect": [ 
+		{ "u_add_trait": "GLAM_PAWS" },
+		{ "u_message": "Your paws glimmer with transformative potential.", "type": "good" } 
+	]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_APPLY_MAJOR_GLAMOR5",
+	"condition": { "u_has_trait": "ANIMAL_FEET" },
+    "effect": [ 
+		{ "u_add_trait": "GLAM_FEET" },
+		{ "u_message": "Your legs glimmer with transformative potential.", "type": "good" }
+	]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_REMOVE_MAJOR_GLAMOR1",
+	"condition": { "or": [ { "u_has_trait": "GLAM_FUR" }, { "u_has_trait": "HIDDEN_FUR" } ] },
+	"effect": [
+		{ "u_add_trait": "KITSUNE_FUR" },
+		{ "u_lose_trait": "GLAM_FUR" },
+		{ "u_lose_trait": "HIDDEN_FUR" },
+		{ "u_message": "You feel your transformative magic fade from your skin.", "type": "neutral" }
+	]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_REMOVE_MAJOR_GLAMOR2",
+	"condition": { "or": [ { "u_has_trait": "GLAM_MUZZLE" }, { "u_has_trait": "HIDDEN_MUZZLE" } ] },
+    "effect": [ 
+		{ "u_add_trait": "FOX_MUZZLE" },
+		{ "u_lose_trait": "GLAM_MUZZLE" },
+		{ "u_lose_trait": "HIDDEN_MUZZLE" },
+		{ "u_message": "You feel your transformative magic fade from your face.", "type": "neutral" }
+	]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_REMOVE_MAJOR_GLAMOR3",
+	"condition": { "or": [ { "u_has_trait": "GLAM_EARS" }, { "u_has_trait": "HIDDEN_EARS" } ] },
+    "effect": [ 
+		{ "u_add_trait": "FOX_EARS" },
+		{ "u_lose_trait": "GLAM_EARS" },
+		{ "u_lose_trait": "HIDDEN_EARS" },
+		{ "u_message": "You feel your transformative magic fade from your ears.", "type": "neutral" }
+	]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_REMOVE_MAJOR_GLAMOR4",
+	"condition": { "or": [ { "u_has_trait": "GLAM_PAWS" }, { "u_has_trait": "HIDDEN_PAWS" } ] },
+    "effect": [ 
+		{ "u_add_trait": "PAWS" },
+		{ "u_lose_trait": "GLAM_PAWS" },
+		{ "u_lose_trait": "HIDDEN_PAWS" },
+		{ "u_message": "You feel your transformative magic fade from your paws.", "type": "neutral" }
+	]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_REMOVE_MAJOR_GLAMOR5",
+	"condition": { "or": [ { "u_has_trait": "GLAM_FEET" }, { "u_has_trait": "HIDDEN_FEET" } ] },
+    "effect": [ 
+		{ "u_add_trait": "ANIMAL_FEET" },
+		{ "u_lose_trait": "GLAM_FEET" },
+		{ "u_lose_trait": "HIDDEN_FEET" },
+		{ "u_message": "You feel your transformative magic fade from your legs.", "type": "neutral" }
+	]
+  },
+  {
     "id": "summon_foxfire",
     "type": "SPELL",
     "name": "Foxfire",
@@ -82,22 +352,25 @@
     "type": "SPELL",
     "name": "Escape",
     "description": "Teleports you in a random direction a medium distance, to help escape your foes in dangerous situations.",
-    "effect": "none",
+    "effect": "summon",
     "shape": "blast",
-    "extra_effects": [
-      { "id": "kitsune_image" },
-      { "id": "kitsune_poof", "hit_self": true }
-    ],
-    "valid_targets": [ "self" ],
-    "flags": [ "SOMATIC", "SILENT", "NO_LEGS", "VERBAL", "WONDER" ],
-    "spell_class": "NONE",
-    "min_damage": 2,
-    "max_damage": 2,
-    "max_level": 9,
-    "difficulty": 5,
-    "base_casting_time": 100,
+    "effect_str": "mon_mirror_image",
+	"valid_targets": [ "self" ],
+	"extra_effects": [
+		{ "id": "kitsune_poof", "hit_self": true }
+	],
     "energy_source": "MANA",
-    "base_energy_cost": 250
+    "difficulty": 5,
+    "max_level": 20,
+	"min_damage": 1,
+    "final_casting_time": 130,
+    "base_energy_cost": 200,
+    "energy_increment": -2.0,
+    "final_energy_cost": 160,
+    "min_aoe": 4,
+    "min_duration": 3000,
+    "max_duration": 6000,
+    "duration_increment": 200
   },
   {
 	"id": "summon_foxfire2",
@@ -231,9 +504,9 @@
     "name": "K-Poof",
 	"//": "This is a spell sub effect",
     "description": "Teleports you in a random direction a medium distance, to help escape your foes in dangerous situations.",
+	"valid_targets": [ "self" ],
     "effect": "short_range_teleport",
     "shape": "blast",
-    "valid_targets": [ "self" ],
     "flags": [ "SILENT", "NO_LEGS", "VERBAL" ],
     "min_aoe": 5,
     "max_aoe": 10,
