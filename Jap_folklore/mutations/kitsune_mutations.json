@@ -40,17 +40,36 @@
     "anger_relations": [ [ "FOX", -35 ] ],
     "valid": false,
     "purifiable": false,
-    "threshold": true
+    "threshold": true,
+	"spells_learned": [ [ "kitsune_glamor_minor", 0 ] ]
   },
   {
 	"type": "mutation",
 	"id": "TRUE_KITSUNE",
 	"name": { "str": "True Kitsune" },
 	"points": 1,
-	"description": "You're a born and raised kitsune with a silver tongue to match.",
+	"description": "You're a born and raised kitsune with a silver tongue to match. Star pearls tend to be more reactive around you as well.",
 	"social_modifiers": { "lie": 10, "persuade": 10 },
 	"valid": false,
 	"purifiable": false
+  },
+  {
+	"type": "mutation",
+	"id": "MINOR_GLAMOR",
+	"name": { "str": "Kitsune Glamor" },
+	"points": 1,
+	"visibility": 10,
+	"ugliness": -5,
+	"description": "You're covering yourself in a glamor, and concealing some of your inhuman traits."
+  },
+  {
+	"type": "mutation",
+	"id": "MAJOR_GLAMOR",
+	"name": { "str": "Kitsune Transformation" },
+	"points": 1,
+	"visibility": 10,
+	"ugliness": -5,
+	"description": "You're sustaining your transformative potential."
   },
   {
     "type": "mutation",
@@ -63,7 +82,6 @@
     "description": "Soft fur has grown to cover your entire body, providing a marginal protection against attacks, and considerable protection from cold.",
     "types": [ "SKIN" ],
     "prereqs": [ "LIGHTFUR" ],
-	"changes_to": [ "GLAM_FUR" ],
     "category": [ "KITSUNE" ],
 	"integrated_armor": [ "integrated_fur" ]
   },
@@ -71,23 +89,22 @@
     "type": "mutation",
 	"id": "GLAM_FUR",
 	"name": { "str": "Kitsune Fur" },
-	"points": 4,
+	"points": 2,
 	"visibility": 10,
 	"ugliness": 1,
 	"bodytemp_sleep": 300,
+	"valid": false,
 	"active": true,
 	"description": "Luxuriously soft fur with strange red patterns has grown to cover your entire body, providing a marginal protection against attacks, and considerable protection from cold. It occasionally glimmers with magical potential.",
 	"types": [ "SKIN" ],
-	"prereqs": [ "KITSUNE_FUR" ],
-	"threshreq": [ "THRESH_FOX" ],
 	"category": [ "KITSUNE" ],
 	"integrated_armor": [ "integrated_fur" ],
 	"transform": {
-      "target": "HIDDEN_FUR",
-      "msg_transform": "Your fur fades as you draw its magic into yourself.",
-      "active": false,
-      "moves": 100
-	  }
+	  "target": "HIDDEN_FUR",
+	  "msg_transform": "You focus your magic and your fur recedes.",
+	  "active": false,
+	  "moves": 100
+	}
   },
   {
     "type": "mutation",
@@ -123,6 +140,128 @@
   },
   {
     "type": "mutation",
+    "id": "GLAM_EARS",
+    "name": { "str": "Kitsune Ears" },
+    "points": 1,
+    "visibility": 4,
+    "ugliness": 0,
+	"active": true,
+	"valid": false,
+    "description": "You have cute and fluffy fox ears, pointing straight up and alert. They occasionally glimmer with magical potential.",
+    "types": [ "EARS" ],
+    "category": [ "KITSUNE" ],
+	"flags": [ "KITSUNE_MARKER_EARS" ],
+    "hearing_modifier": 1.75,
+	"transform": {
+	  "target": "HIDDEN_EARS",
+	  "msg_transform": "You focus your magic and the world goes quiet as your pointed ears recede.",
+	  "moves": 100
+	}
+  },
+  {
+    "type": "mutation",
+    "id": "HIDDEN_EARS",
+    "name": { "str": "Hidden Ears" },
+    "points": 1,
+    "visibility": 0,
+    "ugliness": 0,
+	"active": true,
+	"valid": false,
+    "description": "You've concealed your ears with magic. You can bring them back at any time.",
+    "types": [ "EARS" ],
+	"transform": {
+      "target": "GLAM_EARS",
+      "msg_transform": "With a thought, your magic surges and your ears flick out.",
+      "active": false,
+      "moves": 100
+	  }
+  },
+  {
+	"type": "mutation",
+	"id": "GLAM_PAWS",
+	"name": { "str": "Kitsune Paws" },
+	"points": 0,
+	"description": "You have magic affecting your paws, causing them to occasionally glimmer with magical potential.",
+	"active": true,
+	"valid": false,
+	"activated_eocs": [ "EOC_SHIFT_PAWS" ]
+  },
+  {
+    "type": "mutation",
+    "id": "HIDDEN_PAWS",
+    "name": { "str": "Shifted Hands" },
+    "points": 0,
+	"active": true,
+	"valid": false,
+    "description": "You've transformed your paws away with magic. You can change them back at any time.",
+	"activated_eocs": [ "EOC_SHIFT_PAWS" ]
+  },
+  {
+	"type": "effect_on_condition",
+	"id": "EOC_SHIFT_PAWS",
+	"condition": { "u_has_trait": "GLAM_PAWS" },
+	"effect": [
+	  { "u_lose_trait": "GLAM_PAWS" },
+	  { "u_lose_trait": "PAWS" },
+	  { "u_add_trait": "HIDDEN_PAWS" },
+	  { "u_message": "You focus your magic and your paws shrink into human hands." }
+	],
+	"false_effect": [
+	  { "if": { "u_has_trait": "HIDDEN_PAWS" },
+		"then": [ 
+		  { "u_lose_trait": "HIDDEN_PAWS" },
+		  { "u_add_trait": "GLAM_PAWS" },
+		  { "u_add_trait": "PAWS" },
+		  { "u_message": "With a thought, your magic surges and your hands return to their original shape."}
+		]
+	  }
+	]
+  },
+  {
+	"type": "mutation",
+	"id": "GLAM_FEET",
+	"name": { "str": "Kitsune Legs" },
+		"points": 0,
+	"description": "You have magic affecting your digitigrade legs, causing them to occasionally glimmer with magical potential.",
+	"active": true,
+	"valid": false,
+	"activated_eocs": [ "EOC_SHIFT_FEET" ]
+  },
+  {
+	"type": "mutation",
+    "id": "HIDDEN_FEET",
+    "name": { "str": "Shifted Feet" },
+    "points": 0,
+    "visibility": 0,
+    "ugliness": 0,
+	"active": true,
+	"valid": false,
+    "description": "You've transformed your animalistic feet away with magic. You can change them back at any time.",
+	"activated_eocs": [ "EOC_SHIFT_FEET" ]
+  },
+  {
+	"type": "effect_on_condition",
+	"id": "EOC_SHIFT_FEET",
+	"condition": { "u_has_trait": "GLAM_FEET" },
+	"effect": [
+	  { "u_lose_trait": "GLAM_FEET" },
+	  { "u_lose_trait": "ANIMAL_FEET" },
+	  { "u_add_trait": "HIDDEN_FEET" },
+	  { "u_message": "You focus your magic and your heels shift downward into a plantigrade stance." }
+	],
+	"false_effect": [
+	  { "if": { "u_has_trait": "HIDDEN_FEET" },
+		"then": [ 
+		  { "u_lose_trait": "HIDDEN_FEET" },
+		  { "u_add_trait": "GLAM_FEET" },
+		  { "u_add_trait": "ANIMAL_FEET" },
+		  { "u_message": "With a thought, your magic surges and your feet stretch into their original shape." }
+		]
+	  }
+	]
+  },
+  {
+    "type": "mutation",
     "id": "FOX_MUZZLE",
     "name": { "str": "Fox Muzzle" },
     "points": 0,
@@ -133,7 +272,6 @@
     "types": [ "MUZZLE" ],
     "prereqs": [ "SNOUT" ],
     "category": [ "KITSUNE" ],
-    "changes_to": [ "KITSUNE_MUZZLE" ],
     "restricts_gear": [ "mouth" ],
     "social_modifiers": { "intimidate": 6 },
     "attacks": {
@@ -145,6 +283,57 @@
       "base_damage": { "damage_type": "cut", "amount": 4 }
     },
 	"flags": [ "KITSUNE_MARKER_FACE" ]
+  },
+  {
+    "type": "mutation",
+    "id": "GLAM_MUZZLE",
+    "name": { "str": "Kitsune Muzzle" },
+    "points": 2,
+    "visibility": 6,
+    "ugliness": 3,
+    "mixed_effect": true,
+	"active": true,
+    "description": "Your jaw and nose have extended into a vulpine muzzle.  It lends itself to biting in combat and looks impressive, but prevents wearing mouthgear. It occasionally glimmers with magical potential.",
+    "types": [ "MUZZLE" ],
+    "category": [ "KITSUNE" ],
+    "threshreq": [ "THRESH_FOX" ],
+    "restricts_gear": [ "mouth" ],
+    "social_modifiers": { "intimidate": 6 },
+    "attacks": {
+      "attack_text_u": "You nip at %s",
+      "attack_text_npc": "%1$s nips and harries %2$s",
+      "blocker_mutations": [ "FANGS" ],
+      "body_part": "mouth",
+      "chance": 18,
+      "base_damage": { "damage_type": "cut", "amount": 4 }
+    },
+	"transform": {
+	  "target": "HIDDEN_MUZZLE",
+	  "msg_transform": "You focus your magic and your muzzle recedes.",
+	  "active": false,
+	  "moves": 100
+	}
+  },
+  {
+    "type": "mutation",
+    "id": "HIDDEN_MUZZLE",
+    "name": { "str": "Kitsune Face" },
+    "points": -2,
+    "active": true,
+	"valid": false,
+    "visibility": 0,
+    "ugliness": -1,
+    "mixed_effect": true,
+    "description": "Your face is normal, if slightly prettier.  You can morph your face back to a vulpine muzzle at will.",
+    "types": [ "MUZZLE" ],
+	"mana_regen_multiplier": 0.95,
+	"mana_modifier": -100,
+    "transform": {
+      "target": "GLAM_MUZZLE",
+      "msg_transform": "Your face shifts.",
+      "active": false,
+      "moves": 100
+    }
   },
   {
     "type": "mutation",
@@ -247,8 +436,8 @@
 	"description": "You can feel a slight strain as you focus on keeping your tails hidden.",
 	"types": [ "TAIL" ],
 	"valid": false,
-	"mana_regen_multiplier": 0.85,
-	"mana_multiplier": 0.8,
+	"mana_regen_multiplier": 0.9,
+	"mana_multiplier": 0.9,
 	"active": true,
 	"transform": {
       "target": "FOX_THREETAIL",
@@ -295,8 +484,8 @@
 	"description": "You can feel a moderate strain as you focus on keeping your tails hidden.",
 	"types": [ "TAIL" ],
 	"valid": false,
-	"mana_regen_multiplier": 0.8,
-	"mana_multiplier": 0.7,
+	"mana_regen_multiplier": 0.9,
+	"mana_multiplier": 0.9,
 	"active": true,
 	"transform": {
       "target": "FOX_FOURTAIL",
@@ -343,8 +532,8 @@
 	"description": "You can feel a moderate strain as you focus on keeping your tails hidden.",
 	"types": [ "TAIL" ],
 	"valid": false,
-	"mana_regen_multiplier": 0.75,
-	"mana_multiplier": 0.6,
+	"mana_regen_multiplier": 0.9,
+	"mana_multiplier": 0.9,
 	"active": true,
 	"transform": {
       "target": "FOX_FIVETAIL",
@@ -391,8 +580,8 @@
 	"description": "You can feel a heavy strain as you focus on keeping your tails hidden.",
 	"types": [ "TAIL" ],
 	"valid": false,
-	"mana_regen_multiplier": 0.7,
-	"mana_multiplier": 0.5,
+	"mana_regen_multiplier": 0.9,
+	"mana_multiplier": 0.9,
 	"active": true,
 	"transform": {
       "target": "FOX_SIXTAIL",
@@ -439,8 +628,8 @@
 	"description": "You can feel a heavy strain as you focus on keeping your tails hidden.",
 	"types": [ "TAIL" ],
 	"valid": false,
-	"mana_regen_multiplier": 0.65,
-	"mana_multiplier": 0.4,
+	"mana_regen_multiplier": 0.9,
+	"mana_multiplier": 0.9,
 	"active": true,
 	"transform": {
       "target": "FOX_SEVENTAIL",
@@ -487,8 +676,8 @@
 	"description": "You can feel an immense strain as you focus on keeping your tails hidden.",
 	"types": [ "TAIL" ],
 	"valid": false,
-	"mana_regen_multiplier": 0.6,
-	"mana_multiplier": 0.3,
+	"mana_regen_multiplier": 0.9,
+	"mana_multiplier": 0.9,
 	"active": true,
 	"transform": {
       "target": "FOX_EIGHTTAIL",
@@ -534,62 +723,12 @@
 	"description": "You can feel an immense strain as you focus on keeping your tails hidden.",
 	"types": [ "TAIL" ],
 	"valid": false,
-	"mana_regen_multiplier": 0.55,
-	"mana_multiplier": 0.2,
+	"mana_regen_multiplier": 0.9,
+	"mana_multiplier": 0.9,
 	"active": true,
 	"transform": {
       "target": "FOX_NINETAIL",
       "msg_transform": "You breath a sigh of relief as your tails return.",
-      "active": false,
-      "moves": 100
-    }
-  },
-  {
-    "type": "mutation",
-    "id": "KITSUNE_MUZZLE",
-    "name": { "str": "Kitsune Muzzle" },
-    "points": 2,
-    "visibility": 6,
-    "active": true,
-    "ugliness": 3,
-    "mixed_effect": true,
-    "description": "Your jaw and nose have extended into a vulpine muzzle.  It lends itself to biting in combat and looks impressive, but prevents wearing mouthgear.  You can morph your face back to a normal human face at will.",
-    "types": [ "MUZZLE" ],
-    "prereqs": [ "FOX_MUZZLE" ],
-    "category": [ "KITSUNE" ],
-    "threshreq": [ "THRESH_FOX" ],
-    "restricts_gear": [ "mouth" ],
-    "social_modifiers": { "intimidate": 6 },
-    "attacks": {
-      "attack_text_u": "You nip at %s",
-      "attack_text_npc": "%1$s nips and harries %2$s",
-      "blocker_mutations": [ "FANGS" ],
-      "body_part": "mouth",
-      "chance": 18,
-      "base_damage": { "damage_type": "cut", "amount": 4 }
-    },
-    "transform": {
-      "target": "KITSUNE_MUZZLE_HIDDEN",
-      "msg_transform": "Your face shifts.",
-      "active": false,
-      "moves": 100
-    }
-  },
-  {
-    "type": "mutation",
-    "id": "KITSUNE_MUZZLE_HIDDEN",
-    "name": { "str": "Kitsune Face" },
-    "points": -2,
-    "active": true,
-	"valid": false,
-    "visibility": 0,
-    "ugliness": -1,
-    "mixed_effect": true,
-    "description": "Your face is normal, if slightly prettier.  You can morph your face back to a vulpine muzzle at will.",
-    "types": [ "MUZZLE" ],
-    "transform": {
-      "target": "KITSUNE_MUZZLE",
-      "msg_transform": "Your face shifts.",
       "active": false,
       "moves": 100
     }
