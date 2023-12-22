@@ -5,8 +5,7 @@
 		"copy-from": "alchemy_items",
 		"extend": {
 			"items": [
-			[ "star_pearl", 5 ],
-			[ "greater_star_pearl", 1 ]
+			[ "star_pearl", 5 ]
 		  ]
 		}
 	},
@@ -20,43 +19,43 @@
 		"type": "item_group",
 		"id": "threetail_pearl",
 		"subtype": "collection",
-		"items": [ [ "star_pearl", 100 ], [ "greater_star_pearl", 30 ] ]
+		"items": [ [ "star_pearl", 100 ] ]
 	},
 	{
 		"type": "item_group",
 		"id": "fourtail_pearl",
 		"subtype": "collection",
-		"items": [ [ "star_pearl", 100 ], [ "greater_star_pearl", 50 ] ]
+		"items": [ [ "star_pearl", 100 ] ]
 	},
 	{
 		"type": "item_group",
 		"id": "fivetail_pearl",
 		"subtype": "collection",
-		"items": [ [ "star_pearl", 100 ], [ "greater_star_pearl", 90 ] ]
+		"items": [ [ "star_pearl", 100 ] ]
 	},
 	{
 		"type": "item_group",
 		"id": "sixtail_pearl",
 		"subtype": "collection",
-		"items": [ [ "greater_star_pearl", 30 ] ]
+		"items": [ [ "star_pearl", 100 ], [ "star_pearl", 30 ] ]
 	},
 	{
 		"type": "item_group",
 		"id": "seventail_pearl",
 		"subtype": "collection",
-		"items": [ [ "greater_star_pearl", 50 ] ]
+		"items": [ [ "star_pearl", 50 ], [ "star_pearl", 100 ] ]
 	},
 	{
 		"type": "item_group",
 		"id": "eighttail_pearl",
 		"subtype": "collection",
-		"items": [ [ "greater_star_pearl", 70 ] ]
+		"items": [ [ "star_pearl", 70 ], [ "star_pearl", 100 ] ]
 	},
 	{
 		"type": "item_group",
 		"id": "ninetail_pearl",
 		"subtype": "collection",
-		"items": [ [ "greater_star_pearl", 90 ] ]
+		"items": [ [ "star_pearl", 90 ], [ "star_pearl", 100 ] ]
 	},
 	{
 		"type": "item_group",

@@ -45,24 +45,9 @@
     "material": [ "gemstone" ],
     "flags": [ "CARNIVORE_OK", "NO_INGEST" ],
     "use_action": { 
-		"type": "consume_drug",
-		"activation_message": "A warm energy flows from the pearl into you as the pearl crumbles to dust.",
-		"effects": [ { "id": "kitsune_pearl_effect", "duration": 5 } ]
-	 }
-  },
-  {
-    "id": "greater_star_pearl",
-    "copy-from": "star_pearl",
-    "type": "COMESTIBLE",
-    "name": { "str": "greater star pearl" },
-    "description": "A Pearl treasured by kitsune. This one seems to glimmer with unearthly light.",
-    "healthy": 4,
-    "price": 200000,
-    "price_postapoc": 100,
-    "use_action": { 
-		"type": "consume_drug",
-		"activation_message": "An intense heat surges into you as the pearl crumbles to dust!",
-		"effects": [ { "id": "kitsune_gpearl_effect", "duration": 5 } ]
+		"type": "effect_on_conditions",
+		"description": "The pearl gives of an unearthly sheen.",
+		"effect_on_conditions": [ "kitsune_pearl_effect" ]
 	}
   },
   {
@@ -339,5 +324,57 @@
 	"material": "gemstone",
 	"price": 25000,
 	"flags": [ "FANCY", "NO_WEAR_EFFECT" ]
-  }
+  },
+  {
+    "type": "GENERIC",
+    "id": "shuriken",
+    "category": "weapons",
+    "price": 100,
+    "price_postapoc": 10,
+    "name": { "str": "shuriken", "str_pl": "shuriken" },
+    "symbol": "*",
+    "color": "light_gray",
+	"to_hit": -3,
+    "description": "A ninja classic, it's a star-shaped disk with many sharpened points.",
+    "material": [ "steel" ],
+    "volume": "100 ml",
+    "weight": "25 g",
+    "thrown_damage": [ { "damage_type": "cut", "amount": 5 } ],
+    "melee_damage": { "cut": 1 }
+  },
+  {
+    "type": "GENERIC",
+    "id": "coin_shuriken",
+    "category": "weapons",
+    "price": 100,
+    "price_postapoc": 10,
+    "name": { "str": "coin shuriken" },
+    "symbol": ".",
+    "color": "yellow",
+	"to_hit": -3,
+    "description": "A somewhat large coin that with a sharpened edge. A weapon of desperation and harassment.",
+    "material": [ "copper" ],
+    "volume": "1 ml",
+    "weight": "6 g",
+    "thrown_damage": [ { "damage_type": "cut", "amount": 2 } ],
+    "melee_damage": { "cut": 1 }
+  },
+  {
+    "type": "COMESTIBLE",
+    "id": "blinding_egg",
+    "category": "weapons",
+	"comestible_type": "MED",
+	"symbol": "o",
+    "price": 100,
+    "price_postapoc": 10,
+    "name": { "str": "blinding egg bomb" },
+    "looks_like": "egg_chicken",
+	"to_hit": -3,
+    "description": "The shell of an egg, emptied out and filled with glass powder and irritating substances.",
+    "material": [ "egg" ],
+    "volume": "50 ml",
+    "weight": "25 g",
+	"use_action": { "type": "cast_spell", "spell_id": "egg_blind", "no_fail": false, "level": 2 },
+	"flags": [ "NO_SALVAGE", "NO_INGEST", "NUTRIENT_OVERRIDE" ]
+  } 
 ]
