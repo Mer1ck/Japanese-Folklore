@@ -73,9 +73,12 @@
         "queue_eocs": "EOC_MINOR_GLAMOR_CONTINUE",
         "time_in_future": { "math": [ "((u_spell_level('kitsune_glamor_minor')+1)*200)" ] }
       },
-      {
-        "math": [ "u_spell_exp('kitsune_glamor_minor')", "+=", "spell_exp_diff(u_spell_level('kitsune_glamor_minor'))/spell_train_factor(200)" ]
-      }
+	  {
+		"if": { "math": [ "u_spell_level('kitsune_glamor_minor')", "<=", "15" ] },
+		"then": {
+			"math": [ "u_spell_exp('kitsune_glamor_minor')", "+=", "spell_exp_diff(u_spell_level('kitsune_glamor_minor'))/spell_train_factor(200)" ]
+		}
+	  }
     ],
     "false_effect": [
       { "u_lose_trait": "MINOR_GLAMOR" },
@@ -135,9 +138,12 @@
         "queue_eocs": "EOC_MAJOR_GLAMOR_CONTINUE",
         "time_in_future": { "math": [ "((u_spell_level('kitsune_glamor_minor')+1)*200)" ] }
       },
-      {
-        "math": [ "u_spell_exp('kitsune_glamor_major')", "+=", "spell_exp_diff(u_spell_level('kitsune_glamor_major'))/spell_train_factor(200)" ]
-      }
+	  {
+		"if": { "math": [ "u_spell_level('kitsune_glamor_major')", "<=", "20" ] },
+		"then": {
+			"math": [ "u_spell_exp('kitsune_glamor_major')", "+=", "spell_exp_diff(u_spell_level('kitsune_glamor_major'))/spell_train_factor(400)" ]
+			}
+	  }
     ],
     "false_effect": [
       { "u_lose_trait": "MAJOR_GLAMOR" },
