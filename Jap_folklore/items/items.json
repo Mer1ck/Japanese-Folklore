@@ -376,5 +376,21 @@
     "weight": "25 g",
 	"use_action": { "type": "cast_spell", "spell_id": "egg_blind", "no_fail": false, "level": 2 },
 	"flags": [ "NO_SALVAGE", "NO_INGEST", "NUTRIENT_OVERRIDE" ]
-  } 
+  },
+  {
+	"type": "COMESTIBLE",
+	"id": "ninja_food",
+	"comestible_type": "FOOD",
+	"symbol": "o",
+	"color": "brown",
+	"price": 5,
+	"name": { "str": "hyorogan", "str_pl": "hyorogan" },
+	"description": "A small, pill-like rice ball made with with sugar and spices. Historically used by ninja during their missions. You've had to make some adjustments to the recipe, but they should be close enough.",
+	"material": [ "veggy" ],
+	"volume": "25 ml",
+	"weight": "50 g",
+	"fun": 1,
+	"calories": 67,
+	"spoils_in": "21 days"
+  }
 ]
