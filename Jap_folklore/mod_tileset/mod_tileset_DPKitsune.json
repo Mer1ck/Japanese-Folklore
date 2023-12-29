@@ -7,14 +7,15 @@
         "file": "mod_tileset/UndeadPeople-Kitsune.png",
         "sprite_offset_y":-17,
         "tiles": [
-          { "id": "overlay_mutation_FOX_EARS", "fg": 0, "rotates": false }
+          { "id": "overlay_mutation_FOX_EARS", "fg": 0, "rotates": false },
+		  { "id": "overlay_mutation_GLAM_EARS", "fg": 0, "rotates": false }
         ]
       },
 	  {
 		"file": "mod_tileset/UndeadPeople-Kitsune.png",
 		"tiles": [
 		  { "id": "overlay_mutation_FOX_MUZZLE", "fg": 1, "rotates": false },
-		  { "id": "overlay_mutation_KITSUNE_MUZZLE", "fg": 1, "rotates": false },
+		  { "id": "overlay_mutation_GLAM_MUZZLE", "fg": 1, "rotates": false },
 		  { "id": "overlay_mutation_FOX_TAIL", "fg": 15, "rotates": false },
 		  { "id": "overlay_mutation_FOX_TWOTAIL", "fg": 14, "rotates": false },
 		  { "id": "overlay_mutation_FOX_THREETAIL", "fg": 13, "rotates": false },
