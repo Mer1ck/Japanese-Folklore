@@ -36,7 +36,8 @@
 			{ "item": "dry_divine_rice", "count": [ 1, 5 ], "prob": 100 },
 			{ "item": "magatama", "count": [ 5, 10 ], "prob": 100 },
 			{ "item": "magatama_string", "count": [ 1, 5 ], "prob": 100 },
-			{ "item": "star_pearl", "count": [ 1, 6 ], "prob": 100 }
+			{ "item": "star_pearl", "count": [ 1, 6 ], "prob": 100 },
+			{ "item": "ninja_scroll", "count": [ 1, 1 ], "prob": 100 }
 		]
 	}
 ]
