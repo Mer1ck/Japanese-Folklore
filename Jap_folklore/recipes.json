@@ -268,7 +268,7 @@
     "difficulty": 2,
 	"batch_time_factors": [ 40, 2 ],
     "time": "20 m",
-    "autolearn": true,
+    "book_learn": [ [ "ninja_scroll", 1 ] ],
     "proficiencies": [
       { "proficiency": "prof_metalworking" }
     ],
@@ -286,7 +286,7 @@
     "difficulty": 2,
 	"batch_time_factors": [ 40, 2 ],
     "time": "10 m",
-    "autolearn": true,
+    "book_learn": [ [ "ninja_scroll", 1 ] ],
     "proficiencies": [
       { "proficiency": "prof_metalworking" }
     ],
@@ -303,7 +303,7 @@
     "difficulty": 2,
     "time": "30 m",
     "charges": 120,
-    "autolearn": true,
+    "book_learn": [ [ "ninja_scroll", 1 ] ],
     "batch_time_factors": [ 80, 5 ],
     "flags": [ "BLIND_HARD" ],
     "proficiencies": [ { "proficiency": "prof_food_prep" } ],
@@ -329,7 +329,7 @@
     "difficulty": 2,
     "time": "7 m 15 s",
     "charges": 120,
-    "autolearn": true,
+    "book_learn": [ [ "ninja_scroll", 1 ] ],
     "batch_time_factors": [ 83, 3 ],
     "flags": [ "BLIND_HARD" ],
     "proficiencies": [ { "proficiency": "prof_food_prep" } ],
@@ -343,5 +343,26 @@
 		[ [ "caffeine", 1 ], [ "coffee", 1 ], [ "sugar", 1 ] ],
 		[ [ "sugar", 300 ] ]
 	]
+  },
+  {
+    "result": "mod_smokebomb",
+    "type": "recipe",
+    "activity_level": "LIGHT_EXERCISE",
+    "category": "CC_WEAPON",
+    "subcategory": "CSC_WEAPON_EXPLOSIVE",
+    "skill_used": "chemistry",
+    "skills_required": [ "mechanics", 1 ],
+    "difficulty": 2,
+    "book_learn": [ [ "ninja_scroll", 1 ] ],
+    "proficiencies": [ { "proficiency": "prof_intro_chemistry" }, { "proficiency": "prof_inorganic_chemistry" } ],
+    "time": "7 m 30 s",
+    "components": [
+      [ [ "water", 1 ], [ "water_clean", 1 ], [ "salt_water", 1 ], [ "saline", 5 ] ],
+      [ [ "sugar", 16 ] ],
+      [ [ "chem_saltpetre", 24 ] ],
+      [ [ "superglue", 1 ] ],
+	  [ [ "paper", 10 ] ],
+	  [ [ "gunpowder", 50 ], [ "chem_black_powder", 50 ] ]
+    ]
   }
 ]
