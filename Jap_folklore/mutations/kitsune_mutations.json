@@ -51,7 +51,8 @@
 	"description": "You're a born and raised kitsune with a silver tongue to match. Star pearls tend to be more reactive around you as well.",
 	"social_modifiers": { "lie": 10, "persuade": 10 },
 	"valid": false,
-	"purifiable": false
+	"purifiable": false,
+	"spells_learned": [ [ "kitsune_cultivation", 0 ] ]
   },
   {
 	"type": "mutation",
@@ -61,6 +62,14 @@
 	"visibility": 10,
 	"ugliness": -5,
 	"description": "You're covering yourself in a glamor, and concealing some of your inhuman traits."
+  },
+  {
+	"type": "mutation",
+	"id": "KITSUNE_CULTIVATING",
+	"name": { "str": "Pearl Cultivation" },
+	"points": 0,
+	"mana_regen_multiplier": 0.2,
+	"description": "You're redirecting your passive mana flow into a solid form and your mana regeneration is severely hampered."
   },
   {
 	"type": "mutation",
