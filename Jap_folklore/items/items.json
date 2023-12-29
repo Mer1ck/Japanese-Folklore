@@ -82,14 +82,26 @@
   },
   {
     "id": "fox_book",
-    "type": "GENERIC",
+    "type": "BOOK",
     "name": { "str": "Foxes do it Better", "str_pl": "copies of Foxes do it Better" },
+	"category": "manuals",
     "description": "A short, sometime humourous, treatice on why foxes are objectively the best. the author seems to get \"Objective\" and \"Subjective\" mixed up a lot.",
     "weight": "435 g",
     "volume": "500 ml",
     "symbol": "?",
     "color": "red",
     "use_action": { "type": "learn_spell", "spells": [ "foxs_cunning", "obfuscated_body", "summon_wisps" ] }
+  },
+  {
+    "id": "ninja_scroll",
+    "type": "BOOK",
+    "name": { "str": "esoteric scroll" },
+    "description": "A strange scroll that takes a while to make sense of. Seems to contain more advanced skills and weapons that a ninja might use. There's even a strange food recipe.",
+    "weight": "435 g",
+    "volume": "500 ml",
+    "symbol": "?",
+    "color": "green",
+    "use_action": { "type": "learn_spell", "spells": [ "ninpo_star", "ninpo_blind", "ninpo_smoke" ] }
   },
   {
     "type": "GENERIC",
@@ -376,6 +388,59 @@
     "weight": "25 g",
 	"use_action": { "type": "cast_spell", "spell_id": "egg_blind", "no_fail": false, "level": 2 },
 	"flags": [ "NO_SALVAGE", "NO_INGEST", "NUTRIENT_OVERRIDE" ]
+  },
+  {
+    "type": "TOOL",
+    "id": "mod_smokebomb",
+    "category": "weapons",
+	"symbol": "o",
+    "price": 100,
+    "price_postapoc": 10,
+    "name": { "str": "shinobi smoke bomb" },
+	"to_hit": -3,
+    "description": "A papermache bomb filled with pyrotechnics and a small amount of explosives. Designed to explode and rapidly fill an area with smoke.",
+    "material": [ "paper" ],
+    "volume": "250 ml",
+    "weight": "800 g",
+	"use_action": {
+      "need_wielding": true,
+      "target": "mod_smokebomb_lit",
+      "msg": "You light the smoke bomb!",
+      "moves": 75,
+      "target_timer": "5 seconds",
+      "menu_text": "Light fuse",
+      "type": "transform"
+    }, 
+	"flags": [ "BOMB", "GRENADE" ]
+  },
+  {
+    "type": "TOOL",
+    "id": "mod_smokebomb_lit",
+    "category": "weapons",
+	"symbol": "o",
+    "price": 100,
+    "price_postapoc": 10,
+    "name": { "str": "lit shinobi smoke bomb" },
+	"to_hit": -3,
+    "description": "A papermache bomb filled with pyrotechnics and a small amount of explosives. Designed to explode and rapidly fill an area with smoke. The fuse has been lit, you should throw it now!",
+    "material": [ "paper" ],
+    "volume": "250 ml",
+    "weight": "800 g",
+	"tick_action": [ 
+	  { "type": "sound",
+	  "sound_message": "ssss…",
+	  "sound_volume": 0,
+	  "sound_id": "misc",
+	  "sound_variant": "lit_fuse" }
+	],
+	"countdown_action": {
+      "type": "explosion",
+      "fields_radius": 4,
+      "fields_type": "fd_smoke",
+      "fields_min_intensity": 3,
+      "fields_max_intensity": 5
+    }, 
+	"flags": [ "DANGEROUS", "TRADER_AVOID" ]
   },
   {
 	"type": "COMESTIBLE",
