@@ -20,8 +20,17 @@
 	],
 	"responses": [
 		{ "text": "I'm just testing some things.", "topic": "TALK_DONE" },
-		{ "text": "Let's trade some things", "topic": "TALK_NONE", "effect": "start_trade" },
+		{ "text": "I'm looking to trade some things", "topic": "TALK_KAMI_TRADE" },
 		{ "text": "I'm looking for some work", "topic": "TALK_MISSION_LIST"}
+	]
+  },
+  {
+	"id": "TALK_KAMI_TRADE",
+	"type": "talk_topic",
+	"dynamic_line": "Yes, that can be arranged. I have a few lost things that have found their way here that you may be interested in.",
+	"responses": [
+		{ "text": "Let's have a look, then", "topic": "TALK_NONE", "effect": "start_trade" },
+		{ "text": "Never mind", "topic": "TALK_DONE" }
 	]
   }
 ]
