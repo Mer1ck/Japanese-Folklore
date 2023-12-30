@@ -18,35 +18,37 @@
 			]
 		},
 		"effect": [
-			{ "u_message": "The pearl crumbles and you feel the warmth flow into you.", "type": "mixed" },
-			{ "u_consume_item": "star_pearl" },
 			{
-				"if": { "u_query": "Would you like to attempt ascension? This will take a long time", "default": false },
-				"then": {
-					"if": { "and": [ { "u_has_trait": "FOXTAIL"}, { "one_in_chance": { "math": [ "20/u_val('intelligence')" ] } } ] },
-					"then": [ { "u_lose_trait": "FOXTAIL"}, { "u_add_trait": "FOX_TWOTAIL" }, { "u_message": "You feel your mind expand as you sprout another tail!", "type": "good" }, { "u_lose_effect" : "kitsune_pearl_effect" } ],
-					"else": {
-						"if": { "and": [ { "u_has_trait": "FOX_TWOTAIL"}, { "one_in_chance": { "math": [ "30/u_val('intelligence')" ] } } ] },
-						"then": [ { "u_lose_trait": "FOX_TWOTAIL"}, { "u_add_trait": "FOX_THREETAIL" }, { "u_message": "You feel your mind expand as you sprout another tail!", "type": "good" }, { "u_lose_effect" : "kitsune_pearl_effect" } ],
+				"if": { "u_query": "Would you like to attempt ascension?", "default": false },
+				"then": [
+					{ "u_message": "The pearl crumbles and you feel the warmth flow into you.", "type": "mixed" },
+					{ "u_consume_item": "star_pearl" },
+					{ 
+						"if": { "and": [ { "u_has_trait": "FOXTAIL"}, { "one_in_chance": { "math": [ "20/u_val('intelligence')" ] } } ] },
+						"then": [ { "u_lose_trait": "FOXTAIL"}, { "u_add_trait": "FOX_TWOTAIL" }, { "u_message": "You feel your mind expand as you sprout another tail!", "type": "good" }, { "u_lose_effect" : "kitsune_pearl_effect" } ],
 						"else": {
-							"if": { "and": [ { "u_has_trait": "FOX_THREETAIL" }, { "one_in_chance": { "math": [ "40/u_val('intelligence')" ] } } ] },
-							"then": [ { "u_lose_trait": "FOX_THREETAIL"}, { "u_add_trait": "FOX_FOURTAIL" }, { "u_message": "You feel your mind expand as you sprout another tail!", "type": "good" }, { "u_lose_effect" : "kitsune_pearl_effect" } ],
+							"if": { "and": [ { "u_has_trait": "FOX_TWOTAIL"}, { "one_in_chance": { "math": [ "30/u_val('intelligence')" ] } } ] },
+							"then": [ { "u_lose_trait": "FOX_TWOTAIL"}, { "u_add_trait": "FOX_THREETAIL" }, { "u_message": "You feel your mind expand as you sprout another tail!", "type": "good" }, { "u_lose_effect" : "kitsune_pearl_effect" } ],
 							"else": {
-								"if": { "and": [ { "u_has_trait": "FOX_FOURTAIL" }, { "one_in_chance": { "math": [ "50/u_val('intelligence')" ] } } ] },
-								"then": [ { "u_lose_trait": "FOX_FOURTAIL"}, { "u_add_trait": "FOX_FIVETAIL" }, { "u_message": "You feel your mind expand as you sprout another tail!", "type": "good" }, { "u_lose_effect" : "kitsune_pearl_effect" } ],
+								"if": { "and": [ { "u_has_trait": "FOX_THREETAIL" }, { "one_in_chance": { "math": [ "40/u_val('intelligence')" ] } } ] },
+								"then": [ { "u_lose_trait": "FOX_THREETAIL"}, { "u_add_trait": "FOX_FOURTAIL" }, { "u_message": "You feel your mind expand as you sprout another tail!", "type": "good" }, { "u_lose_effect" : "kitsune_pearl_effect" } ],
 								"else": {
-									"if": { "and": [ { "u_has_trait": "FOX_FIVETAIL" }, { "one_in_chance": { "math": [ "60/u_val('intelligence')" ] } } ] },
-									"then": [ { "u_lose_trait": "FOX_FIVETAIL"}, { "u_add_trait": "FOX_SIXTAIL" }, { "u_message": "You feel your mind expand as you sprout another tail!", "type": "good" }, { "u_lose_effect" : "kitsune_pearl_effect" } ],
+									"if": { "and": [ { "u_has_trait": "FOX_FOURTAIL" }, { "one_in_chance": { "math": [ "50/u_val('intelligence')" ] } } ] },
+									"then": [ { "u_lose_trait": "FOX_FOURTAIL"}, { "u_add_trait": "FOX_FIVETAIL" }, { "u_message": "You feel your mind expand as you sprout another tail!", "type": "good" }, { "u_lose_effect" : "kitsune_pearl_effect" } ],
 									"else": {
-										"if": { "and": [ { "u_has_trait": "FOX_SIXTAIL" }, { "one_in_chance": { "math": [ "70/u_val('intelligence')" ] } } ] },
-										"then": [ { "u_lose_trait": "FOX_SIXTAIL" }, { "u_add_trait": "FOX_SEVENTAIL" }, { "u_message": "You feel your mind expand as you sprout another tail!", "type": "good" }, { "u_lose_effect" : "kitsune_pearl_effect" } ],
+										"if": { "and": [ { "u_has_trait": "FOX_FIVETAIL" }, { "one_in_chance": { "math": [ "60/u_val('intelligence')" ] } } ] },
+										"then": [ { "u_lose_trait": "FOX_FIVETAIL"}, { "u_add_trait": "FOX_SIXTAIL" }, { "u_message": "You feel your mind expand as you sprout another tail!", "type": "good" }, { "u_lose_effect" : "kitsune_pearl_effect" } ],
 										"else": {
-											"if": { "and": [ { "u_has_trait": "FOX_SEVENTAIL" }, { "one_in_chance": { "math": [ "80/u_val('intelligence')" ] } } ] },
-											"then": [ { "u_lose_trait": "FOX_SEVENTAIL" }, { "u_add_trait": "FOX_EIGHTTAIL" }, { "u_message": "You feel your mind expand as you sprout another tail!", "type": "good" }, { "u_lose_effect" : "kitsune_pearl_effect" } ],
+											"if": { "and": [ { "u_has_trait": "FOX_SIXTAIL" }, { "one_in_chance": { "math": [ "70/u_val('intelligence')" ] } } ] },
+											"then": [ { "u_lose_trait": "FOX_SIXTAIL" }, { "u_add_trait": "FOX_SEVENTAIL" }, { "u_message": "You feel your mind expand as you sprout another tail!", "type": "good" }, { "u_lose_effect" : "kitsune_pearl_effect" } ],
 											"else": {
-												"if": { "and": [ { "u_has_trait": "FOX_EIGHTTAIL" }, { "one_in_chance": { "math": [ "90/u_val('intelligence')" ] } } ] },
-												"then": [ { "u_lose_trait": "FOX_EIGHTTAIL" }, { "u_add_trait": "FOX_NINETAIL" }, { "u_message": "You feel your mind expand as you sprout another tail!", "type": "good" }, { "u_lose_effect" : "kitsune_pearl_effect" } ],
-												"else": { "u_message": "You attempt to focus your will, but you become distracted and the warmth fades away.", "type": "bad" }
+												"if": { "and": [ { "u_has_trait": "FOX_SEVENTAIL" }, { "one_in_chance": { "math": [ "80/u_val('intelligence')" ] } } ] },
+												"then": [ { "u_lose_trait": "FOX_SEVENTAIL" }, { "u_add_trait": "FOX_EIGHTTAIL" }, { "u_message": "You feel your mind expand as you sprout another tail!", "type": "good" }, { "u_lose_effect" : "kitsune_pearl_effect" } ],
+												"else": {
+													"if": { "and": [ { "u_has_trait": "FOX_EIGHTTAIL" }, { "one_in_chance": { "math": [ "90/u_val('intelligence')" ] } } ] },
+													"then": [ { "u_lose_trait": "FOX_EIGHTTAIL" }, { "u_add_trait": "FOX_NINETAIL" }, { "u_message": "You feel your mind expand as you sprout another tail!", "type": "good" }, { "u_lose_effect" : "kitsune_pearl_effect" } ],
+													"else": { "u_message": "You attempt to focus your will, but you become distracted and the warmth fades away.", "type": "bad" }
+												}
 											}
 										}
 									}
@@ -54,7 +56,13 @@
 							}
 						}
 					}
-				}
+				],
+				"else": [
+					{
+						"u_message": "You appreciate the beauty of the pearl. It feels warm in your hand.",
+						"type": "mixed"
+					}
+				]
 			}
 		],
 		"false_effect": [
