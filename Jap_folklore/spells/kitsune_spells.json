@@ -73,9 +73,12 @@
         "queue_eocs": "EOC_MINOR_GLAMOR_CONTINUE",
         "time_in_future": { "math": [ "((u_spell_level('kitsune_glamor_minor')+1)*200)" ] }
       },
-      {
-        "math": [ "u_spell_exp('kitsune_glamor_minor')", "+=", "spell_exp_diff(u_spell_level('kitsune_glamor_minor'))/spell_train_factor(200)" ]
-      }
+	  {
+		"if": { "math": [ "u_spell_level('kitsune_glamor_minor')", "<=", "15" ] },
+		"then": {
+			"math": [ "u_spell_exp('kitsune_glamor_minor')", "+=", "spell_exp_diff(u_spell_level('kitsune_glamor_minor'))/spell_train_factor(200)" ]
+		}
+	  }
     ],
     "false_effect": [
       { "u_lose_trait": "MINOR_GLAMOR" },
@@ -135,9 +138,12 @@
         "queue_eocs": "EOC_MAJOR_GLAMOR_CONTINUE",
         "time_in_future": { "math": [ "((u_spell_level('kitsune_glamor_minor')+1)*200)" ] }
       },
-      {
-        "math": [ "u_spell_exp('kitsune_glamor_major')", "+=", "spell_exp_diff(u_spell_level('kitsune_glamor_major'))/spell_train_factor(200)" ]
-      }
+	  {
+		"if": { "math": [ "u_spell_level('kitsune_glamor_major')", "<=", "20" ] },
+		"then": {
+			"math": [ "u_spell_exp('kitsune_glamor_major')", "+=", "spell_exp_diff(u_spell_level('kitsune_glamor_major'))/spell_train_factor(400)" ]
+			}
+	  }
     ],
     "false_effect": [
       { "u_lose_trait": "MAJOR_GLAMOR" },
@@ -292,6 +298,58 @@
 		{ "u_lose_trait": "HIDDEN_FEET" },
 		{ "u_message": "You feel your transformative magic fade from your legs.", "type": "neutral" }
 	]
+  },
+  {
+    "id": "kitsune_cultivation",
+    "type": "SPELL",
+    "name": "Cultivate Pearl",
+    "description": "Devote a large portion of your mana toward cultivating a star pearl. The process will take a long time, and your mana generation will be greatly reduced. Recasting this spell will cancel the process.",
+    "valid_targets": [ "self" ],
+    "flags": [ "CONCENTRATE", "NO_HANDS", "NO_LEGS" ],
+    "effect": "effect_on_condition",
+    "effect_str": "EOC_CULTIVATE_INITIATE",
+    "shape": "blast",
+    "energy_source": "MANA",
+    "spell_class": "TRUE_KITSUNE",
+    "difficulty": 3,
+    "max_level": 0,
+    "base_casting_time": 100,
+    "base_energy_cost": 0,
+	"//": "Should take 5 days to complete",
+    "min_duration": 43200000,
+    "max_duration": 43200000
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_CULTIVATE_INITIATE",
+	"condition": { "not": { "u_has_trait": "KITSUNE_CULTIVATING" } },
+    "effect": [ 
+		{ "u_add_trait": "KITSUNE_CULTIVATING" },
+		{ "u_message": "You focus your mana internally, condensing it into a physical form.", "type": "neutral" },
+		{ "queue_eocs": "EOC_CULTIVATE_CONTINUE", "time_in_future": "1 h" },
+		{ "math": [ "cultivation_progress", "=", "0" ] }
+	],
+	"//": "Next EOC queues every hour",
+	"false_effect": [ { "u_lose_trait": "KITSUNE_CULTIVATING" }, { "math": [ "cultivation_progress", "=", "0" ] } ] 
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_CULTIVATE_CONTINUE",
+	"condition": { "u_has_trait": "KITSUNE_CULTIVATING" },
+    "effect": [ 
+		{ "if": { "math": [ "cultivation_progress", ">=", "120" ] },
+		  "then": [ 
+			{ "u_spawn_item": "star_pearl" },
+			{ "u_lose_trait": "KITSUNE_CULTIVATING" },
+			{ "u_message": "You finish your pearl cultivation!", "type": "good" }
+		  ],
+		  "else": [
+		    { "math": [ "cultivation_progress", "+=", "1" ] },
+			{ "queue_eocs": "EOC_CULTIVATE_CONTINUE", "time_in_future": "1 h" }
+		  ]
+		}
+	],
+	"//": "Next EOC queues every hour"
   },
   {
     "id": "summon_foxfire",

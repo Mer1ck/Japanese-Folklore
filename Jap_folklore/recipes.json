@@ -40,7 +40,6 @@
 	],
     "components": [ 
 		[ 
-			[ "greater_star_pearl", 1 ],
 			[ "star_pearl", 5 ],
 			[ "synth_star_pearl", 5 ]
 		],
@@ -235,5 +234,135 @@
 	"components": [
 			[[ "magatama_string", 5 ]]
 	]
+  },
+  {
+    "type": "recipe",
+    "activity_level": "BRISK_EXERCISE",
+    "result": "shuriken",
+    "category": "CC_WEAPON",
+    "subcategory": "CSC_WEAPON_RANGED",
+    "skill_used": "fabrication",
+    "skills_required": [ "throw", 1 ],
+	"result_mult": 10,
+    "difficulty": 4,
+	"batch_time_factors": [ 20, 2 ],
+    "time": "2 h",
+    "autolearn": true,
+    "proficiencies": [
+      { "proficiency": "prof_metalworking" },
+      { "proficiency": "prof_blacksmithing" },
+      { "proficiency": "prof_bladesmith" }
+    ],
+    "using": [ [ "blacksmithing_standard", 2 ], [ "steel_tiny", 1 ] ],
+    "qualities": [ { "id": "GRIND", "level": 2 } ],
+    "tools": [ [ [ "hotcut", -1 ] ] ]
+  },
+  {
+    "type": "recipe",
+    "activity_level": "BRISK_EXERCISE",
+    "result": "coin_shuriken",
+    "category": "CC_WEAPON",
+    "subcategory": "CSC_WEAPON_RANGED",
+    "skill_used": "fabrication",
+    "skills_required": [ "throw", 3 ],
+    "difficulty": 2,
+	"batch_time_factors": [ 40, 2 ],
+    "time": "20 m",
+    "book_learn": [ [ "ninja_scroll", 1 ] ],
+    "proficiencies": [
+      { "proficiency": "prof_metalworking" }
+    ],
+    "components": [ [ [ "coin_quarter", 1 ], [ "coin_half_dollar", 1 ], [ "coin_dollar", 1 ] ] ],
+    "qualities": [ { "id": "GRIND", "level": 1 } ]
+  },
+  {
+    "type": "recipe",
+    "activity_level": "BRISK_EXERCISE",
+    "result": "blinding_egg",
+    "category": "CC_WEAPON",
+    "subcategory": "CSC_WEAPON_RANGED",
+    "skill_used": "fabrication",
+    "skills_required": [ "throw", 3 ],
+    "difficulty": 2,
+	"batch_time_factors": [ 40, 2 ],
+    "time": "10 m",
+    "book_learn": [ [ "ninja_scroll", 1 ] ],
+    "proficiencies": [
+      { "proficiency": "prof_metalworking" }
+    ],
+    "components": [ [ [ "egg_bird", 1 ], [ "egg_chicken", 1 ], [ "egg_bird_unfert", 1], [ "egg_grouse", 1 ], [ "egg_crow", 1 ], [ "egg_raven", 1 ], [ "egg_duck", 1 ], [ "egg_goose_canadian", 1 ], [ "egg_turkey", 1 ] ], [ [ "glass_shard", 5 ] ], [ [ "chilly-p", 5 ], [ "pepper", 5 ], [ "mustard_powder", 5 ] ] ],
+    "qualities": [ { "id": "FINE_GRIND", "level": 1 } ]
+  },
+  {
+    "type": "recipe",
+    "activity_level": "NO_EXERCISE",
+    "result": "ninja_food",
+    "category": "CC_FOOD",
+    "subcategory": "CSC_FOOD_OTHER",
+    "skill_used": "cooking",
+    "difficulty": 2,
+    "time": "30 m",
+    "charges": 120,
+    "book_learn": [ [ "ninja_scroll", 1 ] ],
+    "batch_time_factors": [ 80, 5 ],
+    "flags": [ "BLIND_HARD" ],
+    "proficiencies": [ { "proficiency": "prof_food_prep" } ],
+    "qualities": [ { "id": "OVEN", "level": 1 } ],
+    "tools": [ [ [ "rock_quern", -1 ], [ "clay_quern", -1 ] ], [ [ "surface_heat", 28, "LIST" ] ] ],
+    "components": [ 
+		[ [ "dry_rice", 7 ], [ "dry_wild_rice", 7 ] ],
+		[ [ "seed_lotus", 1 ] ],
+		[ [ "cinnamon", 1 ] ],
+		[ [ "buckwheat", 1 ] ],
+		[ [ "caffeine", 1 ], [ "coffee", 1 ], [ "sugar", 1 ] ],
+		[ [ "sugar", 300 ] ]
+	]
+  },
+  {
+    "type": "recipe",
+    "activity_level": "NO_EXERCISE",
+    "result": "ninja_food",
+    "id_suffix": "with_food_processor",
+    "category": "CC_FOOD",
+    "subcategory": "CSC_FOOD_OTHER",
+    "skill_used": "cooking",
+    "difficulty": 2,
+    "time": "7 m 15 s",
+    "charges": 120,
+    "book_learn": [ [ "ninja_scroll", 1 ] ],
+    "batch_time_factors": [ 83, 3 ],
+    "flags": [ "BLIND_HARD" ],
+    "proficiencies": [ { "proficiency": "prof_food_prep" } ],
+    "qualities": [ { "id": "OVEN", "level": 1 } ],
+    "tools": [ [ [ "food_processor", 20 ] ], [ [ "surface_heat", 28, "LIST" ] ] ],
+    "components": [ 
+		[ [ "dry_rice", 7 ], [ "dry_wild_rice", 7 ] ],
+		[ [ "seed_lotus", 1 ] ],
+		[ [ "cinnamon", 1 ] ],
+		[ [ "buckwheat", 1 ] ],
+		[ [ "caffeine", 1 ], [ "coffee", 1 ], [ "sugar", 1 ] ],
+		[ [ "sugar", 300 ] ]
+	]
+  },
+  {
+    "result": "mod_smokebomb",
+    "type": "recipe",
+    "activity_level": "LIGHT_EXERCISE",
+    "category": "CC_WEAPON",
+    "subcategory": "CSC_WEAPON_EXPLOSIVE",
+    "skill_used": "chemistry",
+    "skills_required": [ "mechanics", 1 ],
+    "difficulty": 2,
+    "book_learn": [ [ "ninja_scroll", 1 ] ],
+    "proficiencies": [ { "proficiency": "prof_intro_chemistry" }, { "proficiency": "prof_inorganic_chemistry" } ],
+    "time": "7 m 30 s",
+    "components": [
+      [ [ "water", 1 ], [ "water_clean", 1 ], [ "salt_water", 1 ], [ "saline", 5 ] ],
+      [ [ "sugar", 16 ] ],
+      [ [ "chem_saltpetre", 24 ] ],
+      [ [ "superglue", 1 ] ],
+	  [ [ "paper", 10 ] ],
+	  [ [ "gunpowder", 50 ], [ "chem_black_powder", 50 ] ]
+    ]
   }
 ]
