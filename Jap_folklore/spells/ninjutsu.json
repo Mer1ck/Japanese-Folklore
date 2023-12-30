@@ -273,7 +273,7 @@
     "type": "requirement",
     "components": [
       [
-        [ "smokebomb", 1 ]
+        [ "mod_smokebomb", 1 ]
       ]
     ]
   }
