@@ -58,7 +58,7 @@
 		"known_by_u": false,
 		"size": 10,
 		"power": 100,
-		"food_supply": 100000,
+		"fac_food_supply": { "calories": 115200, "vitamins": { "iron": 800, "calcium": 800, "vitC": 600 } },
 		"wealth": 100000,
 		"currency": "magatama",
 		"price_rules": [
