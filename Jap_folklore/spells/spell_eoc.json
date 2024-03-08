@@ -1,0 +1,360 @@
+[
+   {
+    "type": "jmath_function",
+    "id": "spell_train_factor2",
+    "num_args": 1,
+    "//": "accept the spell _cost, return how much spellcasts required to level the spell",
+    "//2": "formula assumes 1000 as half of player's default mana pool, and 40 is flat modifier to prevent cheap spells cost ungodly lot of time and micromanagement to level them",
+    "return": "1000/(_0 > 0 ? _0 + 40 : 0)"
+   },
+  {
+    "type": "jmath_function",
+    "id": "spell_exp_diff",
+    "num_args": 1,
+    "//": "accept the spell level, return a difference in experience between spell's current level and the next level. Borrowed from Xedra Evolved.",
+    "return": "spell_exp_for_level(_0 + 1) - spell_exp_for_level(_0)"
+  },
+  {
+	"type": "effect_on_condition",
+	"id": "EOC_NINJA_STEALTH",
+	"condition": { "not": { "u_has_trait": "STEALTH_FAKE" } },
+	"effect": [
+		{ "u_add_trait": "STEALTH_FAKE" },
+		{ "queue_eocs": "EOC_STEALTH_REMOVE", "time_in_future": "6 seconds" }
+	]
+  },
+  {
+	"type": "effect_on_condition",
+	"id": "EOC_STEALTH_REMOVE",
+	"effect": [
+		{ "u_lose_trait": "STEALTH_FAKE" },
+		{ "u_message": "Your footsteps grow louder as your concentration fades", "type": "mixed" }
+	]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_MASTER_STEALTH_INITIATE",
+    "condition": { "not": { "u_has_trait": "STEALTH_FAKE" } },
+    "effect": [
+      { "u_add_trait": "STEALTH_FAKE" },
+	  { "u_message": "You fade into the shadows", "type": "good" },
+      { "queue_eocs": "EOC_MASTER_STEALTH_CONTINUE", "time_in_future": { 
+		"math": [ "((u_spell_level('ninpo_stealth_master')+1)*2)" ] } 
+	  }
+    ],
+    "false_effect": [
+	  { "u_lose_trait": "STEALTH_FAKE" },
+      { "u_message": "You step from the shadows and catch your breath.", "type": "neutral" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_MASTER_STEALTH_CONTINUE",
+    "condition": { "and": [ { "u_has_trait": "STEALTH_FAKE" }, { "math": [ "u_val('stamina')", ">=", "1500" ] } ] },
+    "effect": [
+      { "math": [ "u_val('stamina')", "-=", "1500" ] },
+      {
+		"if": { "one_in_chance": { "math": [ "2/(1+( ( ( ( u_spell_level('ninpo_stealth_master') - 10 ) * 2 + u_val('intelligence') + 5 ) - 30 ) / 30 ) ^ 2)" ] } },
+		"then": [
+			{ 
+			  "if": { "math": [ "u_val('stamina')", "<", "3000" ] },
+			  "then": { "u_message": "You feel your breath straining as you maintain your technique", "type": "mixed" }
+			},
+			{ "queue_eocs": "EOC_MASTER_STEALTH_CONTINUE", "time_in_future": { "math": [ "((u_spell_level('ninpo_stealth_master')+1)*2)" ] } }
+		],
+		"else": [
+			{ "u_message": "Your concentration falters and you fail to maintain the technique!", "type": "bad" },
+			{ "u_lose_trait": "STEALTH_FAKE" }
+		]
+      },
+	  {
+		"if": { "math": [ "u_spell_level('ninpo_stealth_master')", "<", "15" ] },
+		"then": {
+			"math": [ "u_spell_exp('ninpo_stealth_master')", "+=", "spell_exp_diff(u_spell_level('ninpo_stealth_master'))/spell_train_factor2(600)" ] 
+		}
+	  }
+    ],
+    "false_effect": [
+      { "u_lose_trait": "STEALTH_FAKE" },
+	  { "if": { "math": [ "u_val('stamina')", "<", "1500" ] },
+		"then": { "u_message": "You step from the shadows and catch your breath.", "type": "neutral" }
+	  }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_MINOR_GLAMOR_INITIATE",
+    "condition": { "not": { "u_has_trait": "MINOR_GLAMOR" } },
+    "effect": [
+      { "u_message": "You are concealed by glamor, and others turn an eye to your oddities.", "type": "good" },
+      { "u_add_trait": "MINOR_GLAMOR" },
+      { "queue_eocs": "EOC_MINOR_GLAMOR_CONTINUE", "time_in_future": { 
+		"math": [ "((u_spell_level('kitsune_glamor_minor')+1)*200)" ] } 
+	  }
+    ],
+    "false_effect": [
+	  { "u_lose_trait": "MINOR_GLAMOR" },
+      { "u_message": "You feel your magical facade fade.", "type": "neutral" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_MINOR_GLAMOR_CONTINUE",
+    "condition": { "and": [ { "u_has_trait": "MINOR_GLAMOR" }, { "math": [ "u_val('mana')", ">=", "200" ] } ] },
+    "effect": [
+      { "math": [ "u_val('mana')", "-=", "200" ] },
+      {
+        "u_message": "You feel the ebb and flow of your illusion.",
+        "type": "good"
+      },
+      {
+        "queue_eocs": "EOC_MINOR_GLAMOR_CONTINUE",
+        "time_in_future": { "math": [ "((u_spell_level('kitsune_glamor_minor')+1)*200)" ] }
+      },
+	  {
+		"if": { "math": [ "u_spell_level('kitsune_glamor_minor')", "<", "15" ] },
+		"then": {
+			"math": [ "u_spell_exp('kitsune_glamor_minor')", "+=", "spell_exp_diff(u_spell_level('kitsune_glamor_minor'))/spell_train_factor2(200)" ]
+		}
+	  }
+    ],
+    "false_effect": [
+      { "u_lose_trait": "MINOR_GLAMOR" },
+      { "u_message": "You feel your magical facade fade.", "type": "neutral" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_INITIATE_MAJOR_GLAMOR",
+    "condition": { "not": { "u_has_trait": "MAJOR_GLAMOR" } },
+    "effect": [
+      { "u_message": "You focus your magic throughout your body.", "type": "good" },
+      { "u_add_trait": "MAJOR_GLAMOR" },
+      { "queue_eocs": "EOC_MAJOR_GLAMOR_CONTINUE", "time_in_future": { 
+		"math": [ "((u_spell_level('kitsune_glamor_major')+1)*200)" ] } 
+	  },
+	  { "queue_eocs": "EOC_APPLY_MAJOR_GLAMOR" }
+    ],
+    "false_effect": [
+	  { "u_lose_trait": "MAJOR_GLAMOR" },
+      { "u_message": "You feel your magical facade fade.", "type": "neutral" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_MAJOR_GLAMOR_CONTINUE",
+    "condition": { "and": [ { "u_has_trait": "MAJOR_GLAMOR" }, { "math": [ "u_val('mana')", ">=", "200" ] } ] },
+    "effect": [
+      { "math": [ "u_val('mana')", "-=", "200/(u_spell_level('kitsune_glamor_major')+1)" ] },
+	  { "if": { "math": [ "u_val('mana')", "<=", "500" ] },
+		"then": { "u_message": "It's becoming difficult to maintain your transformation magic" } },
+	  { "queue_eocs": "EOC_GLAMOR_UPKEEP1" },
+	  { "queue_eocs": "EOC_GLAMOR_UPKEEP2" },
+	  { "queue_eocs": "EOC_GLAMOR_UPKEEP3" },
+	  { "queue_eocs": "EOC_GLAMOR_UPKEEP4" },
+	  { "queue_eocs": "EOC_GLAMOR_UPKEEP5" },
+      {
+        "queue_eocs": "EOC_MAJOR_GLAMOR_CONTINUE",
+        "time_in_future": { "math": [ "((u_spell_level('kitsune_glamor_minor')+1)*200)" ] }
+      },
+	  {
+		"if": { "math": [ "u_spell_level('kitsune_glamor_major')", "<", "20" ] },
+		"then": {
+			"math": [ "u_spell_exp('kitsune_glamor_major')", "+=", "spell_exp_diff(u_spell_level('kitsune_glamor_major'))/spell_train_factor2(500)" ]
+			}
+	  }
+    ],
+    "false_effect": [
+      { "u_lose_trait": "MAJOR_GLAMOR" },
+	  { "queue_eocs": "EOC_REMOVE_MAJOR_GLAMOR1" },
+	  { "queue_eocs": "EOC_REMOVE_MAJOR_GLAMOR2" },
+	  { "queue_eocs": "EOC_REMOVE_MAJOR_GLAMOR3" },
+	  { "queue_eocs": "EOC_REMOVE_MAJOR_GLAMOR4" },
+	  { "queue_eocs": "EOC_REMOVE_MAJOR_GLAMOR5" },
+      { "u_message": "You feel the magical potential fade from your body.", "type": "neutral" }
+    ]
+  },
+  {
+	"type": "effect_on_condition",
+	"id": "EOC_GLAMOR_UPKEEP1",
+	"condition": { "u_has_trait": "HIDDEN_FUR" },
+	"effect": [ { "math": [ "u_val('mana')", "-=", "100/((u_spell_level('kitsune_glamor_major')+2)*0.5)" ] } ]
+  },
+  {
+	"type": "effect_on_condition",
+	"id": "EOC_GLAMOR_UPKEEP2",
+	"condition": { "u_has_trait": "HIDDEN_MUZZLE" },
+	"effect": [ { "math": [ "u_val('mana')", "-=", "100/((u_spell_level('kitsune_glamor_major')+2)*0.5)" ] } ]
+  },
+  {
+	"type": "effect_on_condition",
+	"id": "EOC_GLAMOR_UPKEEP3",
+	"condition": { "u_has_trait": "HIDDEN_EARS" },
+	"effect": [ { "math": [ "u_val('mana')", "-=", "100/((u_spell_level('kitsune_glamor_major')+2)*0.5)" ] } ]
+  },
+  {
+	"type": "effect_on_condition",
+	"id": "EOC_GLAMOR_UPKEEP4",
+	"condition": { "u_has_trait": "HIDDEN_PAWS" },
+	"effect": [ { "math": [ "u_val('mana')", "-=", "100/((u_spell_level('kitsune_glamor_major')+2)*0.5)" ] } ]
+  },
+  {
+	"type": "effect_on_condition",
+	"id": "EOC_GLAMOR_UPKEEP5",
+	"condition": { "u_has_trait": "HIDDEN_FEET" },
+	"effect": [ { "math": [ "u_val('mana')", "-=", "100/((u_spell_level('kitsune_glamor_major')+2)*0.5)" ] } ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_APPLY_MAJOR_GLAMOR",
+    "effect": [
+      { "queue_eocs": "EOC_APPLY_MAJOR_GLAMOR1" },
+	  { "queue_eocs": "EOC_APPLY_MAJOR_GLAMOR2" },
+	  { "queue_eocs": "EOC_APPLY_MAJOR_GLAMOR3" },
+	  { "queue_eocs": "EOC_APPLY_MAJOR_GLAMOR4" },
+	  { "queue_eocs": "EOC_APPLY_MAJOR_GLAMOR5" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_APPLY_MAJOR_GLAMOR1",
+	"condition": { "u_has_trait": "KITSUNE_FUR" },
+    "effect": [ 
+		{ "u_lose_trait": "KITSUNE_FUR" },
+		{ "u_add_trait": "GLAM_FUR" },
+		{ "u_message": "Your fur glimmers with transformative potential.", "type": "good" }
+	]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_APPLY_MAJOR_GLAMOR2",
+	"condition": { "u_has_trait": "FOX_MUZZLE" },
+    "effect": [ 
+		{ "u_add_trait": "GLAM_MUZZLE" },
+		{ "u_lose_trait": "FOX_MUZZLE" },
+		{ "u_message": "Your muzzle glimmers with transformative potential.", "type": "good" } 
+	]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_APPLY_MAJOR_GLAMOR3",
+	"condition": { "u_has_trait": "FOX_EARS" },
+    "effect": [ 
+		{ "u_add_trait": "GLAM_EARS" },
+		{ "u_lose_trait": "FOX_EARS" },
+		{ "u_message": "Your ears glimmer with transformative potential.", "type": "good" }
+	]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_APPLY_MAJOR_GLAMOR4",
+	"condition": { "u_has_trait": "PAWS" },
+    "effect": [ 
+		{ "u_add_trait": "GLAM_PAWS" },
+		{ "u_message": "Your paws glimmer with transformative potential.", "type": "good" } 
+	]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_APPLY_MAJOR_GLAMOR5",
+	"condition": { "u_has_trait": "ANIMAL_FEET" },
+    "effect": [ 
+		{ "u_add_trait": "GLAM_FEET" },
+		{ "u_message": "Your legs glimmer with transformative potential.", "type": "good" }
+	]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_REMOVE_MAJOR_GLAMOR1",
+	"condition": { "or": [ { "u_has_trait": "GLAM_FUR" }, { "u_has_trait": "HIDDEN_FUR" } ] },
+	"effect": [
+		{ "u_lose_trait": "GLAM_FUR" },
+		{ "u_lose_trait": "HIDDEN_FUR" },
+		{ "u_add_trait": "KITSUNE_FUR" },
+		{ "u_message": "You feel your transformative magic fade from your skin.", "type": "neutral" },
+		{ "queue_eocs": "EOC_FUR_CHECK" }
+	]
+  },
+  {
+	"type": "effect_on_condition",
+	"id": "EOC_FUR_CHECK",
+	"condition": { "and": [ { "u_has_trait": "KITSUNE_FUR" }, { "not": { "u_has_item": "integrated_fur" } } ] },
+	"effect": [ { "u_spawn_item": "integrated_fur" }, { "u_message": "[BUG: Looks like your fur got deleted. A replacement as been placed in your inventory and you should (W)ear it.]", "type": "mixed" } ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_REMOVE_MAJOR_GLAMOR2",
+	"condition": { "or": [ { "u_has_trait": "GLAM_MUZZLE" }, { "u_has_trait": "HIDDEN_MUZZLE" } ] },
+    "effect": [ 
+		{ "u_add_trait": "FOX_MUZZLE" },
+		{ "u_lose_trait": "GLAM_MUZZLE" },
+		{ "u_lose_trait": "HIDDEN_MUZZLE" },
+		{ "u_message": "You feel your transformative magic fade from your face.", "type": "neutral" }
+	]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_REMOVE_MAJOR_GLAMOR3",
+	"condition": { "or": [ { "u_has_trait": "GLAM_EARS" }, { "u_has_trait": "HIDDEN_EARS" } ] },
+    "effect": [ 
+		{ "u_add_trait": "FOX_EARS" },
+		{ "u_lose_trait": "GLAM_EARS" },
+		{ "u_lose_trait": "HIDDEN_EARS" },
+		{ "u_message": "You feel your transformative magic fade from your ears.", "type": "neutral" }
+	]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_REMOVE_MAJOR_GLAMOR4",
+	"condition": { "or": [ { "u_has_trait": "GLAM_PAWS" }, { "u_has_trait": "HIDDEN_PAWS" } ] },
+    "effect": [ 
+		{ "u_add_trait": "PAWS" },
+		{ "u_lose_trait": "GLAM_PAWS" },
+		{ "u_lose_trait": "HIDDEN_PAWS" },
+		{ "u_message": "You feel your transformative magic fade from your paws.", "type": "neutral" }
+	]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_REMOVE_MAJOR_GLAMOR5",
+	"condition": { "or": [ { "u_has_trait": "GLAM_FEET" }, { "u_has_trait": "HIDDEN_FEET" } ] },
+    "effect": [ 
+		{ "u_add_trait": "ANIMAL_FEET" },
+		{ "u_lose_trait": "GLAM_FEET" },
+		{ "u_lose_trait": "HIDDEN_FEET" },
+		{ "u_message": "You feel your transformative magic fade from your legs.", "type": "neutral" }
+	]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_CULTIVATE_INITIATE",
+	"condition": { "not": { "u_has_trait": "KITSUNE_CULTIVATING" } },
+    "effect": [ 
+		{ "u_add_trait": "KITSUNE_CULTIVATING" },
+		{ "u_message": "You focus your mana internally, condensing it into a physical form.", "type": "neutral" },
+		{ "queue_eocs": "EOC_CULTIVATE_CONTINUE", "time_in_future": "1 h" },
+		{ "math": [ "cultivation_progress", "=", "0" ] }
+	],
+	"//": "Next EOC queues every hour",
+	"false_effect": [ { "u_lose_trait": "KITSUNE_CULTIVATING" }, { "math": [ "cultivation_progress", "=", "0" ] } ] 
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_CULTIVATE_CONTINUE",
+	"condition": { "u_has_trait": "KITSUNE_CULTIVATING" },
+    "effect": [ 
+		{ "if": { "math": [ "cultivation_progress", ">=", "120" ] },
+		  "then": [ 
+			{ "u_spawn_item": "star_pearl" },
+			{ "u_lose_trait": "KITSUNE_CULTIVATING" },
+			{ "u_message": "You finish your pearl cultivation!", "type": "good" }
+		  ],
+		  "else": [
+		    { "math": [ "cultivation_progress", "+=", "1" ] },
+			{ "queue_eocs": "EOC_CULTIVATE_CONTINUE", "time_in_future": "1 h" }
+		  ]
+		}
+	],
+	"//": "Next EOC queues every hour"
+  }
+]
