@@ -44,48 +44,6 @@
 	"learn_spells": { "kitsune_glamor_major": 10 }
   },
   {
-    "type": "effect_on_condition",
-    "id": "EOC_MINOR_GLAMOR_INITIATE",
-    "condition": { "not": { "u_has_trait": "MINOR_GLAMOR" } },
-    "effect": [
-      { "u_message": "You are concealed by glamor, and others turn an eye to your oddities.", "type": "good" },
-      { "u_add_trait": "MINOR_GLAMOR" },
-      { "queue_eocs": "EOC_MINOR_GLAMOR_CONTINUE", "time_in_future": { 
-		"math": [ "((u_spell_level('kitsune_glamor_minor')+1)*200)" ] } 
-	  }
-    ],
-    "false_effect": [
-	  { "u_lose_trait": "MINOR_GLAMOR" },
-      { "u_message": "You feel your magical facade fade.", "type": "neutral" }
-    ]
-  },
-  {
-    "type": "effect_on_condition",
-    "id": "EOC_MINOR_GLAMOR_CONTINUE",
-    "condition": { "and": [ { "u_has_trait": "MINOR_GLAMOR" }, { "math": [ "u_val('mana')", ">=", "200" ] } ] },
-    "effect": [
-      { "math": [ "u_val('mana')", "-=", "200" ] },
-      {
-        "u_message": "You feel the ebb and flow of your illusion.",
-        "type": "good"
-      },
-      {
-        "queue_eocs": "EOC_MINOR_GLAMOR_CONTINUE",
-        "time_in_future": { "math": [ "((u_spell_level('kitsune_glamor_minor')+1)*200)" ] }
-      },
-	  {
-		"if": { "math": [ "u_spell_level('kitsune_glamor_minor')", "<=", "15" ] },
-		"then": {
-			"math": [ "u_spell_exp('kitsune_glamor_minor')", "+=", "spell_exp_diff(u_spell_level('kitsune_glamor_minor'))/spell_train_factor(200)" ]
-		}
-	  }
-    ],
-    "false_effect": [
-      { "u_lose_trait": "MINOR_GLAMOR" },
-      { "u_message": "You feel your magical facade fade.", "type": "neutral" }
-    ]
-  },
-  {
     "id": "kitsune_glamor_major",
     "type": "SPELL",
     "name": "Kitsune's Transformation",
@@ -103,201 +61,6 @@
     "base_energy_cost": { "math": [ "u_has_trait('MAJOR_GLAMOR') ? 0 : 200" ] },
     "min_duration": { "math": [ "((u_spell_level('kitsune_glamor_major')+1)*200)*100" ] },
     "max_duration": { "math": [ "((u_spell_level('kitsune_glamor_major')+1)*200)*100" ] }
-  },
-  {
-    "type": "effect_on_condition",
-    "id": "EOC_INITIATE_MAJOR_GLAMOR",
-    "condition": { "not": { "u_has_trait": "MAJOR_GLAMOR" } },
-    "effect": [
-      { "u_message": "You focus your magic throughout your body.", "type": "good" },
-      { "u_add_trait": "MAJOR_GLAMOR" },
-      { "queue_eocs": "EOC_MAJOR_GLAMOR_CONTINUE", "time_in_future": { 
-		"math": [ "((u_spell_level('kitsune_glamor_major')+1)*200)" ] } 
-	  },
-	  { "queue_eocs": "EOC_APPLY_MAJOR_GLAMOR" }
-    ],
-    "false_effect": [
-	  { "u_lose_trait": "MAJOR_GLAMOR" },
-      { "u_message": "You feel your magical facade fade.", "type": "neutral" }
-    ]
-  },
-  {
-    "type": "effect_on_condition",
-    "id": "EOC_MAJOR_GLAMOR_CONTINUE",
-    "condition": { "and": [ { "u_has_trait": "MAJOR_GLAMOR" }, { "math": [ "u_val('mana')", ">=", "200" ] } ] },
-    "effect": [
-      { "math": [ "u_val('mana')", "-=", "200/(u_spell_level('kitsune_glamor_major')+1)" ] },
-	  { "if": { "math": [ "u_val('mana')", "<=", "500" ] },
-		"then": { "u_message": "It's becoming difficult to maintain your transformation magic" } },
-	  { "queue_eocs": "EOC_GLAMOR_UPKEEP1" },
-	  { "queue_eocs": "EOC_GLAMOR_UPKEEP2" },
-	  { "queue_eocs": "EOC_GLAMOR_UPKEEP3" },
-	  { "queue_eocs": "EOC_GLAMOR_UPKEEP4" },
-	  { "queue_eocs": "EOC_GLAMOR_UPKEEP5" },
-      {
-        "queue_eocs": "EOC_MAJOR_GLAMOR_CONTINUE",
-        "time_in_future": { "math": [ "((u_spell_level('kitsune_glamor_minor')+1)*200)" ] }
-      },
-	  {
-		"if": { "math": [ "u_spell_level('kitsune_glamor_major')", "<=", "20" ] },
-		"then": {
-			"math": [ "u_spell_exp('kitsune_glamor_major')", "+=", "spell_exp_diff(u_spell_level('kitsune_glamor_major'))/spell_train_factor(400)" ]
-			}
-	  }
-    ],
-    "false_effect": [
-      { "u_lose_trait": "MAJOR_GLAMOR" },
-	  { "queue_eocs": "EOC_REMOVE_MAJOR_GLAMOR1" },
-	  { "queue_eocs": "EOC_REMOVE_MAJOR_GLAMOR2" },
-	  { "queue_eocs": "EOC_REMOVE_MAJOR_GLAMOR3" },
-	  { "queue_eocs": "EOC_REMOVE_MAJOR_GLAMOR4" },
-	  { "queue_eocs": "EOC_REMOVE_MAJOR_GLAMOR5" },
-      { "u_message": "You feel the magical potential fade from your body.", "type": "neutral" }
-    ]
-  },
-  {
-	"type": "effect_on_condition",
-	"id": "EOC_GLAMOR_UPKEEP1",
-	"condition": { "u_has_trait": "HIDDEN_FUR" },
-	"effect": [ { "math": [ "u_val('mana')", "-=", "100/((u_spell_level('kitsune_glamor_major')+2)*0.5)" ] } ]
-  },
-  {
-	"type": "effect_on_condition",
-	"id": "EOC_GLAMOR_UPKEEP2",
-	"condition": { "u_has_trait": "HIDDEN_MUZZLE" },
-	"effect": [ { "math": [ "u_val('mana')", "-=", "100/((u_spell_level('kitsune_glamor_major')+2)*0.5)" ] } ]
-  },
-  {
-	"type": "effect_on_condition",
-	"id": "EOC_GLAMOR_UPKEEP3",
-	"condition": { "u_has_trait": "HIDDEN_EARS" },
-	"effect": [ { "math": [ "u_val('mana')", "-=", "100/((u_spell_level('kitsune_glamor_major')+2)*0.5)" ] } ]
-  },
-  {
-	"type": "effect_on_condition",
-	"id": "EOC_GLAMOR_UPKEEP4",
-	"condition": { "u_has_trait": "HIDDEN_PAWS" },
-	"effect": [ { "math": [ "u_val('mana')", "-=", "100/((u_spell_level('kitsune_glamor_major')+2)*0.5)" ] } ]
-  },
-  {
-	"type": "effect_on_condition",
-	"id": "EOC_GLAMOR_UPKEEP5",
-	"condition": { "u_has_trait": "HIDDEN_FEET" },
-	"effect": [ { "math": [ "u_val('mana')", "-=", "100/((u_spell_level('kitsune_glamor_major')+2)*0.5)" ] } ]
-  },
-  {
-    "type": "effect_on_condition",
-    "id": "EOC_APPLY_MAJOR_GLAMOR",
-    "effect": [
-      { "queue_eocs": "EOC_APPLY_MAJOR_GLAMOR1" },
-	  { "queue_eocs": "EOC_APPLY_MAJOR_GLAMOR2" },
-	  { "queue_eocs": "EOC_APPLY_MAJOR_GLAMOR3" },
-	  { "queue_eocs": "EOC_APPLY_MAJOR_GLAMOR4" },
-	  { "queue_eocs": "EOC_APPLY_MAJOR_GLAMOR5" }
-    ]
-  },
-  {
-    "type": "effect_on_condition",
-    "id": "EOC_APPLY_MAJOR_GLAMOR1",
-	"condition": { "u_has_trait": "KITSUNE_FUR" },
-    "effect": [ 
-		{ "u_add_trait": "GLAM_FUR" },
-		{ "u_lose_trait": "KITSUNE_FUR" },
-		{ "u_message": "Your fur glimmers with transformative potential.", "type": "good" }
-	]
-  },
-  {
-    "type": "effect_on_condition",
-    "id": "EOC_APPLY_MAJOR_GLAMOR2",
-	"condition": { "u_has_trait": "FOX_MUZZLE" },
-    "effect": [ 
-		{ "u_add_trait": "GLAM_MUZZLE" },
-		{ "u_lose_trait": "FOX_MUZZLE" },
-		{ "u_message": "Your muzzle glimmers with transformative potential.", "type": "good" } 
-	]
-  },
-  {
-    "type": "effect_on_condition",
-    "id": "EOC_APPLY_MAJOR_GLAMOR3",
-	"condition": { "u_has_trait": "FOX_EARS" },
-    "effect": [ 
-		{ "u_add_trait": "GLAM_EARS" },
-		{ "u_lose_trait": "FOX_EARS" },
-		{ "u_message": "Your ears glimmer with transformative potential.", "type": "good" }
-	]
-  },
-  {
-    "type": "effect_on_condition",
-    "id": "EOC_APPLY_MAJOR_GLAMOR4",
-	"condition": { "u_has_trait": "PAWS" },
-    "effect": [ 
-		{ "u_add_trait": "GLAM_PAWS" },
-		{ "u_message": "Your paws glimmer with transformative potential.", "type": "good" } 
-	]
-  },
-  {
-    "type": "effect_on_condition",
-    "id": "EOC_APPLY_MAJOR_GLAMOR5",
-	"condition": { "u_has_trait": "ANIMAL_FEET" },
-    "effect": [ 
-		{ "u_add_trait": "GLAM_FEET" },
-		{ "u_message": "Your legs glimmer with transformative potential.", "type": "good" }
-	]
-  },
-  {
-    "type": "effect_on_condition",
-    "id": "EOC_REMOVE_MAJOR_GLAMOR1",
-	"condition": { "or": [ { "u_has_trait": "GLAM_FUR" }, { "u_has_trait": "HIDDEN_FUR" } ] },
-	"effect": [
-		{ "u_add_trait": "KITSUNE_FUR" },
-		{ "u_lose_trait": "GLAM_FUR" },
-		{ "u_lose_trait": "HIDDEN_FUR" },
-		{ "u_message": "You feel your transformative magic fade from your skin.", "type": "neutral" }
-	]
-  },
-  {
-    "type": "effect_on_condition",
-    "id": "EOC_REMOVE_MAJOR_GLAMOR2",
-	"condition": { "or": [ { "u_has_trait": "GLAM_MUZZLE" }, { "u_has_trait": "HIDDEN_MUZZLE" } ] },
-    "effect": [ 
-		{ "u_add_trait": "FOX_MUZZLE" },
-		{ "u_lose_trait": "GLAM_MUZZLE" },
-		{ "u_lose_trait": "HIDDEN_MUZZLE" },
-		{ "u_message": "You feel your transformative magic fade from your face.", "type": "neutral" }
-	]
-  },
-  {
-    "type": "effect_on_condition",
-    "id": "EOC_REMOVE_MAJOR_GLAMOR3",
-	"condition": { "or": [ { "u_has_trait": "GLAM_EARS" }, { "u_has_trait": "HIDDEN_EARS" } ] },
-    "effect": [ 
-		{ "u_add_trait": "FOX_EARS" },
-		{ "u_lose_trait": "GLAM_EARS" },
-		{ "u_lose_trait": "HIDDEN_EARS" },
-		{ "u_message": "You feel your transformative magic fade from your ears.", "type": "neutral" }
-	]
-  },
-  {
-    "type": "effect_on_condition",
-    "id": "EOC_REMOVE_MAJOR_GLAMOR4",
-	"condition": { "or": [ { "u_has_trait": "GLAM_PAWS" }, { "u_has_trait": "HIDDEN_PAWS" } ] },
-    "effect": [ 
-		{ "u_add_trait": "PAWS" },
-		{ "u_lose_trait": "GLAM_PAWS" },
-		{ "u_lose_trait": "HIDDEN_PAWS" },
-		{ "u_message": "You feel your transformative magic fade from your paws.", "type": "neutral" }
-	]
-  },
-  {
-    "type": "effect_on_condition",
-    "id": "EOC_REMOVE_MAJOR_GLAMOR5",
-	"condition": { "or": [ { "u_has_trait": "GLAM_FEET" }, { "u_has_trait": "HIDDEN_FEET" } ] },
-    "effect": [ 
-		{ "u_add_trait": "ANIMAL_FEET" },
-		{ "u_lose_trait": "GLAM_FEET" },
-		{ "u_lose_trait": "HIDDEN_FEET" },
-		{ "u_message": "You feel your transformative magic fade from your legs.", "type": "neutral" }
-	]
   },
   {
     "id": "kitsune_cultivation",
@@ -320,38 +83,6 @@
     "max_duration": 43200000
   },
   {
-    "type": "effect_on_condition",
-    "id": "EOC_CULTIVATE_INITIATE",
-	"condition": { "not": { "u_has_trait": "KITSUNE_CULTIVATING" } },
-    "effect": [ 
-		{ "u_add_trait": "KITSUNE_CULTIVATING" },
-		{ "u_message": "You focus your mana internally, condensing it into a physical form.", "type": "neutral" },
-		{ "queue_eocs": "EOC_CULTIVATE_CONTINUE", "time_in_future": "1 h" },
-		{ "math": [ "cultivation_progress", "=", "0" ] }
-	],
-	"//": "Next EOC queues every hour",
-	"false_effect": [ { "u_lose_trait": "KITSUNE_CULTIVATING" }, { "math": [ "cultivation_progress", "=", "0" ] } ] 
-  },
-  {
-    "type": "effect_on_condition",
-    "id": "EOC_CULTIVATE_CONTINUE",
-	"condition": { "u_has_trait": "KITSUNE_CULTIVATING" },
-    "effect": [ 
-		{ "if": { "math": [ "cultivation_progress", ">=", "120" ] },
-		  "then": [ 
-			{ "u_spawn_item": "star_pearl" },
-			{ "u_lose_trait": "KITSUNE_CULTIVATING" },
-			{ "u_message": "You finish your pearl cultivation!", "type": "good" }
-		  ],
-		  "else": [
-		    { "math": [ "cultivation_progress", "+=", "1" ] },
-			{ "queue_eocs": "EOC_CULTIVATE_CONTINUE", "time_in_future": "1 h" }
-		  ]
-		}
-	],
-	"//": "Next EOC queues every hour"
-  },
-  {
     "id": "summon_foxfire",
     "type": "SPELL",
     "name": "Foxfire",
@@ -361,12 +92,12 @@
     "effect_str": "mon_foxfire",
     "shape": "blast",
     "flags": [ "LOUD", "NO_HANDS" ],
-    "spell_class": "NONE",
+    "spell_class": "THRESH_FOX",
     "energy_source": "MANA",
     "difficulty": 2,
     "base_casting_time": 250,
     "base_energy_cost": 300,
-    "max_level": 16,
+    "max_level": { "math": [ "2 + (u_has_trait('FOX_TWOTAIL')*2) + (u_has_trait('FOX_THREETAIL')*6) + (u_has_trait('FOX_FOURTAIL')*8) + (u_has_trait('FOX_FIVETAIL')*10) + (u_has_trait('FOX_SIXTAIL')*12) + (u_has_trait('FOX_SEVENTAIL')*14) + (u_has_trait('FOX_EIGHTTAIL')*16) + (u_has_trait('FOX_NINETAIL')*18)" ] },
     "min_damage": 2,
     "max_damage": 10,
     "damage_increment": 0.5,
@@ -388,8 +119,8 @@
     "shape": "blast",
     "valid_targets": [ "self", "ally", "hostile", "ground" ],
     "flags": [ "VERBAL", "NO_LEGS", "NO_HANDS" ],
-    "spell_class": "NONE",
-    "max_level": 9,
+    "spell_class": "THRESH_FOX",
+    "max_level": { "math": [ "2 + (u_has_trait('FOX_TWOTAIL')*2) + (u_has_trait('FOX_THREETAIL')*6) + (u_has_trait('FOX_FOURTAIL')*8) + (u_has_trait('FOX_FIVETAIL')*10) + (u_has_trait('FOX_SIXTAIL')*12) + (u_has_trait('FOX_SEVENTAIL')*14) + (u_has_trait('FOX_EIGHTTAIL')*16) + (u_has_trait('FOX_NINETAIL')*18)" ] },
     "min_damage": 12,
     "max_damage": 30,
     "damage_increment": 1.5,
@@ -417,10 +148,13 @@
 	"extra_effects": [
 		{ "id": "kitsune_poof", "hit_self": true }
 	],
+	"flags": [ "VERBAL", "NO_LEGS", "NO_HANDS" ],
+	"spell_class": "THRESH_FOX",
     "energy_source": "MANA",
     "difficulty": 5,
-    "max_level": 20,
+    "max_level": { "math": [ "2 + (u_has_trait('FOX_TWOTAIL')*2) + (u_has_trait('FOX_THREETAIL')*6) + (u_has_trait('FOX_FOURTAIL')*8) + (u_has_trait('FOX_FIVETAIL')*10) + (u_has_trait('FOX_SIXTAIL')*12) + (u_has_trait('FOX_SEVENTAIL')*14) + (u_has_trait('FOX_EIGHTTAIL')*16) + (u_has_trait('FOX_NINETAIL')*18)" ] },
 	"min_damage": 1,
+	"max_damage": 1,
     "final_casting_time": 130,
     "base_energy_cost": 200,
     "energy_increment": -2.0,
@@ -429,132 +163,6 @@
     "min_duration": 3000,
     "max_duration": 6000,
     "duration_increment": 200
-  },
-  {
-	"id": "summon_foxfire2",
-	"type": "SPELL",
-	"name": "Foxfire",
-	"copy-from": "summon_foxfire",
-	"spell_class": "FOX_TWOTAIL"
-  },
-  {
-	"id": "summon_foxfire3",
-	"type": "SPELL",
-	"name": "Foxfire",
-	"copy-from": "summon_foxfire",
-	"spell_class": "FOX_THREETAIL"
-  },
-  {
-	"id": "summon_foxfire4",
-	"type": "SPELL",
-	"name": "Foxfire",
-	"copy-from": "summon_foxfire",
-	"spell_class": "FOX_FOURTAIL"
-  },
-  {
-	"id": "summon_foxfire5",
-	"type": "SPELL",
-	"name": "Foxfire",
-	"copy-from": "summon_foxfire",
-	"spell_class": "FOX_FIVETAIL"
-  },
-  {
-	"id": "summon_foxfire6",
-	"type": "SPELL",
-	"name": "Foxfire",
-	"copy-from": "summon_foxfire",
-	"spell_class": "FOX_SIXTAIL"
-  },
-  {
-	"id": "summon_foxfire7",
-	"type": "SPELL",
-	"name": "Foxfire",
-	"copy-from": "summon_foxfire",
-	"spell_class": "FOX_SEVENTAIL"
-  },
-  {
-	"id": "summon_foxfire8",
-	"type": "SPELL",
-	"name": "Foxfire",
-	"copy-from": "summon_foxfire",
-	"spell_class": "FOX_EIGHTTAIL"
-  },
-  {
-	"id": "summon_foxfire9",
-	"type": "SPELL",
-	"name": "Foxfire",
-	"copy-from": "summon_foxfire",
-	"spell_class": "FOX_NINETAIL"
-  },
-  {
-	"id": "kitsune_firebolt4",
-	"type": "SPELL",
-	"name": "Firebolt",
-	"copy-from": "kitsune_firebolt",
-	"spell_class": "FOX_FOURTAIL"
-  },
-  {
-	"id": "kitsune_firebolt5",
-	"type": "SPELL",
-	"name": "Firebolt",
-	"copy-from": "kitsune_firebolt",
-	"spell_class": "FOX_FIVETAIL"
-  },
-  {
-	"id": "kitsune_firebolt6",
-	"type": "SPELL",
-	"name": "Firebolt",
-	"copy-from": "kitsune_firebolt",
-	"spell_class": "FOX_SIXTAIL"
-  },
-  {
-	"id": "kitsune_firebolt7",
-	"type": "SPELL",
-	"name": "Firebolt",
-	"copy-from": "kitsune_firebolt",
-	"spell_class": "FOX_SEVENTAIL"
-  },
-  {
-	"id": "kitsune_firebolt8",
-	"type": "SPELL",
-	"name": "Firebolt",
-	"copy-from": "kitsune_firebolt",
-	"spell_class": "FOX_EIGHTTAIL"
-  },
-  {
-	"id": "kitsune_firebolt9",
-	"type": "SPELL",
-	"name": "Firebolt",
-	"copy-from": "kitsune_firebolt",
-	"spell_class": "FOX_NINETAIL"
-  },
-  {
-	"id": "kitsune_escape6",
-	"type": "SPELL",
-	"name": "Escape",
-	"copy-from": "kitsune_escape",
-	"spell_class": "FOX_SIXTAIL"
-  },
-  {
-	"id": "kitsune_escape7",
-	"type": "SPELL",
-	"name": "Escape",
-	"copy-from": "kitsune_escape",
-	"spell_class": "FOX_SEVENTAIL"
-  },
-  {
-	"id": "kitsune_escape8",
-	"type": "SPELL",
-	"name": "Escape",
-	"copy-from": "kitsune_escape",
-	"spell_class": "FOX_EIGHTTAIL"
-  },
-  {
-	"id": "kitsune_escape9",
-	"type": "SPELL",
-	"name": "Escape",
-	"copy-from": "kitsune_escape",
-	"spell_class": "FOX_NINETAIL"
   },
   {
     "id": "kitsune_poof",
