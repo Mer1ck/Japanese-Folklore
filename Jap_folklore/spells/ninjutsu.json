@@ -5,7 +5,7 @@
 	"name": { "str": "Shinobi" },
 	"description": "You've endured harsh training in shinobi practices. You unconsciously move more quietly and find executing ninpo techniques easier.",
 	"points": 0,
-	"noise_modifier": 0.8
+	"enchantments": [ { "values": [ { "value": "FOOTSTEP_NOISE", "multiply": -0.2 } ] } ]
   },
   {
 	"type": "SPELL",
