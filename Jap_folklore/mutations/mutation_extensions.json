@@ -181,7 +181,6 @@
     "changes_to": [ "RABBIT_FEET" ],
     "wet_protection": [ { "part": "foot_l", "neutral": 10 }, { "part": "foot_r", "neutral": 10 } ],
     "restricts_gear": [ "foot_l", "foot_r" ],
-    "weight_capacity_modifier": 0.8,
     "triggers": [
       [
         {
@@ -198,7 +197,7 @@
         }
       ]
     ],
-    "enchantments": [ "ench_animal_feet1", "ench_animal_feet2", "ench_animal_feet3" ]
+    "enchantments": [ "ench_animal_feet1", "ench_animal_feet2", "ench_animal_feet3", { "values": [ { "value": "CARRY_WEIGHT", "multiply": 0.35 } ] } ]
   },
   {
 	"type": "enchantment",
