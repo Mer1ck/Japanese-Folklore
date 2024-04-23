@@ -678,7 +678,7 @@
     "allow_soft_gear": true,
     "threshreq": [ "THRESH_FOX" ],
     "social_modifiers": { "persuade": 20 },
-    "enchantments": [ { "values": [ { "value": "BONUS_DODGE", "add": 5 }, { "value": "REGEN_MANA", "multiply": 0.9 }, { "value": "MAX_MANA", "add": 1000 }, , { "value": "MAX_MANA", "multiply": 0.9 } ] } ],
+    "enchantments": [ { "values": [ { "value": "BONUS_DODGE", "add": 5 }, { "value": "REGEN_MANA", "multiply": 0.9 }, { "value": "MAX_MANA", "add": 1000 }, { "value": "MAX_MANA", "multiply": 0.9 } ] } ],
 	"active": true,
 	"transform": {
       "target": "CONCEALED_NINE",
