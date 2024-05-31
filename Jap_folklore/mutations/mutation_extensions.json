@@ -179,6 +179,7 @@
     "prereqs": [ "PADDED_FEET" ],
     "category": [ "LUPINE", "FELINE", "BEAST", "RABBIT", "KITSUNE" ],
     "changes_to": [ "RABBIT_FEET" ],
+	"flags": [ "QUADRUPED_RUN" ],
     "wet_protection": [ { "part": "foot_l", "neutral": 10 }, { "part": "foot_r", "neutral": 10 } ],
     "restricts_gear": [ "foot_l", "foot_r" ],
     "triggers": [
@@ -186,64 +187,65 @@
         {
           "condition": {
             "and": [
-              { "u_has_move_mode": "run" },
+              { "or": [ { "u_has_move_mode": "run" }, { "u_has_move_mode": "crouch" } ] },
               { "not": "u_can_drop_weapon" },
-              { "u_has_any_trait": [ "THRESH_FOX", "THRESH_BEAST", "THRESH_FELINE", "THRESH_LUPINE" ] },
-              { "u_has_trait": "PAWS" }
+              { "u_has_any_trait": [ "THRESH_BEAST", "THRESH_LUPINE", "THRESH_FELINE", "THRESH_RABBIT", "THRESH_FOX" ] },
+              { "u_has_flag": "QUADRUPED_CROUCH" }
             ]
           },
           "msg_on": { "text": "You drop down on all fours." },
-          "msg_off": { "text": "You rise up to walk on your hind feet." }
+          "msg_off": { "text": "You assume a less bestial posture." }
         }
       ]
     ],
-    "enchantments": [ "ench_animal_feet1", "ench_animal_feet2", "ench_animal_feet3", { "values": [ { "value": "CARRY_WEIGHT", "multiply": 0.35 } ] } ]
+    "enchantments": [
+      "ench_quadruped_movement_full",
+	  "ench_animal_feet1",
+	  "ench_animal_feet2"
+    ]
   },
   {
 	"type": "enchantment",
 	"id": "ench_animal_feet1",
-	"condition": {
-          "and": [
-            { "u_has_move_mode": "crouch" },
-            { "not": "u_can_drop_weapon" },
-            { "u_has_any_trait": [ "THRESH_FOX", "THRESH_LUPINE", "THRESH_FELINE", "THRESH_BEAST" ] },
-            { "u_has_trait": "PAWS" }
-          ]
-        },
-        "values": [ { "value": "MOVE_COST", "multiply": -0.15 }, { "value": "CARRY_WEIGHT", "multiply": 0.35 } ]
+    "condition": { "and": [ { "u_has_move_mode": "crouch" }, { "not": "u_can_drop_weapon" }, { "u_has_flag": "QUADRUPED_CROUCH" } ] },
+    "values": [ { "value": "MOVE_COST", "multiply": -0.35 } ],
+    "ench_effects": [ { "effect": "natural_stance", "intensity": 1 } ]
   },
   {
 	"type": "enchantment",
 	"id": "ench_animal_feet2",
-	"condition": {
-          "and": [
-            { "u_has_move_mode": "run" },
-            { "not": "u_can_drop_weapon" },
-            { "u_has_any_trait": [ "THRESH_FOX", "THRESH_LUPINE", "THRESH_FELINE", "THRESH_BEAST" ] },
-            { "u_has_trait": "PAWS" }
-          ]
-        },
-        "values": [ { "value": "MOVE_COST", "multiply": -0.15 }, { "value": "CARRY_WEIGHT", "multiply": 0.35 } ]
+    "values": [ { "value": "CARRY_WEIGHT", "multiply": -0.2 } ]
   },
   {
-	"type": "enchantment",
-	"id": "ench_animal_feet3",
-	"condition": {
-          "or": [
-            "u_can_drop_weapon",
-            { "u_has_move_mode": "walk" },
-            {
-              "and": [
-                { "not": { "u_has_trait": "THRESH_LUPINE" } },
-                { "not": { "u_has_trait": "THRESH_FELINE" } },
-                { "not": { "u_has_trait": "THRESH_BEAST" } },
-				{ "not": { "u_has_trait": "THRESH_FOX" } }
-              ]
-            },
-            { "not": { "u_has_trait": "PAWS" } }
-          ]
-        },
-        "values": [ { "value": "MOVE_COST", "multiply": -0.1 } ]
+    "id": "ench_quadruped_movement_full",
+    "//": "For quadrupeds with all four of their animal limbs.  We should avoid giving this to every animal mutant, as it helps keep lines distinct.",
+    "type": "enchantment",
+    "condition": {
+      "and": [
+        { "u_has_flag": "QUADRUPED_CROUCH" },
+        { "u_has_any_trait": [ "THRESH_RABBIT", "THRESH_BEAST", "THRESH_LUPINE", "THRESH_FELINE", "THRESH_FOX" ] },
+        { "u_has_flag": "QUADRUPED_RUN" },
+        { "or": [ { "u_has_move_mode": "crouch" }, { "u_has_move_mode": "run" } ] },
+        { "not": "u_can_drop_weapon" }
+      ]
+    },
+    "values": [ { "value": "MOVE_COST", "multiply": -0.15 }, { "value": "CARRY_WEIGHT", "multiply": 0.35 } ],
+    "ench_effects": [ { "effect": "natural_stance", "intensity": 1 } ]
+  },
+  {
+    "id": "ench_quadruped_movement_half",
+    "//": "For quadrupeds who only have their front paws.  Makes crouch-walking a bit faster, but that's all.",
+    "type": "enchantment",
+    "condition": {
+      "and": [
+        { "u_has_flag": "QUADRUPED_CROUCH" },
+        { "u_has_any_trait": [ "THRESH_RABBIT", "THRESH_BEAST", "THRESH_LUPINE", "THRESH_FELINE", "THRESH_FOX" ] },
+        { "not": { "u_has_flag": "QUADRUPED_RUN" } },
+        { "u_has_move_mode": "crouch" },
+        { "not": "u_can_drop_weapon" }
+      ]
+    },
+    "values": [ { "value": "MOVE_COST", "multiply": -0.5 } ]
   },
   {
     "type": "mutation",
@@ -261,6 +263,7 @@
     "prereqs": [ "NAILS", "CLAWS", "CLAWS_RETRACT", "CLAWS_RAT" ],
     "cancels": [ "TALONS" ],
     "changes_to": [ "PAWS_LARGE" ],
+	"flags": [ "QUADRUPED_CROUCH" ],
     "category": [ "LUPINE", "RAT", "FELINE", "BEAST", "URSINE", "KITSUNE" ],
     "triggers": [
       [
@@ -268,32 +271,17 @@
           "condition": {
             "and": [
               { "u_has_move_mode": "crouch" },
+              { "u_has_any_trait": [ "THRESH_BEAST", "THRESH_LUPINE", "THRESH_RABBIT", "THRESH_FELINE", "THRESH_FOX" ] },
               { "not": "u_can_drop_weapon" },
-              {
-                "u_has_any_trait": [ "THRESH_FOX", "THRESH_BEAST", "THRESH_FELINE", "THRESH_LUPINE", "THRESH_URSINE", "THRESH_RAT", "THRESH_MOUSE", "THRESH_RABBIT" ]
-              }
+              { "not": { "u_has_flag": "QUADRUPED_RUN" } }
             ]
           },
           "msg_on": { "text": "You drop down on all fours." },
-          "msg_off": { "text": "You rise up to walk on your hind feet." }
+          "msg_off": { "text": "You come out of your quadrupedal posture." }
         }
       ]
     ],
-    "enchantments": [ "ench_paws" ]
-  },
-  {
-	"type": "enchantment",
-	"id": "ench_paws",
-	"condition": {
-          "and": [
-            { "u_has_move_mode": "crouch" },
-            { "not": "u_can_drop_weapon" },
-            {
-              "u_has_any_trait": [ "THRESH_FOX", "THRESH_BEAST", "THRESH_FELINE", "THRESH_LUPINE", "THRESH_URSINE", "THRESH_RAT", "THRESH_MOUSE", "THRESH_RABBIT" ]
-            }
-          ]
-        },
-        "values": [ { "value": "MOVE_COST", "multiply": -0.5 } ]
+    "enchantments": [ "ench_quadruped_movement_half" ]
   },
   {
     "type": "mutation",
