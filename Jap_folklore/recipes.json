@@ -104,7 +104,7 @@
     "qualities": [ { "id": "SEW", "level": 1 }, { "id": "MANA_INFUSE", "level": 1 } ],
     "components": [
       [ [ "fox_plush", 1 ] ],
-      [ [ "plant_fibre", 20, "false" ], [ "sinew", 20, "false" ], [ "thread", 20, "false" ] ]
+      [ [ "filament", 20, "LIST" ] ]
     ]
   },
   {
