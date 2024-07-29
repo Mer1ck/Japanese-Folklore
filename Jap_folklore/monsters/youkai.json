@@ -96,7 +96,7 @@
 			"GROUP_BASH",
 			"GROUP_MORALE",
 			"CAN_OPEN_DOORS",
-			"PATH_AVOID_DANGER_2",
+			"PATH_AVOID_DANGER",
 			"PUSH_MON"
 		]
 	},
