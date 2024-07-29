@@ -37,7 +37,7 @@
     ],
     "anger_triggers": [ "FRIEND_ATTACKED", "FRIEND_DIED" ],
     "fear_triggers": [ "SOUND", "PLAYER_CLOSE" ],
-    "flags": [ "SEES", "HEARS", "SMELLS", "ANIMAL", "PATH_AVOID_DANGER_1", "WARM", "HIT_AND_RUN", "KEENNOSE" ],
+    "flags": [ "SEES", "HEARS", "SMELLS", "ANIMAL", "PATH_AVOID_DANGER", "WARM", "HIT_AND_RUN", "KEENNOSE" ],
     "upgrades": { "age_grow": 300, "into": "mon_fox_threetail" }
   },
   {
@@ -73,7 +73,7 @@
     ],
     "anger_triggers": [ "FRIEND_ATTACKED", "FRIEND_DIED" ],
     "fear_triggers": [ "SOUND", "PLAYER_CLOSE" ],
-    "flags": [ "SEES", "HEARS", "SMELLS", "ANIMAL", "PATH_AVOID_DANGER_1", "WARM", "HIT_AND_RUN", "KEENNOSE" ],
+    "flags": [ "SEES", "HEARS", "SMELLS", "ANIMAL", "PATH_AVOID_DANGER", "WARM", "HIT_AND_RUN", "KEENNOSE" ],
     "upgrades": { "age_grow": 400, "into": "mon_fox_fourtail" }
   },
   {
@@ -110,7 +110,7 @@
     ],
     "anger_triggers": [ "FRIEND_ATTACKED", "FRIEND_DIED" ],
     "fear_triggers": [ "SOUND", "PLAYER_CLOSE" ],
-    "flags": [ "SEES", "HEARS", "SMELLS", "ANIMAL", "PATH_AVOID_DANGER_1", "WARM", "HIT_AND_RUN", "KEENNOSE" ],
+    "flags": [ "SEES", "HEARS", "SMELLS", "ANIMAL", "PATH_AVOID_DANGER", "WARM", "HIT_AND_RUN", "KEENNOSE" ],
     "upgrades": { "age_grow": 500, "into": "mon_fox_fivetail" }
   },
   {
@@ -148,7 +148,7 @@
     ],
     "anger_triggers": [ "FRIEND_ATTACKED", "FRIEND_DIED" ],
     "fear_triggers": [ "SOUND", "PLAYER_CLOSE" ],
-    "flags": [ "SEES", "HEARS", "SMELLS", "ANIMAL", "PATH_AVOID_DANGER_1", "WARM", "HIT_AND_RUN", "KEENNOSE" ]
+    "flags": [ "SEES", "HEARS", "SMELLS", "ANIMAL", "PATH_AVOID_DANGER", "WARM", "HIT_AND_RUN", "KEENNOSE" ]
   },
   {
     "id": "mon_foxfire",
@@ -183,7 +183,7 @@
       "SEES",
       "HEARS",
       "FLIES",
-      "PATH_AVOID_DANGER_1",
+      "PATH_AVOID_DANGER",
       "FIREY",
       "HARDTOSHOOT",
       "NOGIB",
