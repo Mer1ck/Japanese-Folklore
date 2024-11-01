@@ -5,7 +5,7 @@
     "name": "field",
     "sym": ".",
     "color": "brown",
-    "see_cost": 2,
+    "see_cost": "high",
     "extras": "field",
     "flags": [ "NO_ROTATE" ]
   },
@@ -15,7 +15,7 @@
     "name": "ruined structure",
     "sym": "^",
     "color": "brown",
-    "see_cost": 2,
+    "see_cost": "high",
     "flags": [ "NO_ROTATE" ]
   },
   {
@@ -24,7 +24,7 @@
 	"name": "ruined structure",
 	"sym": "^",
 	"color": "brown",
-	"see_cost": 2,
+	"see_cost": "none",
 	"flags": [ "NO_ROTATE" ]
   },
   {
@@ -33,7 +33,7 @@
     "name": "old shrine",
     "sym": "S",
     "color": "red",
-    "see_cost": 2,
+    "see_cost": "high",
     "flags": [ "NO_ROTATE" ]
   },
   {
@@ -42,7 +42,7 @@
 	"name": "old shrine",
 	"sym": "S",
 	"color": "red",
-	"see_cost": 2,
+	"see_cost": "none",
 	"flags": [ "NO_ROTATE" ]
   }
 ]
