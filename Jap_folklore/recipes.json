@@ -290,7 +290,7 @@
     "proficiencies": [
       { "proficiency": "prof_metalworking" }
     ],
-    "components": [ [ [ "eggs_any_shape", 1, "LIST" ], [ [ "glass_shard", 5 ] ], [ [ "chilly-p", 5 ], [ "pepper", 5 ], [ "mustard_powder", 5 ] ] ],
+    "components": [ [ [ "eggs_any_shape", 1, "LIST" ] ], [ [ "glass_shard", 5 ] ], [ [ "chilly-p", 5 ], [ "pepper", 5 ], [ "mustard_powder", 5 ] ] ],
     "qualities": [ { "id": "FINE_GRIND", "level": 1 } ]
   },
   {
