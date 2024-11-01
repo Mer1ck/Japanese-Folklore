@@ -1,7 +1,7 @@
 [
   {
     "type": "mod_tileset",
-    "compatibility": [ "UNDEAD_PEOPLE_BASE", "MSX++DEAD_PEOPLE", "UNDEAD_PEOPLE" ],
+    "compatibility": [ "UNDEAD_PEOPLE_BASE", "UNDEAD_PEOPLE", "MshockRealXotto", "MSX++DEAD_PEOPLE", "MSXotto+" ],
     "tiles-new": [
       {
         "file": "mod_tileset/UndeadPeople-Items_and_such.png",

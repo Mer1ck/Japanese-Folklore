@@ -68,8 +68,7 @@
     "harvest": "mammal_tiny",
     "death_drops": "threetail_pearl",
     "special_attacks": [
-      { "type": "spell", "spell_data": { "id": "obfuscated_body", "min_level": 1 }, "cooldown": 7 },
-      { "type": "spell", "spell_data": { "id": "summon_foxfire", "min_level": 1 }, "cooldown": 9 }
+      { "type": "spell", "spell_data": { "id": "obfuscated_body", "min_level": 1 }, "cooldown": 7 }
     ],
     "anger_triggers": [ "FRIEND_ATTACKED", "FRIEND_DIED" ],
     "fear_triggers": [ "SOUND", "PLAYER_CLOSE" ],
@@ -104,9 +103,7 @@
     "harvest": "mammal_tiny",
     "death_drops": "fourtail_pearl",
     "special_attacks": [
-      { "type": "spell", "spell_data": { "id": "obfuscated_body", "min_level": 2 }, "cooldown": 6 },
-      { "type": "spell", "spell_data": { "id": "summon_foxfire", "min_level": 1 }, "cooldown": 8 },
-      { "type": "spell", "spell_data": { "id": "kitsune_firebolt", "min_level": 1 }, "cooldown": 10 }
+      { "type": "spell", "spell_data": { "id": "obfuscated_body", "min_level": 2 }, "cooldown": 6 }
     ],
     "anger_triggers": [ "FRIEND_ATTACKED", "FRIEND_DIED" ],
     "fear_triggers": [ "SOUND", "PLAYER_CLOSE" ],
@@ -141,10 +138,7 @@
     "harvest": "mammal_tiny",
     "death_drops": "fivetail_pearl",
     "special_attacks": [
-      { "type": "spell", "spell_data": { "id": "obfuscated_body", "min_level": 2 }, "cooldown": 5 },
-      { "type": "spell", "spell_data": { "id": "summon_foxfire", "min_level": 2 }, "cooldown": 7 },
-      { "type": "spell", "spell_data": { "id": "kitsune_firebolt", "min_level": 1 }, "cooldown": 9 },
-      { "type": "spell", "spell_data": { "id": "mon_kitsune_escape", "min_level": 1 }, "cooldown": 11 }
+      { "type": "spell", "spell_data": { "id": "obfuscated_body", "min_level": 2 }, "cooldown": 5 }
     ],
     "anger_triggers": [ "FRIEND_ATTACKED", "FRIEND_DIED" ],
     "fear_triggers": [ "SOUND", "PLAYER_CLOSE" ],
