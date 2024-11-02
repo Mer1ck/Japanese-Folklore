@@ -30,10 +30,19 @@
 	},
 	{
 		"type": "item_group",
+		"id": "dry_divine_rice_bag",
+		"subtype": "collection",
+		"container-item": "bag_canvas_small",
+		"entries": [
+			{ "item": "dry_divine_rice", "container-item": "null", "count": 4, "prob": 100 } 
+		]
+	},
+	{
+		"type": "item_group",
 		"id": "kami_shopkeeper_itemgroup1",
 		"subtype": "collection",
 		"entries": [
-			{ "item": "dry_divine_rice", "count": [ 1, 5 ], "prob": 100 },
+			{ "group": "dry_divine_rice_bag", "count": [ 1, 5 ], "prob": 100 },
 			{ "item": "magatama", "count": [ 5, 10 ], "prob": 100 },
 			{ "item": "magatama_string", "count": [ 1, 5 ], "prob": 100 },
 			{ "item": "star_pearl", "count": [ 1, 6 ], "prob": 100 },

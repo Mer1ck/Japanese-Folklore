@@ -158,7 +158,6 @@
     "material": [ "veggy" ],
     "primary_material": "dried_vegetable",
     "volume": "250 ml",
-    "milling": { "into": "flour_wheat_free", "recipe": "flour_wheat_free_mill_1_4" },
     "cooks_like": "rice_cooked",
     "flags": [ "EDIBLE_FROZEN" ],
     "vitamins": [ [ "iron", 3 ], [ "divinity", 4] ],
