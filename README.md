@@ -8,3 +8,5 @@ A few Ninjutsu "ninpo" abilities have been added, and the relevant scroll should
 TO DO:
 - Remove dependency on Magiclysm. Eventually I want this mod to have it's own standalone magic system based on the 5 Eastern elements/phases (Water, Fire, Earth, Wood, Metal)
 - Expand on NPCs. I plan on adding in at least another NPC to teach ninpo techniques and establish proper dialogue options when conversing with them
+
+Ideas and suggestions are welcome if you have any to share.
