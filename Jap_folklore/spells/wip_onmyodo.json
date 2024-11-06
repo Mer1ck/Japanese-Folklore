@@ -13,11 +13,11 @@
 		"vit_type": "counter",
 		"name": { "str": "Spiritual Drain" },
 		"excess": "s_drain_effect",
-		"min": -10000,
-		"max": 1000,
+		"min": -1000,
+		"max": 10000,
 		"rate": "15 m",
 		"flags": [ "NO_DISPLAY" ],
-		"disease_excess": [ [ -10, -249 ], [ -250, -499 ], [ -500, -10000 ] ]
+		"disease_excess": [ [ 10, 249 ], [ 250, 499 ], [ 500, 10000 ] ]
 	},
 	{
 		"type": "effect_type",
@@ -117,7 +117,7 @@
 		"id": "EOC_ONMYODO_SPIRITUAL_DRAIN",
 		"effect": [
 			{ "u_message": "DEBUG: Spiritual Drain proc'd" },
-			{ "math": [ "u_vitamin('spiritual_drain')", "-=", "5" ] }
+			{ "math": [ "u_vitamin('spiritual_drain')", "+=", "5" ] }
 		]
 	}
 ]
