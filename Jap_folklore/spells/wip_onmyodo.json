@@ -1,0 +1,57 @@
+[
+	{
+		"type": "skill",
+		"id": "spirituality",
+		"name": { "str": "spirituality" },
+		"display_category": "display_ranged",
+		"sort_rank": 14500,
+		"description": "Your ability to manipulate forces of energy connected to divinity and one's own soul."
+	},
+	{
+		"id": "test_flame",
+		"type": "SPELL",
+		"name": "Test Flame",
+		"description": "The precursor for flame onmyodo spells.",
+		"valid_targets": [ "self", "ally", "hostile", "ground" ],
+		"effect": "attack",
+		"shape": "blast",
+		"extra_effects": [ { "id": "onmyo_drain", "hit_self": true } ],
+		"flags": [ "VERBAL", "NO_LEGS", "CONCENTRATE", "IGNITE_FLAMMABLE" ],
+		"skill": "spirituality",
+		"max_level": 5,
+		"min_damage": 15,
+		"max_damage": 40,
+		"damage_increment": 5,
+		"min_aoe": 2,
+		"max_aoe": 2,
+		"min_range": 5,
+		"max_range": 20,
+		"range_increment": 3,
+		"base_casting_time": 100,
+		"base_energy_cost": 500,
+		"energy_source": "STAMINA",
+		"difficulty": 3,
+		"damage_type": "heat"
+	},
+	{
+		"id": "onmyo_drain",
+		"type": "SPELL",
+		"name": "onmyodo drain",
+		"description": "The true cost of using onmyodo spells.",
+		"valid_targets": [ "self" ],
+		"effect": "effect_on_condition",
+		"effect_str": "EOC_ONMYODO_SPIRITUAL_DRAIN",
+		"shape": "blast",
+		"flags": [ "NO_HANDS", "SILENT", "NO_FAIL" ],
+		"skill": "spirituality",
+		"base_casting_time": 0,
+		"difficulty": 1
+	},
+	{
+		"type": "effect_on_condition",
+		"id": "EOC_ONMYODO_SPIRITUAL_DRAIN",
+		"effect": [
+		{ "u_message": "DEBUG: Spiritual Drain proc'd" }
+		]
+	}
+]
