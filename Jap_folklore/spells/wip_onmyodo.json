@@ -8,6 +8,35 @@
 		"description": "Your ability to manipulate forces of energy connected to divinity and one's own soul."
 	},
 	{
+		"type": "vitamin",
+		"id": "spiritual_drain",
+		"vit_type": "counter",
+		"name": { "str": "Spiritual Drain" },
+		"excess": "s_drain_effect",
+		"min": -10000,
+		"max": 1000,
+		"rate": "15 m",
+		"flags": [ "NO_DISPLAY" ],
+		"disease_excess": [ [ -10, -249 ], [ -250, -499 ], [ -500, -10000 ] ]
+	},
+	{
+		"type": "effect_type",
+		"id": "s_drain_effect",
+		"name": [ "Drained", "Moderately Drained", "Depleted" ],
+		"desc": [
+			"You have been casting some spiritual spells.",
+			"You have been overcasting spiritual spells, you should slow down.",
+			"You have been overcasting spiritual spells and are completely drained, stop and rest."
+		],
+		"max_intensity": 3,
+		"rating": "bad",
+		"apply_message": "You start to feel tired",
+		"base_mods": {
+			"per_mod": [-1],
+			"speed_mod": [-5]
+		}
+	},
+	{
 		"id": "test_flame",
 		"type": "SPELL",
 		"name": "Test Flame",
@@ -51,7 +80,8 @@
 		"type": "effect_on_condition",
 		"id": "EOC_ONMYODO_SPIRITUAL_DRAIN",
 		"effect": [
-		{ "u_message": "DEBUG: Spiritual Drain proc'd" }
+			{ "u_message": "DEBUG: Spiritual Drain proc'd" },
+			{ "math": [ "u_vitamin('spiritual_drain')", "-=", "5" ] }
 		]
 	}
 ]
