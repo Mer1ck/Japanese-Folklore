@@ -76,7 +76,7 @@
 		"id": "test_flame",
 		"type": "SPELL",
 		"name": "Test Flame",
-		"description": "The precursor for flame onmyodo spells.",
+		"description": "The precursor for flame onmyo spells.",
 		"valid_targets": [ "self", "ally", "hostile", "ground" ],
 		"effect": "attack",
 		"shape": "blast",
@@ -101,11 +101,11 @@
 	{
 		"id": "onmyo_drain",
 		"type": "SPELL",
-		"name": "onmyodo drain",
-		"description": "The true cost of using onmyodo spells.",
+		"name": "onmyo drain",
+		"description": "The true cost of using onmyo spells.",
 		"valid_targets": [ "self" ],
 		"effect": "effect_on_condition",
-		"effect_str": "EOC_ONMYODO_SPIRITUAL_DRAIN",
+		"effect_str": "EOC_ONMYO_SPIRITUAL_DRAIN",
 		"shape": "blast",
 		"flags": [ "NO_HANDS", "SILENT", "NO_FAIL" ],
 		"skill": "spirituality",
@@ -114,7 +114,7 @@
 	},
 	{
 		"type": "effect_on_condition",
-		"id": "EOC_ONMYODO_SPIRITUAL_DRAIN",
+		"id": "EOC_ONMYO_SPIRITUAL_DRAIN",
 		"effect": [
 			{ "math": [ "u_vitamin('spiritual_drain')", "+=", "5" ] }
 		]
