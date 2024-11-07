@@ -116,7 +116,6 @@
 		"type": "effect_on_condition",
 		"id": "EOC_ONMYODO_SPIRITUAL_DRAIN",
 		"effect": [
-			{ "u_message": "DEBUG: Spiritual Drain proc'd" },
 			{ "math": [ "u_vitamin('spiritual_drain')", "+=", "5" ] }
 		]
 	}
