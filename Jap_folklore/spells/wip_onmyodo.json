@@ -1,8 +1,8 @@
 [
 	{
 		"type": "skill",
-		"id": "spirituality",
-		"name": { "str": "spirituality" },
+		"id": "reijutsu",
+		"name": { "str": "reijutsu" },
 		"display_category": "display_ranged",
 		"sort_rank": 14500,
 		"description": "Your ability to manipulate forces of energy connected to divinity and one's own soul."
@@ -82,7 +82,7 @@
 		"shape": "blast",
 		"extra_effects": [ { "id": "onmyo_drain", "hit_self": true } ],
 		"flags": [ "VERBAL", "NO_LEGS", "CONCENTRATE", "IGNITE_FLAMMABLE" ],
-		"skill": "spirituality",
+		"skill": "reijutsu",
 		"max_level": 5,
 		"min_damage": 15,
 		"max_damage": 40,
