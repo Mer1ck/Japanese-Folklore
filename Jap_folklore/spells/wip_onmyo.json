@@ -81,12 +81,16 @@
 		"specific_heat_solid": 0.45,
 		"latent_heat": 273,
 		"soft": true,
-		"chip_resist": 15,
+		"chip_resist": 10,
 		"breathability": "SECOND_SKIN",
 		"dmg_adj": [ "scratched", "cut", "shredded", "tattered" ],
 		"bash_dmg_verb": "ripped",
 		"cut_dmg_verb": "sliced",
-		"burn_data": [ { "immune": true }, { "immune": true }, { "immune": true } ],
+		"burn_data": [
+			{ "fuel": -1, "smoke": 0, "burn": 0.01 },
+			{ "fuel": -1, "smoke": 0, "burn": 0.01 },
+			{ "fuel": -1, "smoke": 0, "burn": 0.01 }
+		],
 		"resist": { "bash": 0, "cut": 0, "acid": 0, "heat": 20, "bullet": 0, "electric": 0 }
 	},
 	{
@@ -96,18 +100,19 @@
 		"name": { "str_sp": "flame omamori" },
 		"description": "A small cloth pouch with a talisman sealed inside. This one is made to ward against flames",
 		"weight": "10 g",
-		"volume": "25 ml",
-		"material": [ "paper", "cotton", "flame_ward" ],
+		"volume": "250 ml",
+		"price_postapoc": 10000,
+		"material": [ "flame_ward" ],
 		"symbol": "[",
 		"color": "light_gray",
 		"warmth": 5,
 		"material_thickness": 2,
-		"environmental_protection": 2,
-		"flags": [ "ONLY_ONE", "OVERSIZE", "PERSONAL" ],
+		"environmental_protection": 10,
+		"flags": [ "ONLY_ONE", "OVERSIZE", "AURA" ],
 		"armor": [
 		  {
 			"encumbrance": 0,
-			"coverage": 100,
+			"coverage": 75,
 			"material": [ { "type": "flame_ward", "covered_by_mat": 100, "thickness": 2 } ],
 			"covers": [ "head", "mouth", "eyes", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ]
 		  }

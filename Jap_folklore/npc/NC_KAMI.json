@@ -47,7 +47,8 @@
 			{ "item": "magatama_string", "count": [ 1, 5 ], "prob": 100 },
 			{ "item": "star_pearl", "count": [ 1, 6 ], "prob": 100 },
 			{ "item": "ninja_scroll", "count": [ 1, 1 ], "prob": 100 },
-			{ "item": "flame_ofuda_d", "count": [ 2, 5 ], "prob": 100 }
+			{ "item": "flame_ofuda_d", "count": [ 2, 5 ], "prob": 100 },
+			{ "item": "omamori_flame", "count": 1, "prob": 100}
 		]
 	}
 ]
