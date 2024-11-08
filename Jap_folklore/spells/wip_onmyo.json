@@ -105,10 +105,9 @@
 		"material": [ "flame_ward" ],
 		"symbol": "[",
 		"color": "light_gray",
-		"warmth": 5,
 		"material_thickness": 2,
 		"environmental_protection": 10,
-		"flags": [ "ONLY_ONE", "OVERSIZE", "AURA" ],
+		"flags": [ "ONLY_ONE", "AURA" ],
 		"armor": [
 		  {
 			"encumbrance": 0,
