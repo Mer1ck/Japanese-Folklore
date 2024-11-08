@@ -73,6 +73,18 @@
 		"flags": [ "NO_SALVAGE", "NO_INGEST", "NUTRIENT_OVERRIDE" ]
 	},
 	{
+		"id": "OMAMORI_TALISMAN",
+		"type": "json_flag",
+		"info": "You can place this in an omamori pouch to gain it's protection",
+		"restriction": "Item must be an omamori talisman."
+	},
+	{
+		"id": "DIVINE_OMAMORI_TALISMAN",
+		"type": "json_flag",
+		"info": "You can place this in an omamori pouch to gain it's protection",
+		"restriction": "Item must be an omamori talisman."
+	},
+	{
 		"type": "material",
 		"id": "flame_ward",
 		"name": "Flame Ward",
@@ -87,32 +99,149 @@
 		"bash_dmg_verb": "ripped",
 		"cut_dmg_verb": "sliced",
 		"burn_data": [
-			{ "fuel": -1, "smoke": 0, "burn": 0.01 },
-			{ "fuel": -1, "smoke": 0, "burn": 0.01 },
+			{ "immune": true },
+			{ "immune": true },
 			{ "fuel": -1, "smoke": 0, "burn": 0.01 }
 		],
-		"resist": { "bash": 0, "cut": 0, "acid": 0, "heat": 20, "bullet": 0, "electric": 0 }
+		"resist": { "bash": 0, "cut": 0, "acid": 0, "heat": 10, "bullet": 0, "electric": 0, "cold": -2 }
+	},
+	{
+		"type": "material",
+		"id": "water_ward",
+		"name": "Water Ward",
+		"density": 10,
+		"specific_heat_liquid": 0.82,
+		"specific_heat_solid": 0.45,
+		"latent_heat": 273,
+		"soft": true,
+		"chip_resist": 10,
+		"breathability": "SECOND_SKIN",
+		"dmg_adj": [ "scratched", "cut", "shredded", "tattered" ],
+		"bash_dmg_verb": "ripped",
+		"cut_dmg_verb": "sliced",
+		"burn_data": [
+			{ "immune": true },
+			{ "immune": true },
+			{ "fuel": -1, "smoke": 0, "burn": 0.01 }
+		],
+		"resist": { "bash": 0, "cut": 0, "acid": -2, "heat": 0, "bullet": 0, "electric": 0, "cold": 10 }
+	},
+	{
+		"type": "material",
+		"id": "metal_ward",
+		"name": "Physical Ward",
+		"density": 10,
+		"specific_heat_liquid": 0.82,
+		"specific_heat_solid": 0.45,
+		"latent_heat": 273,
+		"soft": true,
+		"chip_resist": 10,
+		"breathability": "SECOND_SKIN",
+		"dmg_adj": [ "scratched", "cut", "shredded", "tattered" ],
+		"bash_dmg_verb": "ripped",
+		"cut_dmg_verb": "sliced",
+		"burn_data": [
+			{ "immune": true },
+			{ "immune": true },
+			{ "immune": true }
+		],
+		"resist": { "bash": 10, "cut": 10, "acid": 0, "heat": -2, "bullet": 5, "electric": 0 }
+	},
+	{
+		"id": "omamori_pouch",
+		"type": "ARMOR",
+		"category": "armor",
+		"name": { "str_sp": "omamori amulet" },
+		"description": "A fine fabric pouch, meant to have a special talisman sealed inside.",
+		"weight": "10 g",
+		"volume": "100 ml",
+		"price_postapoc": 200,
+		"material": [ "nomex" ],
+		"symbol": "[",
+		"color": "light_green",
+		"material_thickness": 0.5,
+		"flags": [ "NO_WEAR_EFFECT", "ONLY_ONE", "OVERSIZE", "COLLAPSE_CONTENTS" ],
+		"pocket_data": [
+		  {
+			"pocket_type": "CONTAINER",
+			"ablative": true,
+			"volume_encumber_modifier": 0,
+			"max_contains_volume": "100 ml",
+			"max_contains_weight": "10 g",
+			"max_item_length": "5 cm",
+			"moves": 1100,
+			"description": "Pocket for an omamori talisman.",
+			"flag_restriction": [ "OMAMORI_TALISMAN" ]
+          }
+		]
 	},
 	{
 		"id": "omamori_flame",
 		"type": "ARMOR",
 		"category": "armor",
 		"name": { "str_sp": "flame omamori" },
-		"description": "A small cloth pouch with a talisman sealed inside. This one is made to ward against flames",
+		"description": "A talisman blessed and placed in a special pouch. This one is made to ward against flames",
 		"weight": "10 g",
-		"volume": "250 ml",
+		"volume": "100 ml",
 		"price_postapoc": 10000,
 		"material": [ "flame_ward" ],
 		"symbol": "[",
-		"color": "light_gray",
-		"material_thickness": 2,
-		"environmental_protection": 10,
-		"flags": [ "ONLY_ONE", "AURA" ],
+		"color": "light_red",
+		"material_thickness": 1,
+		"environmental_protection": 2,
+		"flags": [ "CANT_WEAR", "OMAMORI_TALISMAN", "AURA" ],
 		"armor": [
 		  {
 			"encumbrance": 0,
 			"coverage": 75,
-			"material": [ { "type": "flame_ward", "covered_by_mat": 100, "thickness": 2 } ],
+			"material": [ { "type": "flame_ward", "covered_by_mat": 100, "thickness": 1 } ],
+			"covers": [ "head", "mouth", "eyes", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ]
+		  }
+		]
+	},
+	{
+		"id": "omamori_water",
+		"type": "ARMOR",
+		"category": "armor",
+		"name": { "str_sp": "water omamori" },
+		"description": "A talisman blessed and placed in a special pouch. This one is made to ward against the cold",
+		"weight": "10 g",
+		"volume": "100 ml",
+		"price_postapoc": 10000,
+		"material": [ "water_ward" ],
+		"symbol": "[",
+		"color": "light_blue",
+		"material_thickness": 1,
+		"warmth": 10,
+		"flags": [ "CANT_WEAR", "OMAMORI_TALISMAN", "AURA" ],
+		"armor": [
+		  {
+			"encumbrance": 0,
+			"coverage": 75,
+			"material": [ { "type": "water_ward", "covered_by_mat": 100, "thickness": 1 } ],
+			"covers": [ "head", "mouth", "eyes", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ]
+		  }
+		]
+	},
+	{
+		"id": "omamori_metal",
+		"type": "ARMOR",
+		"category": "armor",
+		"name": { "str_sp": "metallic omamori" },
+		"description": "A talisman meant to be sealed within a special pouch. This one greatly protects against physical damage, though not for long.",
+		"weight": "10 g",
+		"volume": "100 ml",
+		"price_postapoc": 10000,
+		"material": [ "metal_ward" ],
+		"symbol": "[",
+		"color": "light_gray",
+		"material_thickness": 1,
+		"flags": [ "CANT_WEAR", "FRAGILE", "OMAMORI_TALISMAN", "AURA" ],
+		"armor": [
+		  {
+			"encumbrance": 0,
+			"coverage": 80,
+			"material": [ { "type": "metal_ward", "covered_by_mat": 100, "thickness": 1 } ],
 			"covers": [ "head", "mouth", "eyes", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ]
 		  }
 		]
