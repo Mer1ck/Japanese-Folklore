@@ -79,12 +79,6 @@
 		"restriction": "Item must be an omamori talisman."
 	},
 	{
-		"id": "DIVINE_OMAMORI_TALISMAN",
-		"type": "json_flag",
-		"info": "You can place this in an omamori pouch to gain it's protection",
-		"restriction": "Item must be an omamori talisman."
-	},
-	{
 		"type": "material",
 		"id": "flame_ward",
 		"name": "Flame Ward",
@@ -152,7 +146,7 @@
 		"type": "ARMOR",
 		"category": "armor",
 		"name": { "str_sp": "omamori amulet" },
-		"description": "A fine fabric pouch, meant to have a special talisman sealed inside.",
+		"description": "A fine fabric pouch tied shut with a complicated knot. Meant to have a special talisman sealed inside.",
 		"weight": "10 g",
 		"volume": "100 ml",
 		"price_postapoc": 200,
@@ -282,7 +276,6 @@
 		"effect_str": "EOC_ONMYO_SPIRITUAL_DRAIN",
 		"shape": "blast",
 		"flags": [ "NO_HANDS", "SILENT", "NO_FAIL" ],
-		"skill": "spirituality",
 		"base_casting_time": 0,
 		"difficulty": 1
 	},
