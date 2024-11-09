@@ -1,0 +1,289 @@
+[
+	{
+		"type": "skill",
+		"id": "reijutsu",
+		"name": { "str": "reijutsu" },
+		"display_category": "display_ranged",
+		"sort_rank": 14500,
+		"description": "Your ability to manipulate forces of energy connected to divinity and one's own soul."
+	},
+	{
+		"type": "vitamin",
+		"id": "spiritual_drain",
+		"vit_type": "counter",
+		"name": { "str": "Spiritual Drain" },
+		"excess": "s_drain_effect",
+		"min": -1000,
+		"max": 10000,
+		"rate": "15 m",
+		"flags": [ "NO_DISPLAY" ],
+		"disease_excess": [ [ 10, 249 ], [ 250, 499 ], [ 500, 10000 ] ]
+	},
+	{
+		"type": "effect_type",
+		"id": "s_drain_effect",
+		"name": [ "Drained", "Moderately Drained", "Depleted" ],
+		"desc": [
+			"You have been casting some spiritual spells.",
+			"You have been overcasting spiritual spells, you should slow down.",
+			"You have been overcasting spiritual spells and are completely drained, stop and rest."
+		],
+		"max_intensity": 3,
+		"rating": "bad",
+		"apply_message": "You start to feel tired",
+		"base_mods": {
+			"per_mod": [-1],
+			"speed_mod": [-5]
+		}
+	},
+	{
+		"type": "COMESTIBLE",
+		"id": "flame_ofuda",
+		"category": "weapons",
+		"comestible_type": "MED",
+		"looks_like": "paper",
+		"symbol": ",",
+		"price": 100,
+		"price_postapoc": 10,
+		"name": { "str": "flame ofuda" },
+		"to_hit": -3,
+		"description": "A strip of paper with kanji written on it. Using it invokes the power of flames.",
+		"material": [ "paper" ],
+		"volume": "10 ml",
+		"weight": "5 g",
+		"use_action": { "type": "cast_spell", "spell_id": "test_flame", "no_fail": false, "level": 2 },
+		"flags": [ "NO_SALVAGE", "NO_INGEST", "NUTRIENT_OVERRIDE" ]
+	},
+	{
+		"type": "COMESTIBLE",
+		"id": "flame_ofuda_d",
+		"category": "weapons",
+		"comestible_type": "MED",
+		"looks_like": "paper",
+		"symbol": ",",
+		"price": 2500,
+		"price_postapoc": 2500,
+		"name": { "str": "greater flame ofuda" },
+		"to_hit": -3,
+		"description": "A strip of paper with kanji written on it. Using it invokes the power of flames. This one was carefully made at a shrine and has no chance of failure.",
+		"material": [ "paper" ],
+		"volume": "10 ml",
+		"weight": "5 g",
+		"use_action": { "type": "cast_spell", "spell_id": "test_flame", "no_fail": true, "level": 3 },
+		"flags": [ "NO_SALVAGE", "NO_INGEST", "NUTRIENT_OVERRIDE" ]
+	},
+	{
+		"id": "OMAMORI_TALISMAN",
+		"type": "json_flag",
+		"info": "You can place this in an omamori pouch to gain it's protection",
+		"restriction": "Item must be an omamori talisman."
+	},
+	{
+		"type": "material",
+		"id": "flame_ward",
+		"name": "Flame Ward",
+		"density": 10,
+		"specific_heat_liquid": 0.82,
+		"specific_heat_solid": 0.45,
+		"latent_heat": 273,
+		"soft": true,
+		"chip_resist": 10,
+		"breathability": "SECOND_SKIN",
+		"dmg_adj": [ "scratched", "cut", "shredded", "tattered" ],
+		"bash_dmg_verb": "ripped",
+		"cut_dmg_verb": "sliced",
+		"burn_data": [
+			{ "immune": true },
+			{ "immune": true },
+			{ "fuel": -1, "smoke": 0, "burn": 0.01 }
+		],
+		"resist": { "bash": 0, "cut": 0, "acid": 0, "heat": 10, "bullet": 0, "electric": 0, "cold": -2 }
+	},
+	{
+		"type": "material",
+		"id": "water_ward",
+		"name": "Water Ward",
+		"density": 10,
+		"specific_heat_liquid": 0.82,
+		"specific_heat_solid": 0.45,
+		"latent_heat": 273,
+		"soft": true,
+		"chip_resist": 10,
+		"breathability": "SECOND_SKIN",
+		"dmg_adj": [ "scratched", "cut", "shredded", "tattered" ],
+		"bash_dmg_verb": "ripped",
+		"cut_dmg_verb": "sliced",
+		"burn_data": [
+			{ "immune": true },
+			{ "immune": true },
+			{ "fuel": -1, "smoke": 0, "burn": 0.01 }
+		],
+		"resist": { "bash": 0, "cut": 0, "acid": -2, "heat": 0, "bullet": 0, "electric": 0, "cold": 10 }
+	},
+	{
+		"type": "material",
+		"id": "metal_ward",
+		"name": "Physical Ward",
+		"density": 10,
+		"specific_heat_liquid": 0.82,
+		"specific_heat_solid": 0.45,
+		"latent_heat": 273,
+		"soft": true,
+		"chip_resist": 10,
+		"breathability": "SECOND_SKIN",
+		"dmg_adj": [ "scratched", "cut", "shredded", "tattered" ],
+		"bash_dmg_verb": "ripped",
+		"cut_dmg_verb": "sliced",
+		"burn_data": [
+			{ "immune": true },
+			{ "immune": true },
+			{ "immune": true }
+		],
+		"resist": { "bash": 10, "cut": 10, "acid": 0, "heat": -2, "bullet": 5, "electric": 0 }
+	},
+	{
+		"id": "omamori_pouch",
+		"type": "ARMOR",
+		"category": "armor",
+		"name": { "str_sp": "omamori amulet" },
+		"description": "A fine fabric pouch tied shut with a complicated knot. Meant to have a special talisman sealed inside.",
+		"weight": "10 g",
+		"volume": "100 ml",
+		"price_postapoc": 200,
+		"material": [ "nomex" ],
+		"symbol": "[",
+		"color": "light_green",
+		"material_thickness": 0.5,
+		"flags": [ "NO_WEAR_EFFECT", "ONLY_ONE", "OVERSIZE", "COLLAPSE_CONTENTS" ],
+		"pocket_data": [
+		  {
+			"pocket_type": "CONTAINER",
+			"ablative": true,
+			"volume_encumber_modifier": 0,
+			"max_contains_volume": "100 ml",
+			"max_contains_weight": "10 g",
+			"max_item_length": "5 cm",
+			"moves": 1100,
+			"description": "Pocket for an omamori talisman.",
+			"flag_restriction": [ "OMAMORI_TALISMAN" ]
+          }
+		]
+	},
+	{
+		"id": "omamori_flame",
+		"type": "ARMOR",
+		"category": "armor",
+		"name": { "str_sp": "flame omamori" },
+		"description": "A talisman blessed and placed in a special pouch. This one is made to ward against flames",
+		"weight": "10 g",
+		"volume": "100 ml",
+		"price_postapoc": 10000,
+		"material": [ "flame_ward" ],
+		"symbol": "[",
+		"color": "light_red",
+		"material_thickness": 1,
+		"environmental_protection": 2,
+		"flags": [ "CANT_WEAR", "OMAMORI_TALISMAN", "AURA" ],
+		"armor": [
+		  {
+			"encumbrance": 0,
+			"coverage": 75,
+			"material": [ { "type": "flame_ward", "covered_by_mat": 100, "thickness": 1 } ],
+			"covers": [ "head", "mouth", "eyes", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ]
+		  }
+		]
+	},
+	{
+		"id": "omamori_water",
+		"type": "ARMOR",
+		"category": "armor",
+		"name": { "str_sp": "water omamori" },
+		"description": "A talisman blessed and placed in a special pouch. This one is made to ward against the cold",
+		"weight": "10 g",
+		"volume": "100 ml",
+		"price_postapoc": 10000,
+		"material": [ "water_ward" ],
+		"symbol": "[",
+		"color": "light_blue",
+		"material_thickness": 1,
+		"warmth": 10,
+		"flags": [ "CANT_WEAR", "OMAMORI_TALISMAN", "AURA" ],
+		"armor": [
+		  {
+			"encumbrance": 0,
+			"coverage": 75,
+			"material": [ { "type": "water_ward", "covered_by_mat": 100, "thickness": 1 } ],
+			"covers": [ "head", "mouth", "eyes", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ]
+		  }
+		]
+	},
+	{
+		"id": "omamori_metal",
+		"type": "ARMOR",
+		"category": "armor",
+		"name": { "str_sp": "metallic omamori" },
+		"description": "A talisman meant to be sealed within a special pouch. This one greatly protects against physical damage, though not for long.",
+		"weight": "10 g",
+		"volume": "100 ml",
+		"price_postapoc": 10000,
+		"material": [ "metal_ward" ],
+		"symbol": "[",
+		"color": "light_gray",
+		"material_thickness": 1,
+		"flags": [ "CANT_WEAR", "FRAGILE", "OMAMORI_TALISMAN", "AURA" ],
+		"armor": [
+		  {
+			"encumbrance": 0,
+			"coverage": 80,
+			"material": [ { "type": "metal_ward", "covered_by_mat": 100, "thickness": 1 } ],
+			"covers": [ "head", "mouth", "eyes", "torso", "arm_l", "arm_r", "hand_l", "hand_r", "leg_l", "leg_r", "foot_l", "foot_r" ]
+		  }
+		]
+	},
+	{
+		"id": "test_flame",
+		"type": "SPELL",
+		"name": "Flame Burst",
+		"description": "The precursor for flame onmyo spells.",
+		"valid_targets": [ "self", "ally", "hostile", "ground" ],
+		"effect": "attack",
+		"shape": "blast",
+		"extra_effects": [ { "id": "onmyo_drain", "hit_self": true } ],
+		"flags": [ "VERBAL", "NO_LEGS", "CONCENTRATE", "IGNITE_FLAMMABLE" ],
+		"skill": "reijutsu",
+		"max_level": 5,
+		"min_damage": 15,
+		"max_damage": 40,
+		"damage_increment": 5,
+		"min_aoe": 1,
+		"max_aoe": 1,
+		"min_range": 5,
+		"max_range": 20,
+		"range_increment": 3,
+		"base_casting_time": 100,
+		"base_energy_cost": 500,
+		"energy_source": "STAMINA",
+		"difficulty": 3,
+		"damage_type": "heat"
+	},
+	{
+		"id": "onmyo_drain",
+		"type": "SPELL",
+		"name": "onmyo drain",
+		"description": "The true cost of using onmyo spells.",
+		"valid_targets": [ "self" ],
+		"effect": "effect_on_condition",
+		"effect_str": "EOC_ONMYO_SPIRITUAL_DRAIN",
+		"shape": "blast",
+		"flags": [ "NO_HANDS", "SILENT", "NO_FAIL" ],
+		"base_casting_time": 0,
+		"difficulty": 1
+	},
+	{
+		"type": "effect_on_condition",
+		"id": "EOC_ONMYO_SPIRITUAL_DRAIN",
+		"effect": [
+			{ "math": [ "u_vitamin('spiritual_drain')", "+=", "5" ] }
+		]
+	}
+]
