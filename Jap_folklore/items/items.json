@@ -108,7 +108,7 @@
     "volume": "500 ml",
     "symbol": "?",
     "color": "green",
-    "use_action": { "type": "learn_spell", "spells": [ "ninpo_star", "ninpo_blind", "ninpo_smoke" ] }
+    "use_action": { "type": "learn_spell", "spells": [ "ninpo_star", "ninpo_blind", "ninpo_smoke", "ninpo_stealth" ] }
   },
   {
     "type": "GENERIC",
