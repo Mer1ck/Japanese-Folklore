@@ -47,6 +47,11 @@
 			{ "item": "magatama_string", "count": [ 1, 5 ], "prob": 100 },
 			{ "item": "star_pearl", "count": [ 1, 6 ], "prob": 100 },
 			{ "item": "ninja_scroll", "count": [ 1, 1 ], "prob": 100 },
+<<<<<<< Updated upstream
+=======
+			{ "item": "ninja_scroll2", "count": [ 1, 1 ], "prob": 100 },
+			{ "item": "ninja_scroll3", "count": [ 1, 1 ], "prob": 100 },
+>>>>>>> Stashed changes
 			{ "item": "flame_ofuda_d", "count": [ 2, 5 ], "prob": 100 },
 			{ "item": "omamori_flame", "container-item": "omamori_pouch", "count": 1, "prob": 100},
 			{ "item": "omamori_metal", "container-item": "omamori_pouch", "count": 1, "prob": 100},

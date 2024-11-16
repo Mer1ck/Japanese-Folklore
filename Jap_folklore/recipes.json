@@ -364,5 +364,25 @@
 	  [ [ "paper", 10 ] ],
 	  [ [ "gunpowder", 50 ], [ "chem_black_powder", 50 ] ]
     ]
+  },
+  {
+    "id": "prac_shinobi_prof",
+    "type": "practice",
+    "activity_level": "ACTIVE_EXERCISE",
+    "category": "CC_PRACTICE",
+    "subcategory": "CSC_PRACTICE_ATHLETICS",
+    "name": "shinobi training",
+    "description": "Follow a strict regimen as described in a strange scroll.",
+    "skill_used": "swimming",
+    "time": "1 h",
+    "practice_data": { "min_difficulty": 4, "max_difficulty": 5, "skill_limit": 6 },
+    "proficiencies": [ 
+		{ "proficiency": "prof_athlete_basic", "required": true }, 
+		{ "proficiency": "prof_athlete_expert", "required": true },
+		{ "proficiency": "prof_ninjutsu", "time_multiplier": 1.5, "skill_penalty": 0 }
+	],
+    "book_learn": [ [ "ninja_scroll3", 4 ] ],
+    "flags": [ "BLIND_EASY" ],
+    "tools": [ [ "pseudo_exercise_machine", "pseudo_punching_bag", "pseudo_ergometer_mechanical", "pseudo_treadmill_mechanical" ] ]
   }
 ]

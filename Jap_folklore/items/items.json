@@ -111,6 +111,16 @@
     "use_action": { "type": "learn_spell", "spells": [ "ninpo_star", "ninpo_blind", "ninpo_smoke" ] }
   },
   {
+    "id": "ninja_scroll3",
+    "type": "BOOK",
+    "name": { "str": "esoteric scroll" },
+    "description": "A strange scroll that takes a while to make sense of. Seems to contain a rather gruelling and difficult training regimen.",
+    "weight": "435 g",
+    "volume": "500 ml",
+    "symbol": "?",
+    "color": "green"
+  },
+  {
     "type": "GENERIC",
     "id": "fox_plush",
     "symbol": "o",
